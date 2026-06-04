@@ -9,6 +9,13 @@
   const userDisplay = $('user-display');
   const postListEl = $('post-list');
   const postListStatus = $('post-list-status');
+  const pagePrev = $('page-prev');
+  const pageNext = $('page-next');
+  const pageInfo = $('page-info');
+
+  const PER_PAGE = 15;
+  let allManifest = [];
+  let currentPage = 0;
 
   async function checkToken() {
     const token = GH.getToken();
@@ -57,15 +64,20 @@
         postListStatus.textContent = 'No posts';
         return;
       }
+      allManifest = manifest;
+      currentPage = 0;
       postListStatus.textContent = `${manifest.length} posts`;
-      renderPostList(manifest);
+      renderPostList();
     } catch (e) {
       postListStatus.textContent = 'Failed: ' + e.message;
     }
   }
 
-  function renderPostList(posts) {
-    postListEl.innerHTML = posts.map(p => `
+  function renderPostList() {
+    const totalPages = Math.ceil(allManifest.length / PER_PAGE);
+    const page = allManifest.slice(currentPage * PER_PAGE, (currentPage + 1) * PER_PAGE);
+
+    postListEl.innerHTML = page.map(p => `
       <div class="post-item">
         <div class="post-item-info">
           <span class="post-item-title">${p.title}</span>
@@ -73,7 +85,7 @@
           <span class="post-item-tags">${p.tags.join(', ')}</span>
         </div>
         <div class="post-item-actions">
-          <a href="write.html?id=${encodeURIComponent(p.id)}" class="btn btn-edit">Edit</a>
+          <a href="/editor/write.html?id=${encodeURIComponent(p.id)}" class="btn btn-edit">Edit</a>
           <button class="btn btn-delete" data-id="${p.id}">Delete</button>
         </div>
       </div>
@@ -82,6 +94,16 @@
     postListEl.querySelectorAll('.btn-delete').forEach(btn => {
       btn.addEventListener('click', () => handleDelete(btn.dataset.id));
     });
+
+    const paginationEl = $('pagination-controls');
+    if (totalPages <= 1) {
+      paginationEl.style.display = 'none';
+    } else {
+      paginationEl.style.display = '';
+      pagePrev.disabled = currentPage === 0;
+      pageNext.disabled = currentPage >= totalPages - 1;
+      pageInfo.textContent = `${currentPage + 1} / ${totalPages}`;
+    }
   }
 
   async function handleDelete(id) {
@@ -93,6 +115,21 @@
       alert('Delete failed: ' + e.message);
     }
   }
+
+  pagePrev.addEventListener('click', () => {
+    if (currentPage > 0) {
+      currentPage--;
+      renderPostList();
+    }
+  });
+
+  pageNext.addEventListener('click', () => {
+    const totalPages = Math.ceil(allManifest.length / PER_PAGE);
+    if (currentPage < totalPages - 1) {
+      currentPage++;
+      renderPostList();
+    }
+  });
 
   $('refresh-posts')?.addEventListener('click', loadPostList);
 

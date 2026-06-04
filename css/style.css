@@ -522,7 +522,6 @@ textarea.input-full {
   background: var(--accent);
   color: var(--bg);
   border-color: var(--accent);
-  font-weight: 700;
 }
 
 .btn-primary:hover {
