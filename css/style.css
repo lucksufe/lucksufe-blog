@@ -277,6 +277,15 @@ a:hover {
   margin-bottom: 1.2em;
 }
 
+.post-content ol,
+.post-content ul {
+  margin: 0.8em 0 1.2em 1.5em;
+}
+
+.post-content li {
+  margin-bottom: 0.4em;
+}
+
 .post-content h2 {
   font-size: 1.4rem;
   font-weight: 600;
