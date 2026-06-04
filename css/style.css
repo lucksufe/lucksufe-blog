@@ -497,6 +497,7 @@ textarea.input-full {
 }
 
 .btn {
+  display: inline-block;
   padding: 8px 18px;
   background: var(--tag-bg);
   border: 1px solid var(--border);
