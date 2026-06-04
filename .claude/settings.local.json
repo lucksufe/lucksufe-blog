@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 *)",
+      "Bash(curl -s http://localhost:8080/)",
+      "Bash(curl -s \"http://localhost:8080/post.html?id=edge-runner\")",
+      "Bash(chmod +x *)",
+      "Bash(./new-post.sh *)",
+      "Bash(curl -s \"http://localhost:8080/post.html?id=hello-world\")",
+      "Bash(gh auth *)",
+      "Bash(curl *)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git branch *)",
+      "Bash(git remote *)",
+      "Bash(git push *)",
+      "Bash(git rm *)"
+    ]
+  }
+}
