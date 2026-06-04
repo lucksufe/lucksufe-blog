@@ -4,9 +4,9 @@
   const tokenInput = $('token');
   const saveTokenBtn = $('save-token');
   const tokenStatus = $('token-status');
-  const editorSection = $('editor-section');
   const tokenSection = $('token-section');
-  const userDisplay = $('user-display');
+  const editorSection = $('editor-section');
+  const editorTitle = $('editor-title');
 
   const titleInput = $('title');
   const slugInput = $('slug');
@@ -19,12 +19,8 @@
   const previewBtn = $('preview-btn');
   const previewEl = $('preview');
 
-  const postListEl = $('post-list');
-  const postListStatus = $('post-list-status');
-  const refreshBtn = $('refresh-posts');
-  const newPostBtn = $('new-post-btn');
-  const manageSection = $('manage-section');
-
+  const params = new URLSearchParams(window.location.search);
+  const editId = params.get('id');
   let editingId = null;
 
   dateInput.value = new Date().toISOString().slice(0, 10);
@@ -45,12 +41,10 @@
     if (!token) return;
     tokenInput.value = token;
     try {
-      const user = await GH.getUser();
-      userDisplay.textContent = user;
+      await GH.getUser();
       tokenSection.style.display = 'none';
       editorSection.style.display = 'block';
-      manageSection.style.display = 'block';
-      loadPostList();
+      if (editId) loadForEdit(editId);
     } catch {
       GH.setToken('');
     }
@@ -63,15 +57,13 @@
     tokenStatus.textContent = 'Verifying...';
     tokenStatus.className = 'status-msg';
     try {
-      const user = await GH.getUser();
+      await GH.getUser();
       tokenStatus.textContent = 'OK';
       tokenStatus.className = 'status-msg success';
-      userDisplay.textContent = user;
       setTimeout(() => {
         tokenSection.style.display = 'none';
         editorSection.style.display = 'block';
-        manageSection.style.display = 'block';
-        loadPostList();
+        if (editId) loadForEdit(editId);
       }, 500);
     } catch (e) {
       tokenStatus.textContent = 'Invalid: ' + e.message;
@@ -80,55 +72,16 @@
     }
   });
 
-  // --- Post list ---
+  // --- Load for edit ---
 
-  async function loadPostList() {
-    postListStatus.textContent = 'Loading...';
-    postListEl.innerHTML = '';
-    try {
-      const manifest = await GH.getManifest();
-      if (manifest.length === 0) {
-        postListStatus.textContent = 'No posts';
-        return;
-      }
-      postListStatus.textContent = `${manifest.length} posts`;
-      renderPostList(manifest);
-    } catch (e) {
-      postListStatus.textContent = 'Failed: ' + e.message;
-    }
-  }
-
-  function renderPostList(posts) {
-    postListEl.innerHTML = posts.map(p => `
-      <div class="post-item">
-        <div class="post-item-info">
-          <span class="post-item-title">${p.title}</span>
-          <span class="post-item-date">${p.date}</span>
-          <span class="post-item-tags">${p.tags.join(', ')}</span>
-        </div>
-        <div class="post-item-actions">
-          <button class="btn btn-edit" data-id="${p.id}">Edit</button>
-          <button class="btn btn-delete" data-id="${p.id}">Delete</button>
-        </div>
-      </div>
-    `).join('');
-
-    postListEl.querySelectorAll('.btn-edit').forEach(btn => {
-      btn.addEventListener('click', () => startEdit(btn.dataset.id));
-    });
-    postListEl.querySelectorAll('.btn-delete').forEach(btn => {
-      btn.addEventListener('click', () => handleDelete(btn.dataset.id));
-    });
-  }
-
-  // --- Edit ---
-
-  async function startEdit(id) {
+  async function loadForEdit(id) {
     try {
       const post = await GH.getPost(id);
-      if (!post) return;
+      if (!post) { showStatus('Post not found', 'error'); return; }
 
       editingId = id;
+      editorTitle.textContent = '编辑文章';
+      document.title = 'Edit - Blog';
       titleInput.value = post.title;
       slugInput.value = post.id;
       slugInput.dataset.manual = '1';
@@ -136,26 +89,10 @@
       tagsInput.value = post.tags.join(', ');
       summaryInput.value = post.summary;
       contentInput.value = post.content || '';
-
       publishBtn.textContent = 'Update';
       showStatus(`Editing: ${post.title}`, '');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (e) {
       showStatus('Load failed: ' + e.message, 'error');
-    }
-  }
-
-  // --- Delete ---
-
-  async function handleDelete(id) {
-    if (!confirm(`Delete "${id}"? This cannot be undone.`)) return;
-    try {
-      await GH.deletePost(id);
-      showStatus(`Deleted: ${id}`, 'success');
-      if (editingId === id) resetForm();
-      loadPostList();
-    } catch (e) {
-      showStatus('Delete failed: ' + e.message, 'error');
     }
   }
 
@@ -193,8 +130,16 @@
     try {
       const resultId = await GH.publishPost({ id, title, date, tags, summary, content });
       showStatus(editingId ? `Updated: ${resultId}` : `Published: ${resultId}`, 'success');
-      resetForm();
-      loadPostList();
+      if (!editingId) {
+        // Clear form for next post
+        titleInput.value = '';
+        slugInput.value = '';
+        slugInput.dataset.manual = '';
+        tagsInput.value = '';
+        summaryInput.value = '';
+        contentInput.value = '';
+        dateInput.value = new Date().toISOString().slice(0, 10);
+      }
     } catch (e) {
       showStatus('Failed: ' + e.message, 'error');
     } finally {
@@ -203,35 +148,16 @@
     }
   });
 
-  function resetForm() {
-    editingId = null;
-    titleInput.value = '';
-    slugInput.value = '';
-    slugInput.dataset.manual = '';
-    tagsInput.value = '';
-    summaryInput.value = '';
-    contentInput.value = '';
-    dateInput.value = new Date().toISOString().slice(0, 10);
-    previewEl.style.display = 'none';
-    previewBtn.textContent = 'Preview';
-    publishBtn.textContent = 'Publish';
-  }
-
   function showStatus(msg, type) {
     statusEl.textContent = msg;
     statusEl.className = 'status-msg' + (type ? ' ' + type : '');
   }
 
-  newPostBtn?.addEventListener('click', () => { resetForm(); showStatus('New post', ''); });
-  refreshBtn?.addEventListener('click', loadPostList);
-
   $('logout-btn')?.addEventListener('click', () => {
     GH.setToken('');
     tokenSection.style.display = 'block';
     editorSection.style.display = 'none';
-    manageSection.style.display = 'none';
     tokenInput.value = '';
-    resetForm();
   });
 
   checkToken();

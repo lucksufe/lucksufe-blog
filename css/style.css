@@ -7,18 +7,18 @@
 
 /* ===== Variables ===== */
 :root {
-  --bg: #0a0a0f;
-  --bg-card: #12121a;
-  --bg-card-hover: #1a1a26;
-  --border: #2a2a3a;
-  --text: #c8c8d0;
-  --text-muted: #6a6a7a;
+  --bg: #141418;
+  --bg-card: #1c1c24;
+  --bg-card-hover: #24242e;
+  --border: #32323e;
+  --text: #d0d0d8;
+  --text-muted: #7a7a8a;
   --accent: #e2b340;
   --accent-dim: #b8922e;
-  --tag-bg: #1a1a2a;
+  --tag-bg: #22222e;
   --tag-active: #e2b340;
-  --tag-active-text: #0a0a0f;
-  --code-bg: #0d0d14;
+  --tag-active-text: #141418;
+  --code-bg: #18181e;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
   --max-width: 960px;

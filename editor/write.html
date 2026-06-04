@@ -17,7 +17,6 @@
       <h1><a href="../index.html">~/blog</a></h1>
     </header>
 
-    <!-- Token Section -->
     <section id="token-section" class="editor-card">
       <h2>连接 GitHub</h2>
       <p class="hint">输入 Fine-grained Personal Access Token，需要 Contents: Read and write 权限。</p>
@@ -28,12 +27,11 @@
       <div id="token-status" class="status-msg"></div>
     </section>
 
-    <!-- Editor Section -->
     <section id="editor-section" class="editor-card" style="display:none;">
       <div class="editor-header">
-        <h2>写文章</h2>
+        <h2 id="editor-title">写文章</h2>
         <div class="editor-meta">
-          <span>登录为 <strong id="user-display"></strong></span>
+          <a href="index.html" class="btn">文章管理</a>
           <button id="logout-btn" class="btn-link">切换账号</button>
         </div>
       </div>
@@ -78,19 +76,6 @@
       <div id="preview" class="post-content" style="display:none;"></div>
     </section>
 
-    <!-- Post Management Section -->
-    <section id="manage-section" class="editor-card" style="display:none;">
-      <div class="editor-header">
-        <h2>文章管理</h2>
-        <div class="editor-meta">
-          <button id="new-post-btn" class="btn">新建文章</button>
-          <button id="refresh-posts" class="btn">刷新</button>
-        </div>
-      </div>
-      <div id="post-list-status" class="status-msg"></div>
-      <div id="post-list" class="post-list-manage"></div>
-    </section>
-
     <footer class="site-footer">
       <p>built with html &amp; persistence</p>
     </footer>
@@ -103,6 +88,6 @@
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
   <script src="js/github.js"></script>
-  <script src="js/editor.js"></script>
+  <script src="js/write.js"></script>
 </body>
 </html>
