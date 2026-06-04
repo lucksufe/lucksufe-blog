@@ -98,14 +98,14 @@ ${escaped}\`
     const id = post.id || this.slugify(post.title);
 
     // 1. Commit the .md file
-    const mdPath = `site/posts/${id}.md`;
+    const mdPath = `posts/${id}.md`;
     const mdContent = this.buildMdFile(post);
     const existingMd = await this.getFile(mdPath);
     await this.commitFile(mdPath, mdContent, existingMd?.sha, `post: ${post.title}`);
 
     // 2. Update posts.js
-    const postsFile = await this.getFile('site/js/posts.js');
-    if (!postsFile) throw new Error('找不到 site/js/posts.js');
+    const postsFile = await this.getFile('js/posts.js');
+    if (!postsFile) throw new Error('找不到 js/posts.js');
 
     const entry = this.buildPostEntry({ ...post, id });
 
@@ -129,7 +129,7 @@ ${escaped}\`
       }
     }
 
-    await this.commitFile('site/js/posts.js', newContent, postsFile.sha, `update posts.js: ${post.title}`);
+    await this.commitFile('js/posts.js', newContent, postsFile.sha, `update posts.js: ${post.title}`);
 
     return id;
   }
