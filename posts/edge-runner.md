@@ -100,7 +100,7 @@ int main(){
             if(j==a[i]||j==b[i]) cout<<"*";
             else cout<<" ";
         }
-        if(i==4) cout<<" LUCY ";
+        if(i==4) cout<<" LU CY ";
         cout<<endl;
     }
     return 0;
