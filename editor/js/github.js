@@ -109,7 +109,7 @@ ${escaped}\`
 
   loadPosts(jsContent) {
     const posts = [];
-    const regex = /\{\s*id:\s*"([^"]+)"[\s\S]*?title:\s*"([^"]+)"[\s\S]*?date:\s*"([^"]+)"[\s\S]*?tags:\s*\[([^\]]*)\][\s\S]*?summary:\s*"([^"]*)"[\s\S]*?content:\s*`([\s\S]+)`\s*\}/g;
+    const regex = /\{\s*id:\s*"([^"]+)"[\s\S]*?title:\s*"([^"]+)"[\s\S]*?date:\s*"([^"]+)"[\s\S]*?tags:\s*\[([^\]]*)\][\s\S]*?summary:\s*"([^"]*)"[\s\S]*?content:\s*`((?:[^`\\]|\\.)*)`\s*\}/g;
     let m;
     while ((m = regex.exec(jsContent)) !== null) {
       const tagsRaw = m[4].match(/"([^"]+)"/g) || [];
@@ -145,7 +145,7 @@ ${escaped}\`
     let newContent;
     if (postsFile.content.includes(`id: "${id}"`)) {
       const regex = new RegExp(
-        `  \\{\\s*id: "${id}"[\\s\\S]*?content: \\\`([\\s\\S]+)\\\`\\s*\\}`,
+        `  \\{\\s*id: "${id}"[\\s\\S]*?content: \\\`((?:[^\\x60\\\\]|\\\\.)*)\\\`\\s*\\}`,
         'm'
       );
       newContent = postsFile.content.replace(regex, () => entry);
