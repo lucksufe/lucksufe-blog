@@ -26,12 +26,9 @@
   const manageSection = $('manage-section');
 
   let editingId = null;
-  let postsRawContent = '';
 
-  // Init date to today
   dateInput.value = new Date().toISOString().slice(0, 10);
 
-  // Auto-generate slug from title
   titleInput.addEventListener('input', () => {
     if (!slugInput.dataset.manual) {
       slugInput.value = GH.slugify(titleInput.value);
@@ -41,7 +38,8 @@
     slugInput.dataset.manual = '1';
   });
 
-  // Token flow
+  // --- Token ---
+
   async function checkToken() {
     const token = GH.getToken();
     if (!token) return;
@@ -62,11 +60,11 @@
     const token = tokenInput.value.trim();
     if (!token) return;
     GH.setToken(token);
-    tokenStatus.textContent = '验证中...';
+    tokenStatus.textContent = 'Verifying...';
     tokenStatus.className = 'status-msg';
     try {
       const user = await GH.getUser();
-      tokenStatus.textContent = '验证成功';
+      tokenStatus.textContent = 'OK';
       tokenStatus.className = 'status-msg success';
       userDisplay.textContent = user;
       setTimeout(() => {
@@ -76,123 +74,107 @@
         loadPostList();
       }, 500);
     } catch (e) {
-      tokenStatus.textContent = 'Token 无效: ' + e.message;
+      tokenStatus.textContent = 'Invalid: ' + e.message;
       tokenStatus.className = 'status-msg error';
       GH.setToken('');
     }
   });
 
-  // Post list management
+  // --- Post list ---
+
   async function loadPostList() {
-    postListStatus.textContent = '加载中...';
+    postListStatus.textContent = 'Loading...';
     postListEl.innerHTML = '';
     try {
-      const file = await GH.getFile('js/posts.js');
-      if (!file) {
-        postListStatus.textContent = '找不到 posts.js';
+      const manifest = await GH.getManifest();
+      if (manifest.length === 0) {
+        postListStatus.textContent = 'No posts';
         return;
       }
-      postsRawContent = file.content;
-      const posts = GH.loadPosts(file.content);
-      if (posts.length === 0) {
-        postListStatus.textContent = '暂无文章';
-        return;
-      }
-      postListStatus.textContent = `共 ${posts.length} 篇文章`;
-      renderPostList(posts);
+      postListStatus.textContent = `${manifest.length} posts`;
+      renderPostList(manifest);
     } catch (e) {
-      postListStatus.textContent = '加载失败: ' + e.message;
+      postListStatus.textContent = 'Failed: ' + e.message;
     }
   }
 
   function renderPostList(posts) {
     postListEl.innerHTML = posts.map(p => `
-      <div class="post-item" data-id="${p.id}">
+      <div class="post-item">
         <div class="post-item-info">
           <span class="post-item-title">${p.title}</span>
           <span class="post-item-date">${p.date}</span>
           <span class="post-item-tags">${p.tags.join(', ')}</span>
         </div>
         <div class="post-item-actions">
-          <button class="btn btn-edit" data-id="${p.id}">编辑</button>
-          <button class="btn btn-delete" data-id="${p.id}">删除</button>
+          <button class="btn btn-edit" data-id="${p.id}">Edit</button>
+          <button class="btn btn-delete" data-id="${p.id}">Delete</button>
         </div>
       </div>
     `).join('');
 
-    // Bind edit buttons
     postListEl.querySelectorAll('.btn-edit').forEach(btn => {
       btn.addEventListener('click', () => startEdit(btn.dataset.id));
     });
-
-    // Bind delete buttons
     postListEl.querySelectorAll('.btn-delete').forEach(btn => {
       btn.addEventListener('click', () => handleDelete(btn.dataset.id));
     });
   }
 
+  // --- Edit ---
+
   async function startEdit(id) {
-    const posts = GH.loadPosts(postsRawContent);
-    const post = posts.find(p => p.id === id);
-    if (!post) return;
-
-    editingId = id;
-    titleInput.value = post.title;
-    slugInput.value = post.id;
-    slugInput.dataset.manual = '1';
-    dateInput.value = post.date;
-    tagsInput.value = post.tags.join(', ');
-    summaryInput.value = post.summary;
-
-    // Try .md file first, fall back to content from posts.js
     try {
-      const mdFile = await GH.getFile(`posts/${id}.md`);
-      if (mdFile) {
-        const body = mdFile.content.replace(/^---[\s\S]*?---\n*/, '');
-        contentInput.value = body;
-      } else {
-        contentInput.value = post.content || '';
-      }
-    } catch {
-      contentInput.value = post.content || '';
-    }
+      const post = await GH.getPost(id);
+      if (!post) return;
 
-    publishBtn.textContent = '更新';
-    showStatus(`编辑中: ${post.title}`, '');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+      editingId = id;
+      titleInput.value = post.title;
+      slugInput.value = post.id;
+      slugInput.dataset.manual = '1';
+      dateInput.value = post.date;
+      tagsInput.value = post.tags.join(', ');
+      summaryInput.value = post.summary;
+      contentInput.value = post.content || '';
+
+      publishBtn.textContent = 'Update';
+      showStatus(`Editing: ${post.title}`, '');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (e) {
+      showStatus('Load failed: ' + e.message, 'error');
+    }
   }
 
+  // --- Delete ---
+
   async function handleDelete(id) {
-    const posts = GH.loadPosts(postsRawContent);
-    const post = posts.find(p => p.id === id);
-    if (!post) return;
-
-    if (!confirm(`确定删除「${post.title}」？此操作不可撤销。`)) return;
-
+    if (!confirm(`Delete "${id}"? This cannot be undone.`)) return;
     try {
       await GH.deletePost(id);
-      showStatus(`已删除: ${post.title}`, 'success');
+      showStatus(`Deleted: ${id}`, 'success');
       if (editingId === id) resetForm();
       loadPostList();
     } catch (e) {
-      showStatus('删除失败: ' + e.message, 'error');
+      showStatus('Delete failed: ' + e.message, 'error');
     }
   }
 
-  // Preview
+  // --- Preview ---
+
   previewBtn.addEventListener('click', () => {
     if (previewEl.style.display === 'none') {
       previewEl.innerHTML = marked.parse(contentInput.value);
       previewEl.style.display = 'block';
-      previewBtn.textContent = '隐藏预览';
+      previewBtn.textContent = 'Hide preview';
       if (typeof Prism !== 'undefined') Prism.highlightAllUnder(previewEl);
     } else {
       previewEl.style.display = 'none';
-      previewBtn.textContent = '预览';
+      previewBtn.textContent = 'Preview';
     }
   });
 
-  // Publish
+  // --- Publish ---
+
   publishBtn.addEventListener('click', async () => {
     const title = titleInput.value.trim();
     const date = dateInput.value;
@@ -201,29 +183,23 @@
     const content = contentInput.value.trim();
     const id = slugInput.value.trim() || GH.slugify(title);
 
-    if (!title || !content) {
-      showStatus('标题和内容不能为空', 'error');
-      return;
-    }
-    if (tags.length === 0) {
-      showStatus('至少填一个标签', 'error');
-      return;
-    }
+    if (!title || !content) { showStatus('Title and content required', 'error'); return; }
+    if (tags.length === 0) { showStatus('At least one tag', 'error'); return; }
 
     publishBtn.disabled = true;
-    publishBtn.textContent = editingId ? '更新中...' : '发布中...';
-    showStatus('正在提交到 GitHub...', '');
+    publishBtn.textContent = editingId ? 'Updating...' : 'Publishing...';
+    showStatus('Committing to GitHub...', '');
 
     try {
       const resultId = await GH.publishPost({ id, title, date, tags, summary, content });
-      showStatus(editingId ? `更新成功！文章 ID: ${resultId}` : `发布成功！文章 ID: ${resultId}`, 'success');
+      showStatus(editingId ? `Updated: ${resultId}` : `Published: ${resultId}`, 'success');
       resetForm();
       loadPostList();
     } catch (e) {
-      showStatus((editingId ? '更新失败: ' : '发布失败: ') + e.message, 'error');
+      showStatus('Failed: ' + e.message, 'error');
     } finally {
       publishBtn.disabled = false;
-      publishBtn.textContent = editingId ? '更新' : '发布';
+      publishBtn.textContent = editingId ? 'Update' : 'Publish';
     }
   });
 
@@ -237,8 +213,8 @@
     contentInput.value = '';
     dateInput.value = new Date().toISOString().slice(0, 10);
     previewEl.style.display = 'none';
-    previewBtn.textContent = '预览';
-    publishBtn.textContent = '发布';
+    previewBtn.textContent = 'Preview';
+    publishBtn.textContent = 'Publish';
   }
 
   function showStatus(msg, type) {
@@ -246,16 +222,9 @@
     statusEl.className = 'status-msg' + (type ? ' ' + type : '');
   }
 
-  // New post button
-  newPostBtn?.addEventListener('click', () => {
-    resetForm();
-    showStatus('新建文章', '');
-  });
-
-  // Refresh button
+  newPostBtn?.addEventListener('click', () => { resetForm(); showStatus('New post', ''); });
   refreshBtn?.addEventListener('click', loadPostList);
 
-  // Logout
   $('logout-btn')?.addEventListener('click', () => {
     GH.setToken('');
     tokenSection.style.display = 'block';

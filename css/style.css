@@ -145,6 +145,31 @@ a:hover {
   border-color: var(--tag-active);
 }
 
+/* ===== Search & Pagination ===== */
+.search-bar {
+  margin-bottom: 20px;
+}
+
+.search-bar .input-full {
+  font-size: 0.85rem;
+  padding: 8px 12px;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+  padding: 16px 0;
+}
+
+.page-info {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
 /* ===== Post List ===== */
 .post-list {
   display: flex;
