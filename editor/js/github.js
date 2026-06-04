@@ -109,16 +109,19 @@ ${escaped}\`
 
   loadPosts(jsContent) {
     const posts = [];
-    const regex = /\{[\s\S]*?id:\s*"([^"]+)"[\s\S]*?title:\s*"([^"]+)"[\s\S]*?date:\s*"([^"]+)"[\s\S]*?tags:\s*\[([^\]]*)\][\s\S]*?summary:\s*"([^"]*)"[\s\S]*?\}/g;
+    const regex = /\{[\s\S]*?id:\s*"([^"]+)"[\s\S]*?title:\s*"([^"]+)"[\s\S]*?date:\s*"([^"]+)"[\s\S]*?tags:\s*\[([^\]]*)\][\s\S]*?summary:\s*"([^"]*)"[\s\S]*?content:\s*`([\s\S]*?)`\s*\}/g;
     let m;
     while ((m = regex.exec(jsContent)) !== null) {
       const tagsRaw = m[4].match(/"([^"]+)"/g) || [];
+      // Unescape template literal: \` -> `
+      const content = m[6].replace(/\\`/g, '`').replace(/\\\$/g, '$').replace(/\\\\/g, '\\');
       posts.push({
         id: m[1],
         title: m[2],
         date: m[3],
         tags: tagsRaw.map(t => t.replace(/"/g, '')),
-        summary: m[5]
+        summary: m[5],
+        content
       });
     }
     return posts;

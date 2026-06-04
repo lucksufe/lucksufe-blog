@@ -144,18 +144,17 @@
     tagsInput.value = post.tags.join(', ');
     summaryInput.value = post.summary;
 
-    // Try to load full content from .md file
+    // Try .md file first, fall back to content from posts.js
     try {
       const mdFile = await GH.getFile(`posts/${id}.md`);
       if (mdFile) {
-        // Strip frontmatter
         const body = mdFile.content.replace(/^---[\s\S]*?---\n*/, '');
         contentInput.value = body;
       } else {
-        contentInput.value = '';
+        contentInput.value = post.content || '';
       }
     } catch {
-      contentInput.value = '';
+      contentInput.value = post.content || '';
     }
 
     publishBtn.textContent = '更新';
