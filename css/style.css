@@ -648,3 +648,21 @@ button.btn {
   background: #f4433620;
   border-color: #f44336;
 }
+
+/* ===== Mermaid ===== */
+.mermaid {
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  padding: 12px 0;
+}
+
+.mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.mermaid-error {
+  color: #f44336;
+  font-size: 0.85rem;
+}
