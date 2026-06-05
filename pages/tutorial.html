@@ -3,26 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tutorial - Blog</title>
+  <title>Tutorial — Blog</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">
-  <link rel="stylesheet" href="../css/style.css">
-  <script>(function(){var v=localStorage.getItem('theme_vars');if(v)try{var s=JSON.parse(v),r=document.documentElement;for(var k in s)r.style.setProperty(k,s[k])}catch(e){}})();</script>
+  <link rel="stylesheet" href="../css/pages.css">
 </head>
 <body>
-  <div class="container">
-    <header class="site-header">
-      <h1><a href="../index.html">~/blog</a></h1>
-    </header>
 
-    <article class="post-content" id="content">
+  <!-- Nav -->
+  <nav class="page-nav">
+    <a href="about.html" class="nav-brand">~/blog</a>
+    <div class="nav-links">
+      <a href="about.html">About</a>
+      <a href="tutorial.html">Tutorial</a>
+      <a href="../index.html">Blog</a>
+    </div>
+  </nav>
+
+  <!-- Docs Layout -->
+  <div class="docs-layout">
+
+    <!-- Sidebar -->
+    <aside class="docs-sidebar" id="sidebar">
+      <h3>Contents</h3>
+      <ul id="sidebar-list"></ul>
+    </aside>
+
+    <!-- Content -->
+    <main class="docs-content" id="content">
 
 <h1>使用教程</h1>
+<p class="intro">从零开始，了解博客系统的每一个功能。</p>
 
-<h2>1. 启动博客</h2>
+<h2 id="sec-start">1. 启动博客</h2>
 
-<h3>本地服务器模式</h3>
+<h3 id="sec-start-local">本地服务器模式</h3>
 <pre><code class="language-bash"># 进入博客目录
 cd blog
 
@@ -37,12 +53,12 @@ python3 server.py 3000</code></pre>
 
 <p>然后浏览器打开 <code>http://localhost:8080</code> 即可访问博客。</p>
 
-<h3>GitHub Pages 模式</h3>
+<h3 id="sec-start-github">GitHub Pages 模式</h3>
 <p>将代码推送到 GitHub 仓库，在 Settings &rarr; Pages 中选择部署分支和目录。编辑器会自动检测并切换到 GitHub 模式。</p>
 
-<h2>2. 写文章</h2>
+<h2 id="sec-write">2. 写文章</h2>
 
-<p>打开 <a href="/editor/write.html">编辑器页面</a>，你会看到：</p>
+<p>打开编辑器页面，你会看到：</p>
 
 <ul>
   <li><strong>工具栏</strong> — 三个下拉菜单：Markdown、数学公式、图表</li>
@@ -50,7 +66,7 @@ python3 server.py 3000</code></pre>
   <li><strong>预览按钮</strong> — 实时预览渲染效果</li>
 </ul>
 
-<h3>使用工具栏</h3>
+<h3 id="sec-write-toolbar">使用工具栏</h3>
 <p>点击工具栏上的按钮，选择模板即可插入到光标位置。例如：</p>
 <ul>
   <li>点击 <strong>数学公式 &rarr; 分式</strong>，插入 <code>$\frac{a}{b}$</code></li>
@@ -58,7 +74,7 @@ python3 server.py 3000</code></pre>
   <li>选中文本后点击 <strong>粗体</strong>，自动包裹 <code>**文本**</code></li>
 </ul>
 
-<h2>3. 数学公式</h2>
+<h2 id="sec-math">3. 数学公式</h2>
 
 <p>支持两种定界符：</p>
 
@@ -82,7 +98,7 @@ $$\int_{0}^{\infty} e^{-x^2} \, \mathrm{d}x = \frac{\sqrt{\pi}}{2}$$
   <tr><td><code>\alpha, \beta, \gamma</code></td><td>$\alpha, \beta, \gamma$</td></tr>
 </table>
 
-<h2>4. Mermaid 图表</h2>
+<h2 id="sec-mermaid">4. Mermaid 图表</h2>
 
 <p>用 <code>```mermaid</code> 代码块包裹图表定义：</p>
 
@@ -99,7 +115,7 @@ $$\int_{0}^{\infty} e^{-x^2} \, \mathrm{d}x = \frac{\sqrt{\pi}}{2}$$
     U->>S: 请求
     S-->>U: 响应</code></pre>
 
-<h2>5. 代码高亮</h2>
+<h2 id="sec-code">5. 代码高亮</h2>
 
 <p>用三个反引号包裹代码块，指定语言名称：</p>
 
@@ -108,7 +124,7 @@ $$\int_{0}^{\infty} e^{-x^2} \, \mathrm{d}x = \frac{\sqrt{\pi}}{2}$$
 
 <p>支持的语言包括：Python、JavaScript、C/C++、Bash 等。</p>
 
-<h2>6. 图片上传</h2>
+<h2 id="sec-image">6. 图片上传</h2>
 
 <p>在编辑器中可以直接：</p>
 <ul>
@@ -118,36 +134,42 @@ $$\int_{0}^{\infty} e^{-x^2} \, \mathrm{d}x = \frac{\sqrt{\pi}}{2}$$
 
 <p>图片会自动上传并插入 Markdown 图片语法。</p>
 
-<h2>7. 草稿保存</h2>
+<h2 id="sec-draft">7. 草稿保存</h2>
 
 <p>编辑器每 30 秒自动保存草稿到浏览器本地存储。下次打开同一文章时会提示是否恢复。</p>
 
-<h2>8. 主题切换</h2>
+<h2 id="sec-theme">8. 主题切换</h2>
 
 <p>点击页面右上角的主题按钮，可切换：</p>
 <ul>
   <li>🌙 暗色 — 默认深色主题</li>
   <li>☀️ 亮色 — 浅色主题</li>
   <li>🌿 护眼绿 — 柔和的绿色主题</li>
-  <li>🦄 紫悦 — 紫色主题（小马宝莉）</li>
+  <li>🦄 紫悦 — 紫色主题</li>
   <li>🌈 云宝 — 青蓝色主题</li>
   <li>🦋 柔柔 — 粉色主题</li>
   <li>💎 珍奇 — 淡紫色主题</li>
 </ul>
 
-<h2>9. RSS 订阅</h2>
+<h2 id="sec-rss">9. RSS 订阅</h2>
 
 <p>博客自动生成 <a href="/rss.xml">rss.xml</a>，可以用任何 RSS 阅读器订阅。</p>
 
-<p style="margin-top:2rem;"><a href="about.html">&larr; 关于</a> · <a href="../index.html">返回首页 &rarr;</a></p>
+<div class="docs-nav-links">
+  <a href="about.html">&larr; About</a>
+  <a href="../index.html">返回博客 &rarr;</a>
+</div>
 
-    </article>
-
-    <footer class="site-footer">
-      <p>built with html &amp; persistence</p>
-    </footer>
+    </main>
   </div>
 
+  <!-- Footer -->
+  <footer class="page-footer">
+    <p>MIT License &middot; <a href="about.html">About</a> &middot; <a href="../index.html">Blog</a></p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  <script>if(typeof marked==='undefined')document.write('<script src="../js/vendor/marked.min.js"><\/script>')</script>
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
   <script>if(typeof katex==='undefined')document.write('<script src="../js/vendor/katex.min.js"><\/script>')</script>
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
@@ -160,6 +182,38 @@ $$\int_{0}^{\infty} e^{-x^2} \, \mathrm{d}x = \frac{\sqrt{\pi}}{2}$$
     (function() {
       var el = document.getElementById('content');
       if (!el) return;
+
+      // Build sidebar from h2 elements
+      var h2s = el.querySelectorAll('h2[id]');
+      var list = document.getElementById('sidebar-list');
+      if (list && h2s.length) {
+        for (var i = 0; i < h2s.length; i++) {
+          var li = document.createElement('li');
+          var a = document.createElement('a');
+          a.href = '#' + h2s[i].id;
+          a.textContent = h2s[i].textContent;
+          a.dataset.target = h2s[i].id;
+          li.appendChild(a);
+          list.appendChild(li);
+        }
+      }
+
+      // Highlight active sidebar link on scroll
+      function updateActive() {
+        var links = document.querySelectorAll('.docs-sidebar a[data-target]');
+        var scrollPos = window.scrollY + 120;
+        var current = null;
+        for (var j = 0; j < h2s.length; j++) {
+          if (h2s[j].offsetTop <= scrollPos) current = h2s[j].id;
+        }
+        for (var k = 0; k < links.length; k++) {
+          links[k].classList.toggle('active', links[k].dataset.target === current);
+        }
+      }
+      window.addEventListener('scroll', updateActive);
+      updateActive();
+
+      // KaTeX
       if (typeof renderMathInElement === 'function') {
         renderMathInElement(el, {
           delimiters: [
@@ -171,12 +225,16 @@ $$\int_{0}^{\infty} e^{-x^2} \, \mathrm{d}x = \frac{\sqrt{\pi}}{2}$$
           throwOnError: false
         });
       }
+
+      // Prism
       if (typeof Prism !== 'undefined') Prism.highlightAllUnder(el);
+
+      // Mermaid
       if (typeof mermaid !== 'undefined') {
         var blocks = el.querySelectorAll('code.language-mermaid');
         if (blocks.length) {
           mermaid.initialize({startOnLoad: false, theme: 'dark'});
-          for (var i = 0; i < blocks.length; i++) {
+          for (var m = 0; m < blocks.length; m++) {
             (function(block) {
               var id = 'mermaid-' + Math.random().toString(36).slice(2,10);
               mermaid.render(id, block.textContent).then(function(r) {
@@ -185,12 +243,11 @@ $$\int_{0}^{\infty} e^{-x^2} \, \mathrm{d}x = \frac{\sqrt{\pi}}{2}$$
                 w.innerHTML = r.svg;
                 block.parentElement.replaceWith(w);
               });
-            })(blocks[i]);
+            })(blocks[m]);
           }
         }
       }
     })();
   </script>
-  <script src="../js/theme.js"></script>
 </body>
 </html>

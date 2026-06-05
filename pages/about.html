@@ -3,71 +3,132 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About - Blog</title>
+  <title>Blog — A Minimal Static Blog System</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../css/style.css">
-  <script>(function(){var v=localStorage.getItem('theme_vars');if(v)try{var s=JSON.parse(v),r=document.documentElement;for(var k in s)r.style.setProperty(k,s[k])}catch(e){}})();</script>
+  <link rel="stylesheet" href="../css/pages.css">
 </head>
 <body>
-  <div class="container">
-    <header class="site-header">
-      <h1><a href="../index.html">~/blog</a></h1>
-    </header>
 
-    <article class="post-content">
-      <h1>关于这个博客</h1>
+  <!-- Nav -->
+  <nav class="page-nav">
+    <a href="about.html" class="nav-brand">~/blog</a>
+    <div class="nav-links">
+      <a href="about.html">About</a>
+      <a href="tutorial.html">Tutorial</a>
+      <a href="../index.html">Blog</a>
+    </div>
+  </nav>
 
-      <p>这是一个极简的静态博客系统，纯 HTML/CSS/JS 构建，无构建工具，无依赖安装。</p>
+  <!-- Hero -->
+  <section class="page-hero">
+    <h1>Minimal Blog.<br>Maximum Possibility.</h1>
+    <p class="hero-sub">纯 HTML/CSS/JS 构建的静态博客系统。零依赖、零构建、双存储、多主题。开箱即用。</p>
+    <div class="hero-actions">
+      <a href="tutorial.html" class="btn-hero btn-hero-primary">快速开始</a>
+      <a href="../index.html" class="btn-hero btn-hero-ghost">查看博客</a>
+    </div>
+  </section>
 
-      <h2>设计理念</h2>
-      <ul>
-        <li><strong>零依赖</strong> — 不需要 npm、webpack、或任何构建步骤</li>
-        <li><strong>双存储</strong> — 支持 GitHub Pages 和本地服务器两种模式</li>
-        <li><strong>离线可用</strong> — CDN 失效时自动回退到本地 JS 文件</li>
-        <li><strong>可扩展</strong> — 主题、存储后端均可配置</li>
-      </ul>
+  <!-- Features -->
+  <section class="page-section">
+    <div class="page-section-title">
+      <h2>Features</h2>
+      <p>一切从简，但该有的都有</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon fi-purple">&#9997;</div>
+        <h3>Markdown 写作</h3>
+        <p>完整的 Markdown 支持，配合 KaTeX 数学公式和 Mermaid 图表，从笔记到论文都能写。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon fi-green">&#128187;</div>
+        <h3>双存储模式</h3>
+        <p>GitHub Pages 和本地服务器自由切换。编辑器自动检测，无需手动配置。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon fi-orange">&#127912;</div>
+        <h3>7 套主题</h3>
+        <p>暗色、亮色、护眼绿，加上小马宝莉角色配色。CSS 变量驱动，切换即时生效。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon fi-pink">&#128228;</div>
+        <h3>图片上传</h3>
+        <p>粘贴或拖拽图片到编辑器，自动上传并插入 Markdown 语法。支持 Base64 和服务器存储。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon fi-cyan">&#128260;</div>
+        <h3>CDN 离线回退</h3>
+        <p>CDN 挂了？自动回退到本地 JS 文件。内网部署也能正常使用所有功能。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon fi-yellow">&#128274;</div>
+        <h3>密码认证</h3>
+        <p>本地服务器支持可选的密码保护。Fine-grained Token 管理 GitHub 访问权限。</p>
+      </div>
+    </div>
+  </section>
 
-      <h2>技术栈</h2>
-      <ul>
-        <li><a href="https://github.com/markedjs/marked">marked.js</a> — Markdown 解析</li>
-        <li><a href="https://katex.org">KaTeX</a> — 数学公式渲染</li>
-        <li><a href="https://mermaid.js.org">Mermaid</a> — 图表渲染</li>
-        <li><a href="https://prismjs.com">Prism.js</a> — 代码高亮</li>
-        <li>Python <code>http.server</code> — 本地存储服务器（零依赖）</li>
-      </ul>
+  <!-- Tech Stack -->
+  <section class="page-section">
+    <div class="page-section-title">
+      <h2>Tech Stack</h2>
+      <p>精选依赖，每个都有明确职责</p>
+    </div>
+    <div class="tech-grid">
+      <div class="tech-item">
+        <span class="tech-dot" style="background:#e2b340"></span>
+        marked.js
+      </div>
+      <div class="tech-item">
+        <span class="tech-dot" style="background:#6366f1"></span>
+        KaTeX
+      </div>
+      <div class="tech-item">
+        <span class="tech-dot" style="background:#34d399"></span>
+        Mermaid
+      </div>
+      <div class="tech-item">
+        <span class="tech-dot" style="background:#fb923c"></span>
+        Prism.js
+      </div>
+      <div class="tech-item">
+        <span class="tech-dot" style="background:#22d3ee"></span>
+        Python http.server
+      </div>
+    </div>
+  </section>
 
-      <h2>功能特性</h2>
-      <ul>
-        <li>Markdown 写作，支持 LaTeX 数学公式和 Mermaid 图表</li>
-        <li>编辑器工具栏，快速插入常用模板</li>
-        <li>图片粘贴/拖拽上传</li>
-        <li>草稿自动保存</li>
-        <li>RSS 订阅</li>
-        <li>7 套主题（含小马宝莉角色配色）</li>
-        <li>CDN 离线回退</li>
-        <li>本地密码认证</li>
-      </ul>
+  <!-- Quick Start -->
+  <section class="page-section">
+    <div class="page-section-title">
+      <h2>Quick Start</h2>
+      <p>两种方式，一分钟启动</p>
+    </div>
+    <div class="quickstart-grid">
+      <div class="quickstart-card">
+        <h3>&#9654; 本地服务器</h3>
+        <pre><code>cd blog
+python3 server.py
 
-      <h2>快速开始</h2>
+# 带密码认证
+python3 server.py --password mysecret</code></pre>
+      </div>
+      <div class="quickstart-card">
+        <h3>&#127760; GitHub Pages</h3>
+        <pre><code>git push origin main
 
-      <h3>方式一：本地服务器</h3>
-      <pre><code>python3 server.py
-# 浏览器打开 http://localhost:8080</code></pre>
+# 在 GitHub Settings → Pages
+# 选择部署分支和目录
+# 完成</code></pre>
+      </div>
+    </div>
+  </section>
 
-      <h3>方式二：GitHub Pages</h3>
-      <p>将仓库推送到 GitHub，在 Settings &rarr; Pages 中配置部署源即可。</p>
+  <!-- Footer -->
+  <footer class="page-footer">
+    <p>MIT License &middot; <a href="../index.html">Blog</a> &middot; <a href="tutorial.html">Tutorial</a></p>
+  </footer>
 
-      <h2>开源协议</h2>
-      <p>本项目基于 <a href="../LICENSE">MIT License</a> 开源。</p>
-
-      <p style="margin-top:2rem;"><a href="../index.html">&larr; 返回首页</a> · <a href="tutorial.html">使用教程 &rarr;</a></p>
-    </article>
-
-    <footer class="site-footer">
-      <p>built with html &amp; persistence</p>
-    </footer>
-  </div>
-
-  <script src="../js/theme.js"></script>
 </body>
 </html>
