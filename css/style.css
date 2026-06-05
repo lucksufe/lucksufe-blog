@@ -822,40 +822,35 @@ button.btn {
   border-color: var(--accent-dim);
 }
 
-.theme-menu.open {
-  display: block;
-}
-
 .theme-menu {
   display: none;
   position: absolute;
   top: 100%;
   right: 0;
   min-width: 150px;
-  background: #1c1c24;
-  border: 1px solid #32323e;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   border-radius: 6px;
   padding: 4px 0;
   z-index: 100;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
+.theme-menu.open {
+  display: block;
+}
+
 .theme-item {
   padding: 8px 14px;
   font-size: 0.85rem;
-  color: #ccc;
+  color: var(--text);
   cursor: pointer;
   transition: background 0.12s;
 }
 
 .theme-item:hover {
-  background: rgba(255,255,255,0.1);
-  color: #fff;
-}
-
-.theme-item.active {
-  color: #fff;
-  font-weight: 600;
+  background: var(--accent);
+  color: var(--tag-active-text);
 }
 
 /* ===== Icon Button ===== */
