@@ -1,10 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0">
   <channel>
-    <title>Blog</title>
-    <link>/</link>
-    <description>A minimal static blog</description>
-    <language>zh-CN</language>
-    <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
+    <title>~/blog</title>
+    <link>index.html</link>
+    <description>~/blog RSS Feed</description>
+    <item>
+      <title>latex公式支持测试</title>
+      <link>post.html?id=latex公式支持测试</link>
+      <description>目前我在管理界面预览是没法渲染的，试一下发布后效果</description>
+      <pubDate>2026-06-05</pubDate>
+    </item>
+    <item>
+      <title>六月第四个交易日</title>
+      <link>post.html?id=六月第四个交易日</link>
+      <description>六月迎来第四天，我的道心也破碎了。</description>
+      <pubDate>2026-06-04</pubDate>
+    </item>
+    <item>
+      <title>边缘行者</title>
+      <link>post.html?id=edge-runner</link>
+      <description>小张是某顶尖酒吧舞高校计算机系的贫困生。他用母亲攒下的订阅费激活了Claude-Pro，发现自己对AI的协作效率远超常人。</description>
+      <pubDate>2026-06-04</pubDate>
+    </item>
   </channel>
 </rss>
