@@ -20,6 +20,7 @@
     <article id="post-article">
       <div class="post-header" id="post-header"></div>
       <div class="post-content" id="post-content"></div>
+      <a href="index.html" class="back-link" data-i18n="post.back" style="display:block;margin-top:32px;"></a>
     </article>
 
     <div class="empty-state" id="not-found" style="display:none;">
@@ -51,6 +52,6 @@
   <script src="js/post.js"></script>
   <script src="js/i18n.js"></script>
   <script src="js/theme.js"></script>
-  <script>(function(){fetch('/config.json').then(function(r){return r.json()}).then(function(s){localStorage.setItem('site_config',JSON.stringify(s));var t=document.querySelector('.site-header h1 a');if(t&&s.title!==undefined)t.textContent=s.title;var f=document.querySelector('.site-footer p:last-child');if(f&&s.footer!==undefined)f.textContent=s.footer;var r=document.querySelector('.site-footer p:first-child');if(r)r.style.display=s.showRss===false?'none':'';if(s.lang)window._lang=s.lang;applyI18n()}).catch(function(){})})();</script>
+  <script>(function(){fetch('/config.json').then(function(r){return r.json()}).then(function(s){localStorage.setItem('site_config',JSON.stringify(s));var t=document.querySelector('.site-header h1 a');if(t&&s.title!==undefined)t.textContent=s.title;var f=document.querySelector('.site-footer p:last-child');if(f&&s.footer!==undefined)f.textContent=s.footer;var r=document.querySelector('.site-footer p:first-child');if(r)r.style.display=s.showRss===false?'none':'';if(s.lang)window._lang=s.lang;applyI18n()}).catch(function(){applyI18n()})})();</script>
 </body>
 </html>
