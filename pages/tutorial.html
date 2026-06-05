@@ -133,11 +133,18 @@ python3 server.py --password mysecret</code></pre>
 
 <p>图片会自动上传到服务器，并在正文中插入对应的 Markdown 图片语法（<code>![描述](图片地址)</code>）。</p>
 
-<h3 id="sec-write-draft">草稿自动保存</h3>
+<h3 id="sec-write-draft">草稿功能</h3>
 
-<p>编辑器每 30 秒自动将你正在写的内容保存到浏览器的 <strong>本地存储</strong>（localStorage，浏览器提供的本地数据存储功能，关闭页面后数据不会丢失）。如果你不小心关闭了页面，下次打开同一篇文章时会提示是否恢复草稿。</p>
+<p>编辑器提供两种草稿保存方式：</p>
 
-<p>草稿只保存在你当前使用的浏览器中，不会同步到其他设备。</p>
+<ul>
+  <li><strong>自动保存</strong> — 每 30 秒自动将你正在写的内容保存到浏览器的本地存储（localStorage）。如果你不小心关闭了页面，下次打开同一篇文章时会提示是否恢复草稿</li>
+  <li><strong>手动存为草稿</strong> — 点击编辑器底部的 <strong>存为草稿</strong> 按钮，可以将文章以草稿状态保存到服务器。草稿不会出现在博客首页，但可以在管理页面中看到</li>
+</ul>
+
+<p>在管理页面中，每篇文章右侧有一个 <strong>草稿/发布</strong> 切换按钮，可以随时将已发布的文章切换为草稿，或将草稿发布上线。</p>
+
+<p>自动保存的草稿只保存在当前浏览器中，不会同步到其他设备。手动保存的草稿会同步到服务器（本地服务器或 GitHub）。</p>
 
 <h2 id="sec-math">3. 数学公式</h2>
 
@@ -252,9 +259,10 @@ sequenceDiagram
 
 <h2 id="sec-manage">8. 文章管理</h2>
 
-<p>打开管理页面（<code>/editor/index.html</code>），可以看到所有已发布的文章列表。在这里你可以：</p>
+<p>打开管理页面（<code>/editor/index.html</code>），可以看到所有文章列表（包括草稿）。在这里你可以：</p>
 <ul>
-  <li><strong>编辑</strong> — 点击文章标题，跳转到编辑器修改内容</li>
+  <li><strong>编辑</strong> — 跳转到编辑器修改文章内容</li>
+  <li><strong>草稿/发布</strong> — 切换文章的草稿状态。草稿不会显示在博客首页</li>
   <li><strong>删除</strong> — 删除不需要的文章</li>
   <li><strong>写文章</strong> — 快速跳转到编辑器创建新文章</li>
   <li><strong>刷新</strong> — 重新加载文章列表</li>
@@ -303,14 +311,30 @@ sequenceDiagram
         }
       }
 
+      // Scroll offset for sticky nav
+      var navHeight = document.querySelector('.page-nav')?.offsetHeight || 64;
+
+      // Smooth scroll with offset for sidebar links
+      list.addEventListener('click', function(e) {
+        var link = e.target.closest('a[data-target]');
+        if (!link) return;
+        e.preventDefault();
+        var target = document.getElementById(link.dataset.target);
+        if (target) {
+          window.scrollTo({ top: target.offsetTop - navHeight - 16, behavior: 'smooth' });
+        }
+      });
+
       // Highlight active sidebar link on scroll
       function updateActive() {
         var links = document.querySelectorAll('.docs-sidebar a[data-target]');
-        var scrollPos = window.scrollY + 120;
+        var scrollPos = window.scrollY + navHeight + 24;
         var current = null;
+        var atBottom = (window.innerHeight + window.scrollY) >= document.body.scrollHeight - 40;
         for (var j = 0; j < h2s.length; j++) {
           if (h2s[j].offsetTop <= scrollPos) current = h2s[j].id;
         }
+        if (atBottom && h2s.length) current = h2s[h2s.length - 1].id;
         for (var k = 0; k < links.length; k++) {
           links[k].classList.toggle('active', links[k].dataset.target === current);
         }
