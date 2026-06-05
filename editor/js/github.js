@@ -15,7 +15,8 @@ const GH = {
     return {
       'Authorization': `Bearer ${this.getToken()}`,
       'Content-Type': 'application/json',
-      'Accept': 'application/vnd.github.v+json'
+      'Accept': 'application/vnd.github.v+json',
+      'Cache-Control': 'no-cache'
     };
   },
 
