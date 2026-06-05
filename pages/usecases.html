@@ -38,13 +38,10 @@
     .uc-hero .uc-sub {
       font-size: 1.2rem;
       color: var(--pg-text-muted);
-      max-width: 500px;
+      white-space: nowrap;
     }
     .uc-scroll-hint {
-      position: absolute;
-      bottom: 32px;
-      left: 50%;
-      transform: translateX(-50%);
+      margin-top: 48px;
       color: var(--pg-text-muted);
       font-size: 2.2rem;
       line-height: 1;
@@ -52,8 +49,8 @@
       opacity: 0.6;
     }
     @keyframes uc-bounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.6; }
-      50% { transform: translateX(-50%) translateY(12px); opacity: 0.3; }
+      0%, 100% { transform: translateY(0); opacity: 0.6; }
+      50% { transform: translateY(12px); opacity: 0.3; }
     }
 
     /* Full-page use case sections */
