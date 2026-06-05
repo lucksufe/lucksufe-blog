@@ -288,6 +288,10 @@ a:hover {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
+.post-content .table-scroll table {
+  width: max-content;
+  min-width: 100%;
+}
 
 .post-content p {
   margin-bottom: 1.2em;
