@@ -26,7 +26,7 @@ const GH = {
   },
 
   async getFile(path) {
-    const res = await fetch(`${this.API}/contents/${path}?ref=${this.BRANCH}`, { headers: { ...this.headers(), 'Cache-Control': 'no-cache' } });
+    const res = await fetch(`${this.API}/contents/${path}?ref=${this.BRANCH}&_t=${Date.now()}`, { headers: this.headers() });
     if (res.status === 404) return null;
     if (!res.ok) throw new Error(`GET ${path} failed: ${res.status}`);
     const data = await res.json();
