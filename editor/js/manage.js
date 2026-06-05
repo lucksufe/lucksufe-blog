@@ -16,6 +16,13 @@
   const PER_PAGE = 15;
   let allManifest = [];
   let currentPage = 0;
+  let busy = false;
+
+  function setBusy(v) {
+    busy = v;
+    postListEl.querySelectorAll('.btn-edit, .btn-draft-toggle, .btn-delete').forEach(b => { b.disabled = v; });
+    $('refresh-posts').disabled = v;
+  }
 
   // Storage mode indicator
   var storageLabel = document.createElement('span');
@@ -157,11 +164,11 @@
     });
 
     postListEl.querySelectorAll('.btn-delete').forEach(btn => {
-      btn.addEventListener('click', () => handleDelete(btn.dataset.id));
+      btn.addEventListener('click', () => handleDelete(btn, btn.dataset.id));
     });
 
     postListEl.querySelectorAll('.btn-draft-toggle').forEach(btn => {
-      btn.addEventListener('click', () => handleDraftToggle(btn.dataset.id, !btn.dataset.draft));
+      btn.addEventListener('click', () => handleDraftToggle(btn, btn.dataset.id, !btn.dataset.draft));
     });
 
     const paginationEl = $('pagination-controls');
@@ -176,7 +183,12 @@
     applyI18n();
   }
 
-  async function handleDraftToggle(id, toDraft) {
+  async function handleDraftToggle(btn, id, toDraft) {
+    if (busy) return;
+    setBusy(true);
+    const origText = btn.textContent;
+    btn.textContent = t('status.saving');
+    postListStatus.textContent = t('status.saving');
     try {
       const post = await storage.getPost(id);
       if (!post) { alert('Post not found'); return; }
@@ -189,19 +201,34 @@
         content: post.content || '',
         draft: toDraft,
       });
+      postListStatus.textContent = '';
       loadPostList();
     } catch (e) {
+      postListStatus.textContent = '';
       alert('操作失败: ' + e.message);
+    } finally {
+      btn.textContent = origText;
+      setBusy(false);
     }
   }
 
-  async function handleDelete(id) {
+  async function handleDelete(btn, id) {
     if (!confirm(t('confirm.delete').replace('{id}', id))) return;
+    if (busy) return;
+    setBusy(true);
+    const origText = btn.textContent;
+    btn.textContent = t('status.saving');
+    postListStatus.textContent = t('status.saving');
     try {
       await storage.deletePost(id);
+      postListStatus.textContent = '';
       loadPostList();
     } catch (e) {
+      postListStatus.textContent = '';
       alert(t('status.deleteFailed') + ': ' + e.message);
+    } finally {
+      btn.textContent = origText;
+      setBusy(false);
     }
   }
 
