@@ -1,7 +1,7 @@
 {
   "title": "~/blog",
   "tagline": "thoughts, code, stories",
-  "footer": "",
+  "footer": "测试",
   "font": "system-ui",
   "fontSize": "16",
   "showRss": false
