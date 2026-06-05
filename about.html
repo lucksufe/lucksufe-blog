@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Blog</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="site-header">
+      <h1><a href="index.html">~/blog</a></h1>
+    </header>
+
+    <article class="post-content">
+      <h1>关于这个博客</h1>
+
+      <p>这是一个极简的静态博客系统，纯 HTML/CSS/JS 构建，无构建工具，无依赖安装。</p>
+
+      <h2>设计理念</h2>
+      <ul>
+        <li><strong>零依赖</strong> — 不需要 npm、webpack、或任何构建步骤</li>
+        <li><strong>双存储</strong> — 支持 GitHub Pages 和本地服务器两种模式</li>
+        <li><strong>离线可用</strong> — CDN 失效时自动回退到本地 JS 文件</li>
+        <li><strong>可扩展</strong> — 主题、存储后端均可配置</li>
+      </ul>
+
+      <h2>技术栈</h2>
+      <ul>
+        <li><a href="https://github.com/markedjs/marked">marked.js</a> — Markdown 解析</li>
+        <li><a href="https://katex.org">KaTeX</a> — 数学公式渲染</li>
+        <li><a href="https://mermaid.js.org">Mermaid</a> — 图表渲染</li>
+        <li><a href="https://prismjs.com">Prism.js</a> — 代码高亮</li>
+        <li>Python <code>http.server</code> — 本地存储服务器（零依赖）</li>
+      </ul>
+
+      <h2>功能特性</h2>
+      <ul>
+        <li>Markdown 写作，支持 LaTeX 数学公式和 Mermaid 图表</li>
+        <li>编辑器工具栏，快速插入常用模板</li>
+        <li>图片粘贴/拖拽上传</li>
+        <li>草稿自动保存</li>
+        <li>RSS 订阅</li>
+        <li>7 套主题（含小马宝莉角色配色）</li>
+        <li>CDN 离线回退</li>
+        <li>本地密码认证</li>
+      </ul>
+
+      <h2>快速开始</h2>
+
+      <h3>方式一：本地服务器</h3>
+      <pre><code>python3 server.py
+# 浏览器打开 http://localhost:8080</code></pre>
+
+      <h3>方式二：GitHub Pages</h3>
+      <p>将仓库推送到 GitHub，在 Settings &rarr; Pages 中配置部署源即可。</p>
+
+      <h2>开源协议</h2>
+      <p>本项目基于 <a href="LICENSE">MIT License</a> 开源。</p>
+
+      <p style="margin-top:2rem;"><a href="index.html">&larr; 返回首页</a> · <a href="tutorial.html">使用教程 &rarr;</a></p>
+    </article>
+
+    <footer class="site-footer">
+      <p>built with html &amp; persistence</p>
+    </footer>
+  </div>
+
+  <script src="js/theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutorial - Blog</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="site-header">
+      <h1><a href="index.html">~/blog</a></h1>
+    </header>
+
+    <article class="post-content" id="content">
+
+<h1>使用教程</h1>
+
+<h2>1. 启动博客</h2>
+
+<h3>本地服务器模式</h3>
+<pre><code class="language-bash"># 进入博客目录
+cd blog
+
+# 启动服务器（默认 8080 端口）
+python3 server.py
+
+# 带密码认证
+python3 server.py --password mypassword
+
+# 自定义端口
+python3 server.py 3000</code></pre>
+
+<p>然后浏览器打开 <code>http://localhost:8080</code> 即可访问博客。</p>
+
+<h3>GitHub Pages 模式</h3>
+<p>将代码推送到 GitHub 仓库，在 Settings &rarr; Pages 中选择部署分支和目录。编辑器会自动检测并切换到 GitHub 模式。</p>
+
+<h2>2. 写文章</h2>
+
+<p>打开 <a href="/editor/write.html">编辑器页面</a>，你会看到：</p>
+
+<ul>
+  <li><strong>工具栏</strong> — 三个下拉菜单：Markdown、数学公式、图表</li>
+  <li><strong>输入区域</strong> — 标题、标签、摘要、正文</li>
+  <li><strong>预览按钮</strong> — 实时预览渲染效果</li>
+</ul>
+
+<h3>使用工具栏</h3>
+<p>点击工具栏上的按钮，选择模板即可插入到光标位置。例如：</p>
+<ul>
+  <li>点击 <strong>数学公式 &rarr; 分式</strong>，插入 <code>$\frac{a}{b}$</code></li>
+  <li>点击 <strong>图表 &rarr; 流程图</strong>，插入 Mermaid 流程图模板</li>
+  <li>选中文本后点击 <strong>粗体</strong>，自动包裹 <code>**文本**</code></li>
+</ul>
+
+<h2>3. 数学公式</h2>
+
+<p>支持两种定界符：</p>
+
+<h3>行内公式</h3>
+<p>用 <code>$...$</code> 包裹：<br>
+爱因斯坦的质能方程 $E = mc^2$ 是物理学中最著名的公式之一。</p>
+
+<h3>块级公式</h3>
+<p>用 <code>$$...$$</code> 或 <code>\[...\]</code> 包裹：</p>
+
+$$\int_{0}^{\infty} e^{-x^2} \, \mathrm{d}x = \frac{\sqrt{\pi}}{2}$$
+
+<h3>常用语法</h3>
+<table>
+  <tr><th>输入</th><th>效果</th></tr>
+  <tr><td><code>\frac{a}{b}</code></td><td>$\frac{a}{b}$</td></tr>
+  <tr><td><code>\sqrt{x}</code></td><td>$\sqrt{x}$</td></tr>
+  <tr><td><code>\sum_{i=1}^{n}</code></td><td>$\sum_{i=1}^{n}$</td></tr>
+  <tr><td><code>\int_{a}^{b}</code></td><td>$\int_{a}^{b}$</td></tr>
+  <tr><td><code>\vec{F}</code></td><td>$\vec{F}$</td></tr>
+  <tr><td><code>\alpha, \beta, \gamma</code></td><td>$\alpha, \beta, \gamma$</td></tr>
+</table>
+
+<h2>4. Mermaid 图表</h2>
+
+<p>用 <code>```mermaid</code> 代码块包裹图表定义：</p>
+
+<h3>流程图</h3>
+<pre><code class="language-mermaid">graph LR
+    A[开始] --> B{判断}
+    B -->|是| C[执行]
+    B -->|否| D[结束]</code></pre>
+
+<h3>时序图</h3>
+<pre><code class="language-mermaid">sequenceDiagram
+    participant U as 用户
+    participant S as 服务器
+    U->>S: 请求
+    S-->>U: 响应</code></pre>
+
+<h2>5. 代码高亮</h2>
+
+<p>用三个反引号包裹代码块，指定语言名称：</p>
+
+<pre><code class="language-python">def hello():
+    print("Hello, Blog!")</code></pre>
+
+<p>支持的语言包括：Python、JavaScript、C/C++、Bash 等。</p>
+
+<h2>6. 图片上传</h2>
+
+<p>在编辑器中可以直接：</p>
+<ul>
+  <li><strong>粘贴</strong> — 复制图片后 <code>Ctrl+V</code></li>
+  <li><strong>拖拽</strong> — 将图片文件拖入编辑区</li>
+</ul>
+
+<p>图片会自动上传并插入 Markdown 图片语法。</p>
+
+<h2>7. 草稿保存</h2>
+
+<p>编辑器每 30 秒自动保存草稿到浏览器本地存储。下次打开同一文章时会提示是否恢复。</p>
+
+<h2>8. 主题切换</h2>
+
+<p>点击页面右上角的主题按钮，可切换：</p>
+<ul>
+  <li>🌙 暗色 — 默认深色主题</li>
+  <li>☀️ 亮色 — 浅色主题</li>
+  <li>🌿 护眼绿 — 柔和的绿色主题</li>
+  <li>🦄 紫悦 — 紫色主题（小马宝莉）</li>
+  <li>🌈 云宝 — 青蓝色主题</li>
+  <li>🦋 柔柔 — 粉色主题</li>
+  <li>💎 珍奇 — 淡紫色主题</li>
+</ul>
+
+<h2>9. RSS 订阅</h2>
+
+<p>博客自动生成 <a href="rss.xml">rss.xml</a>，可以用任何 RSS 阅读器订阅。</p>
+
+<p style="margin-top:2rem;"><a href="about.html">&larr; 关于</a> · <a href="index.html">返回首页 &rarr;</a></p>
+
+    </article>
+
+    <footer class="site-footer">
+      <p>built with html &amp; persistence</p>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script>if(typeof katex==='undefined')document.write('<script src="js/vendor/katex.min.js"><\/script>')</script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script>if(typeof renderMathInElement==='undefined')document.write('<script src="js/vendor/auto-render.min.js"><\/script>')</script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>if(typeof mermaid==='undefined')document.write('<script src="js/vendor/mermaid.min.js"><\/script>')</script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+  <script>if(typeof Prism==='undefined')document.write('<script src="js/vendor/prism.min.js"><\/script>')</script>
+  <script>
+    (function() {
+      var el = document.getElementById('content');
+      if (!el) return;
+      if (typeof renderMathInElement === 'function') {
+        renderMathInElement(el, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\[', right: '\\]', display: true},
+            {left: '\\(', right: '\\)', display: false}
+          ],
+          throwOnError: false
+        });
+      }
+      if (typeof Prism !== 'undefined') Prism.highlightAllUnder(el);
+      if (typeof mermaid !== 'undefined') {
+        var blocks = el.querySelectorAll('code.language-mermaid');
+        if (blocks.length) {
+          mermaid.initialize({startOnLoad: false, theme: 'dark'});
+          for (var i = 0; i < blocks.length; i++) {
+            (function(block) {
+              var id = 'mermaid-' + Math.random().toString(36).slice(2,10);
+              mermaid.render(id, block.textContent).then(function(r) {
+                var w = document.createElement('div');
+                w.className = 'mermaid';
+                w.innerHTML = r.svg;
+                block.parentElement.replaceWith(w);
+              });
+            })(blocks[i]);
+          }
+        }
+      }
+    })();
+  </script>
+  <script src="js/theme.js"></script>
+</body>
+</html>

@@ -6,12 +6,19 @@
 
 ```
 blog/
+├── server.py           # 本地存储服务器（Python，零依赖）
 ├── index.html          # 首页（文章列表 + 标签筛选）
 ├── post.html           # 文章详情页
+├── about.html          # 项目介绍
+├── tutorial.html       # 使用教程
+├── themes.json         # 主题配色定义
+├── rss.xml             # RSS 订阅（自动生成）
+├── LICENSE             # MIT License
 ├── css/style.css       # 样式
 ├── js/
 │   ├── app.js          # 首页逻辑
 │   ├── post.js         # 文章渲染逻辑
+│   ├── theme.js        # 主题切换逻辑
 │   └── vendor/         # CDN 离线回退（内网部署时使用）
 │       ├── marked.min.js
 │       ├── katex.min.js
@@ -22,7 +29,8 @@ blog/
 │   ├── write.html      # 写文章页面
 │   ├── index.html      # 文章管理页面
 │   └── js/
-│       ├── github.js   # GitHub API 封装
+│       ├── github.js   # GitHub 存储适配器
+│       ├── local.js    # 本地存储适配器
 │       ├── write.js    # 编辑器逻辑
 │       └── manage.js   # 管理页逻辑
 ├── favicon.svg
@@ -32,27 +40,31 @@ blog/
 ## 功能
 
 - Markdown 写作，支持代码高亮（Prism.js）、数学公式（KaTeX）、图表（Mermaid）
+- 编辑器工具栏，快速插入 Markdown / LaTeX / Mermaid 模板
 - Tag 标签筛选
-- 暗色主题，响应式布局
-- 网页编辑器，一键发布到 GitHub Pages
+- 多主题切换（暗色 / 亮色 / 护眼绿），配置文件驱动
+- 网页编辑器，支持 GitHub 存储和本地存储两种模式
 
 ## 写新文章
 
-### 方式一：网页编辑器（推荐）
+### 方式一：本地服务器（推荐）
 
-1. 本地打开 `editor/editor.html`
+```bash
+python3 server.py                    # 默认 8080 端口，无密码
+python3 server.py 3000               # 自定义端口
+python3 server.py --password mypass  # 启用密码认证
+```
+
+打开 `http://localhost:8080/editor/write.html`，自动使用本地存储模式，无需 GitHub Token。设置 `--password` 后，编辑器会要求输入密码才能操作。
+
+### 方式二：GitHub Pages
+
+1. 打开 `editor/write.html`（需部署到可访问的 URL）
 2. 输入 GitHub Fine-grained Personal Access Token（需 Contents: Read and write 权限）
 3. 填写标题、标签、摘要，写 Markdown 正文
 4. 点击「发布」— 自动提交到 GitHub 仓库，GitHub Pages 自动重新部署
 
-### 方式二：命令行
-
-```bash
-cp editor/posts/_example.md editor/posts/my-post.md
-# 编辑 my-post.md
-./editor/new-post.sh editor/posts/my-post.md
-git add site/js/posts.js && git commit -m "add post" && git push
-```
+编辑器会自动检测存储模式：优先尝试本地服务器，失败则回退到 GitHub。也可在页面上手动切换。
 
 ## 部署
 
@@ -64,7 +76,6 @@ git add site/js/posts.js && git commit -m "add post" && git push
 - [KaTeX](https://katex.org) — 数学公式渲染
 - [Mermaid](https://mermaid.js.org) — 流程图、时序图等图表渲染
 - [Prism.js](https://prismjs.com) — 代码语法高亮
-- [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) + [Inter](https://fonts.google.com/specimen/Inter) — 字体
 
 全部通过 CDN 加载，无需安装。
 
@@ -118,3 +129,19 @@ graph LR
     B -->|否| D[结束]
 ```
 ````
+
+## 主题切换
+
+页面右上角的主题按钮可切换 7 套主题（暗色 / 亮色 / 护眼绿 / 紫悦 / 云宝 / 柔柔 / 珍奇），选择保存在 `localStorage` 中。
+
+主题定义在 `themes.json` 中，每个主题是 CSS 变量的键值对。添加新主题只需在 JSON 中增加一个条目，无需修改代码。
+
+## 静态页面
+
+- `about.html` — 项目介绍
+- `tutorial.html` — 使用教程（含 LaTeX/Mermaid 渲染示例）
+- `rss.xml` — RSS 订阅（发布文章时自动生成）
+
+## License
+
+MIT

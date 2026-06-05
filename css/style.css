@@ -19,8 +19,8 @@
   --tag-active: #e2b340;
   --tag-active-text: #141418;
   --code-bg: #18181e;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', Consolas, monospace;
   --max-width: 960px;
 }
 
@@ -57,9 +57,13 @@ a:hover {
 
 /* ===== Header ===== */
 .site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 48px 0 32px;
   border-bottom: 1px solid var(--border);
   margin-bottom: 40px;
+  position: relative;
 }
 
 .site-header h1 {
@@ -665,4 +669,187 @@ button.btn {
 .mermaid-error {
   color: #f44336;
   font-size: 0.85rem;
+}
+
+/* ===== Toolbar ===== */
+.toolbar {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  padding: 8px 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+}
+
+.toolbar + .input-full {
+  border-radius: 0 0 8px 8px;
+}
+
+.tb-dropdown {
+  position: relative;
+}
+
+.tb-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  font-family: inherit;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.tb-btn:hover,
+.tb-btn.active {
+  background: var(--bg-card-hover);
+  border-color: var(--accent-dim);
+}
+
+.tb-btn::after {
+  content: '';
+  border: 4px solid transparent;
+  border-top-color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.tb-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  min-width: 180px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 0;
+  z-index: 100;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.tb-dropdown.open > .tb-menu {
+  display: block;
+}
+
+.tb-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  color: var(--text);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.12s;
+}
+
+.tb-item:hover {
+  background: var(--accent);
+  color: var(--tag-active-text);
+}
+
+.tb-item .tb-arrow {
+  font-size: 0.7rem;
+  margin-left: 12px;
+  color: var(--text-muted);
+}
+
+.tb-item:hover .tb-arrow {
+  color: var(--tag-active-text);
+}
+
+.tb-sep {
+  height: 1px;
+  margin: 4px 8px;
+  background: var(--border);
+}
+
+.tb-submenu {
+  display: none;
+  position: absolute;
+  top: -4px;
+  left: 100%;
+  min-width: 160px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.tb-submenu-trigger:hover > .tb-submenu,
+.tb-submenu-trigger.open > .tb-submenu {
+  display: block;
+}
+
+.tb-submenu-trigger.open > .tb-arrow {
+  color: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .toolbar {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ===== Theme Switcher ===== */
+.theme-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  line-height: 1;
+}
+
+.theme-btn:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--accent-dim);
+}
+
+.theme-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 150px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 0;
+  z-index: 100;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.theme-menu.open {
+  display: block;
+}
+
+.theme-item {
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.12s;
+}
+
+.theme-item:hover {
+  background: var(--accent);
+  color: var(--tag-active-text);
+}
+
+.theme-item.active {
+  color: var(--accent);
+  font-weight: 600;
 }

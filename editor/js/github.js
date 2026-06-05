@@ -129,7 +129,20 @@ const GH = {
     manifest.sort((a, b) => b.date.localeCompare(a.date));
     await this.saveManifest(manifest, manifestFile?.sha);
 
+    // 3. Update RSS
+    await this.generateRss(manifest);
+
     return id;
+  },
+
+  async generateRss(manifest) {
+    let items = '';
+    for (const p of manifest.slice(0, 20)) {
+      items += `    <item>\n      <title>${p.title}</title>\n      <link>post.html?id=${p.id}</link>\n      <description>${p.summary || ''}</description>\n      <pubDate>${p.date}</pubDate>\n    </item>\n`;
+    }
+    const rss = `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0">\n  <channel>\n    <title>Blog</title>\n    <link>index.html</link>\n    <description>Blog RSS Feed</description>\n${items}  </channel>\n</rss>`;
+    const existing = await this.getFile('rss.xml');
+    await this.commitFile('rss.xml', rss, existing?.sha, 'update rss');
   },
 
   // --- Delete ---
@@ -148,5 +161,31 @@ const GH = {
     let manifest = JSON.parse(manifestFile.content);
     manifest = manifest.filter(p => p.id !== id);
     await this.saveManifest(manifest, manifestFile.sha);
+
+    // 3. Update RSS
+    await this.generateRss(manifest);
+  },
+
+  async uploadImage(file) {
+    const data = await new Promise(resolve => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result.split(',')[1]);
+      reader.readAsDataURL(file);
+    });
+    const ext = file.name.split('.').pop() || 'png';
+    const name = `${Date.now()}.${ext}`;
+    const path = `posts/images/${name}`;
+    const body = {
+      message: `image: ${name}`,
+      content: data,
+      branch: this.BRANCH
+    };
+    const res = await fetch(`${this.API}/contents/${path}`, {
+      method: 'PUT',
+      headers: this.headers(),
+      body: JSON.stringify(body)
+    });
+    if (!res.ok) throw new Error('Image upload failed');
+    return path;
   }
 };

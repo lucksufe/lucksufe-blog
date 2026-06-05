@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Manage - Blog</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -51,6 +48,22 @@
   </div>
 
   <script src="/editor/js/github.js"></script>
+  <script src="/editor/js/local.js"></script>
+  <script>
+    (function() {
+      var mode = localStorage.getItem('storage_mode');
+      if (mode === 'local') { window.storage = LOCAL; return; }
+      if (mode === 'github') { window.storage = GH; return; }
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', '/api/user', false);
+      try {
+        xhr.send();
+        if (xhr.status === 200) { window.storage = LOCAL; localStorage.setItem('storage_mode', 'local'); }
+        else { window.storage = GH; localStorage.setItem('storage_mode', 'github'); }
+      } catch(e) { window.storage = GH; localStorage.setItem('storage_mode', 'github'); }
+    })();
+  </script>
   <script src="/editor/js/manage.js"></script>
+  <script src="/js/theme.js"></script>
 </body>
 </html>

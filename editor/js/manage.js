@@ -17,29 +17,88 @@
   let allManifest = [];
   let currentPage = 0;
 
+  // Storage mode indicator
+  var storageLabel = document.createElement('span');
+  storageLabel.className = 'storage-mode';
+  storageLabel.textContent = storage === LOCAL ? '本地存储' : 'GitHub';
+  storageLabel.style.cssText = 'font-size:0.75rem;color:var(--text-muted);padding:2px 8px;border:1px solid var(--border);border-radius:4px;';
+  manageSection.querySelector('.editor-meta')?.prepend(storageLabel);
+
+  function setupLocalAuth() {
+    tokenSection.querySelector('h2').textContent = '本地服务器认证';
+    tokenSection.querySelector('.hint').textContent = '服务器需要密码验证。';
+    tokenInput.placeholder = '输入密码...';
+    tokenInput.type = 'password';
+    saveTokenBtn.textContent = '验证';
+  }
+
+  async function checkLocalAuth() {
+    try {
+      await storage.getManifest();
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
   async function checkToken() {
-    const token = GH.getToken();
+    if (storage === LOCAL) {
+      const ok = await checkLocalAuth();
+      if (ok) {
+        tokenSection.style.display = 'none';
+        manageSection.style.display = 'block';
+        userDisplay.textContent = 'local';
+        loadPostList();
+      } else {
+        setupLocalAuth();
+      }
+      return;
+    }
+    const token = storage.getToken();
     if (!token) return;
     tokenInput.value = token;
     try {
-      const user = await GH.getUser();
+      const user = await storage.getUser();
       userDisplay.textContent = user;
       tokenSection.style.display = 'none';
       manageSection.style.display = 'block';
       loadPostList();
     } catch {
-      GH.setToken('');
+      storage.setToken('');
     }
   }
 
   saveTokenBtn.addEventListener('click', async () => {
+    if (storage === LOCAL) {
+      const pw = tokenInput.value.trim();
+      if (!pw) return;
+      LOCAL.setPassword(pw);
+      tokenStatus.textContent = '验证中...';
+      tokenStatus.className = 'status-msg';
+      const ok = await checkLocalAuth();
+      if (ok) {
+        tokenStatus.textContent = 'OK';
+        tokenStatus.className = 'status-msg success';
+        userDisplay.textContent = 'local';
+        setTimeout(() => {
+          tokenSection.style.display = 'none';
+          manageSection.style.display = 'block';
+          loadPostList();
+        }, 500);
+      } else {
+        tokenStatus.textContent = '密码错误';
+        tokenStatus.className = 'status-msg error';
+        LOCAL.setPassword('');
+      }
+      return;
+    }
     const token = tokenInput.value.trim();
     if (!token) return;
-    GH.setToken(token);
+    storage.setToken(token);
     tokenStatus.textContent = 'Verifying...';
     tokenStatus.className = 'status-msg';
     try {
-      const user = await GH.getUser();
+      const user = await storage.getUser();
       tokenStatus.textContent = 'OK';
       tokenStatus.className = 'status-msg success';
       userDisplay.textContent = user;
@@ -51,7 +110,7 @@
     } catch (e) {
       tokenStatus.textContent = 'Invalid: ' + e.message;
       tokenStatus.className = 'status-msg error';
-      GH.setToken('');
+      storage.setToken('');
     }
   });
 
@@ -59,7 +118,7 @@
     postListStatus.textContent = 'Loading...';
     postListEl.innerHTML = '';
     try {
-      const manifest = await GH.getManifest();
+      const manifest = await storage.getManifest();
       if (manifest.length === 0) {
         postListStatus.textContent = 'No posts';
         return;
@@ -109,7 +168,7 @@
   async function handleDelete(id) {
     if (!confirm(`Delete "${id}"? This cannot be undone.`)) return;
     try {
-      await GH.deletePost(id);
+      await storage.deletePost(id);
       loadPostList();
     } catch (e) {
       alert('Delete failed: ' + e.message);
@@ -134,7 +193,11 @@
   $('refresh-posts')?.addEventListener('click', loadPostList);
 
   $('logout-btn')?.addEventListener('click', () => {
-    GH.setToken('');
+    if (storage === GH) GH.setToken('');
+    LOCAL.setPassword('');
+    localStorage.removeItem('storage_mode');
+    window.storage = GH;
+    storageLabel.textContent = 'GitHub';
     tokenSection.style.display = 'block';
     manageSection.style.display = 'none';
     tokenInput.value = '';
