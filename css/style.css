@@ -641,6 +641,11 @@ button.btn {
   padding: 4px 12px;
 }
 
+.btn-draft-toggle {
+  font-size: 0.75rem;
+  padding: 4px 12px;
+}
+
 .btn-delete {
   font-size: 0.75rem;
   padding: 4px 12px;

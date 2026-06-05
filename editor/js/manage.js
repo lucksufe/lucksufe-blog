@@ -144,12 +144,16 @@
           <span class="post-item-tags">${p.tags.join(', ')}</span>
         </div>
         <div class="post-item-actions">
-          <a href="/editor/write.html?id=${encodeURIComponent(p.id)}" class="btn btn-edit" data-i18n="btn.edit">编辑</a>
+          <button class="btn btn-edit" data-id="${p.id}" data-i18n="btn.edit">编辑</button>
           <button class="btn btn-draft-toggle" data-id="${p.id}" data-draft="${p.draft ? '1' : ''}">${p.draft ? t('btn.setPublish') : t('btn.setDraft')}</button>
           <button class="btn btn-delete" data-id="${p.id}" data-i18n="btn.delete">删除</button>
         </div>
       </div>
     `).join('');
+
+    postListEl.querySelectorAll('.btn-edit').forEach(btn => {
+      btn.addEventListener('click', () => { window.location.href = '/editor/write.html?id=' + encodeURIComponent(btn.dataset.id); });
+    });
 
     postListEl.querySelectorAll('.btn-delete').forEach(btn => {
       btn.addEventListener('click', () => handleDelete(btn.dataset.id));
@@ -172,21 +176,30 @@
   }
 
   async function handleDraftToggle(id, toDraft) {
-    try {
-      const post = await storage.getPost(id);
-      if (!post) { alert('Post not found'); return; }
-      await storage.publishPost({
-        id: post.id,
-        title: post.title,
-        date: post.date,
-        tags: post.tags,
-        summary: post.summary,
-        content: post.content || '',
-        draft: toDraft,
-      });
-      loadPostList();
-    } catch (e) {
-      alert('操作失败: ' + e.message);
+    const maxRetries = 3;
+    for (let attempt = 0; attempt < maxRetries; attempt++) {
+      try {
+        const post = await storage.getPost(id);
+        if (!post) { alert('Post not found'); return; }
+        await storage.publishPost({
+          id: post.id,
+          title: post.title,
+          date: post.date,
+          tags: post.tags,
+          summary: post.summary,
+          content: post.content || '',
+          draft: toDraft,
+        });
+        loadPostList();
+        return;
+      } catch (e) {
+        if (attempt < maxRetries - 1 && /does not match|409/.test(e.message)) {
+          await new Promise(r => setTimeout(r, 500));
+          continue;
+        }
+        alert('操作失败: ' + e.message);
+        return;
+      }
     }
   }
 
