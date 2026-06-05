@@ -192,6 +192,66 @@
 
   $('refresh-posts')?.addEventListener('click', loadPostList);
 
+  // --- Settings Modal ---
+  const settingsModal = $('settings-modal');
+  const settingsBtn = $('settings-btn');
+  const settingsClose = $('settings-close');
+  const settingsSave = $('settings-save');
+  const settingsStatus = $('settings-status');
+
+  async function openSettings() {
+    settingsModal.style.display = 'flex';
+    settingsStatus.textContent = '';
+    try {
+      const cfg = await storage.getConfig();
+      $('cfg-title').value = cfg.title || '';
+      $('cfg-tagline').value = cfg.tagline || '';
+      $('cfg-footer').value = cfg.footer || '';
+      $('cfg-font').value = cfg.font || 'system-ui';
+      $('cfg-fontsize').value = cfg.fontSize || '16';
+    } catch (e) {
+      settingsStatus.textContent = '加载失败: ' + e.message;
+      settingsStatus.className = 'status-msg error';
+    }
+  }
+
+  function closeSettings() {
+    settingsModal.style.display = 'none';
+  }
+
+  settingsBtn?.addEventListener('click', openSettings);
+  settingsClose?.addEventListener('click', closeSettings);
+  settingsModal?.querySelector('.modal-backdrop')?.addEventListener('click', closeSettings);
+
+  settingsSave?.addEventListener('click', async () => {
+    const cfg = {
+      title: $('cfg-title').value.trim(),
+      tagline: $('cfg-tagline').value.trim(),
+      footer: $('cfg-footer').value.trim(),
+      font: $('cfg-font').value,
+      fontSize: $('cfg-fontsize').value,
+    };
+    settingsStatus.textContent = '保存中...';
+    settingsStatus.className = 'status-msg';
+    try {
+      await storage.publishConfig(cfg);
+      settingsStatus.textContent = '已保存';
+      settingsStatus.className = 'status-msg success';
+      applyConfig(cfg);
+      setTimeout(closeSettings, 800);
+    } catch (e) {
+      settingsStatus.textContent = '保存失败: ' + e.message;
+      settingsStatus.className = 'status-msg error';
+    }
+  });
+
+  function applyConfig(cfg) {
+    if (cfg.title) document.title = 'Manage - ' + cfg.title;
+    const root = document.documentElement;
+    if (cfg.font) root.style.setProperty('--font-sans', cfg.font);
+    if (cfg.fontSize) root.style.fontSize = cfg.fontSize + 'px';
+  }
+
   $('logout-btn')?.addEventListener('click', () => {
     if (storage === GH) GH.setToken('');
     LOCAL.setPassword('');

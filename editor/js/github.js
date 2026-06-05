@@ -136,13 +136,30 @@ const GH = {
   },
 
   async generateRss(manifest) {
+    const cfg = await this.getConfig();
+    const title = cfg.title || 'Blog';
     let items = '';
     for (const p of manifest.slice(0, 20)) {
       items += `    <item>\n      <title>${p.title}</title>\n      <link>post.html?id=${p.id}</link>\n      <description>${p.summary || ''}</description>\n      <pubDate>${p.date}</pubDate>\n    </item>\n`;
     }
-    const rss = `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0">\n  <channel>\n    <title>Blog</title>\n    <link>index.html</link>\n    <description>Blog RSS Feed</description>\n${items}  </channel>\n</rss>`;
+    const rss = `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0">\n  <channel>\n    <title>${title}</title>\n    <link>index.html</link>\n    <description>${title} RSS Feed</description>\n${items}  </channel>\n</rss>`;
     const existing = await this.getFile('rss.xml');
     await this.commitFile('rss.xml', rss, existing?.sha, 'update rss');
+  },
+
+  // --- Config ---
+
+  async getConfig() {
+    const file = await this.getFile('config.json');
+    if (!file) return {};
+    return JSON.parse(file.content);
+  },
+
+  async publishConfig(cfg) {
+    const existing = await this.getFile('config.json');
+    const content = JSON.stringify(cfg, null, 2);
+    await this.commitFile('config.json', content, existing?.sha, 'update config');
+    return cfg;
   },
 
   // --- Delete ---

@@ -35,8 +35,17 @@ def save_manifest(manifest):
     write_json(os.path.join(POSTS_DIR, 'manifest.json'), manifest)
 
 
+def get_config():
+    path = os.path.join(BLOG_DIR, 'config.json')
+    if os.path.exists(path):
+        return read_json(path)
+    return {}
+
+
 def generate_rss():
     manifest = get_manifest()
+    cfg = get_config()
+    title = cfg.get('title', 'Blog')
     items = ''
     for p in manifest[:20]:
         items += f'''    <item>
@@ -49,9 +58,9 @@ def generate_rss():
     rss = f'''<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>Blog</title>
+    <title>{title}</title>
     <link>index.html</link>
-    <description>Blog RSS Feed</description>
+    <description>{title} RSS Feed</description>
 {items}  </channel>
 </rss>'''
     with open(os.path.join(BLOG_DIR, 'rss.xml'), 'w', encoding='utf-8') as f:
@@ -72,6 +81,11 @@ class BlogHandler(SimpleHTTPRequestHandler):
 
     def do_GET(self):
         # /api/user is unprotected for detection
+        if self.path == '/api/config':
+            path = os.path.join(BLOG_DIR, 'config.json')
+            if os.path.exists(path):
+                return self._json_response(read_json(path))
+            return self._json_response({})
         if self.path == '/api/user':
             data = {'login': 'local'}
             if self.password:
@@ -93,6 +107,15 @@ class BlogHandler(SimpleHTTPRequestHandler):
         return super().do_GET()
 
     def do_POST(self):
+        if self.path == '/api/config':
+            if not self.check_auth():
+                return self._error(401, 'Unauthorized')
+            body = self._read_body()
+            path = os.path.join(BLOG_DIR, 'config.json')
+            existing = read_json(path) if os.path.exists(path) else {}
+            existing.update(body)
+            write_json(path, existing)
+            return self._json_response(existing)
         if self.path == '/api/upload':
             if not self.check_auth():
                 return self._error(401, 'Unauthorized')

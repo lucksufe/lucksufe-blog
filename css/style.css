@@ -853,3 +853,68 @@ button.btn {
   color: var(--accent);
   font-weight: 600;
 }
+
+/* ===== Icon Button ===== */
+.btn-icon {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: all 0.2s;
+  line-height: 1;
+}
+.btn-icon:hover {
+  color: var(--text);
+  background: var(--bg-card-hover);
+}
+
+/* ===== Modal ===== */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
+}
+.modal-content {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  width: 480px;
+  max-width: 90vw;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 0;
+}
+.modal-header h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.modal-header .btn-icon {
+  font-size: 1.5rem;
+  padding: 0 4px;
+}
+.modal-body {
+  padding: 20px 24px;
+}
+.modal-footer {
+  padding: 0 24px 20px;
+  text-align: right;
+}

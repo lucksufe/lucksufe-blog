@@ -7,6 +7,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/css/style.css">
   <script>(function(){var v=localStorage.getItem('theme_vars');if(v)try{var s=JSON.parse(v),r=document.documentElement;for(var k in s)r.style.setProperty(k,s[k])}catch(e){}})();</script>
+  <script>(function(){var c=localStorage.getItem('site_config');if(c)try{var s=JSON.parse(c),r=document.documentElement;if(s.font)r.style.setProperty('--font-sans',s.font);if(s.fontSize)r.style.fontSize=s.fontSize+'px'}catch(e){}})();</script>
 </head>
 <body>
   <div class="container">
@@ -31,6 +32,7 @@
           <span>登录为 <strong id="user-display"></strong></span>
           <a href="/editor/write.html" class="btn">写文章</a>
           <button id="refresh-posts" class="btn">刷新</button>
+          <button id="settings-btn" class="btn-icon" title="站点设置">&#9881;</button>
           <button id="logout-btn" class="btn-link">切换账号</button>
         </div>
       </div>
@@ -42,6 +44,57 @@
         <button id="page-next" class="btn">下一页</button>
       </div>
     </section>
+
+    <div id="settings-modal" class="modal" style="display:none;">
+      <div class="modal-backdrop"></div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>站点设置</h3>
+          <button id="settings-close" class="btn-icon">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>站点标题</label>
+            <input type="text" id="cfg-title" class="input-full" placeholder="~/blog">
+          </div>
+          <div class="form-group">
+            <label>标语</label>
+            <input type="text" id="cfg-tagline" class="input-full" placeholder="thoughts, code, stories">
+          </div>
+          <div class="form-group">
+            <label>页脚文本</label>
+            <input type="text" id="cfg-footer" class="input-full" placeholder="built with html & persistence">
+          </div>
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label>字体</label>
+              <select id="cfg-font" class="input-full">
+                <option value="system-ui">System UI（系统默认）</option>
+                <option value="serif">Serif（衬线体）</option>
+                <option value="monospace">Monospace（等宽体）</option>
+                <option value="'Georgia', serif">Georgia</option>
+                <option value="'Palatino', serif">Palatino</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>基础字号</label>
+              <select id="cfg-fontsize" class="input-full">
+                <option value="14">14px</option>
+                <option value="15">15px</option>
+                <option value="16">16px</option>
+                <option value="17">17px</option>
+                <option value="18">18px</option>
+                <option value="20">20px</option>
+              </select>
+            </div>
+          </div>
+          <div id="settings-status" class="status-msg"></div>
+        </div>
+        <div class="modal-footer">
+          <button id="settings-save" class="btn">保存</button>
+        </div>
+      </div>
+    </div>
 
     <footer class="site-footer">
       <p>built with html &amp; persistence</p>
@@ -66,5 +119,6 @@
   </script>
   <script src="/editor/js/manage.js"></script>
   <script src="/js/theme.js"></script>
+  <script>(function(){fetch('/config.json').then(function(r){return r.json()}).then(function(s){localStorage.setItem('site_config',JSON.stringify(s));var t=document.querySelector('.site-header h1 a');if(t&&s.title)t.textContent=s.title}).catch(function(){})})();</script>
 </body>
 </html>

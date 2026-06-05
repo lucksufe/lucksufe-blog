@@ -68,6 +68,23 @@ const LOCAL = {
     if (!res.ok) throw new Error('Failed to delete post');
   },
 
+  async getConfig() {
+    const res = await fetch(`${this.API}/config`, { headers: this.headers() });
+    if (!res.ok) return {};
+    return res.json();
+  },
+
+  async publishConfig(cfg) {
+    const res = await fetch(`${this.API}/config`, {
+      method: 'POST',
+      headers: this.headers(),
+      body: JSON.stringify(cfg),
+    });
+    if (res.status === 401) throw new Error('Password required');
+    if (!res.ok) throw new Error('Failed to save config');
+    return res.json();
+  },
+
   async uploadImage(file) {
     const data = await new Promise(resolve => {
       const reader = new FileReader();
