@@ -71,6 +71,13 @@
     const html = restoreMath(marked.parse(src), store);
     contentEl.innerHTML = html;
 
+    contentEl.querySelectorAll('table').forEach(function(tbl) {
+      var wrapper = document.createElement('div');
+      wrapper.className = 'table-scroll';
+      tbl.parentNode.insertBefore(wrapper, tbl);
+      wrapper.appendChild(tbl);
+    });
+
     if (typeof renderMathInElement === 'function') {
       renderMathInElement(contentEl, {
         delimiters: mathDelimiters,
