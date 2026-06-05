@@ -277,15 +277,13 @@
       if (!data.title && !data.content) return false;
       // Don't overwrite if loading for edit and content already loaded
       if (editId && contentInput.value) return false;
-      if (confirm(t('draft.restore'))) {
-        titleInput.value = data.title || '';
-        slugInput.value = data.slug || '';
-        dateInput.value = data.date || '';
-        tagsInput.value = data.tags || '';
-        summaryInput.value = data.summary || '';
-        contentInput.value = data.content || '';
-        return true;
-      }
+      titleInput.value = data.title || '';
+      slugInput.value = data.slug || '';
+      dateInput.value = data.date || '';
+      tagsInput.value = data.tags || '';
+      summaryInput.value = data.summary || '';
+      contentInput.value = data.content || '';
+      return true;
     } catch(e) {}
     return false;
   }

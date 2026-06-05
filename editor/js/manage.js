@@ -124,9 +124,57 @@
     }
   });
 
+  function loadLocalDrafts() {
+    const section = $('local-drafts-section');
+    const list = $('local-drafts-list');
+    const drafts = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (!key.startsWith('draft_')) continue;
+      try {
+        const data = JSON.parse(localStorage.getItem(key));
+        if (data.title || data.content) {
+          drafts.push({ key, id: key.replace('draft_', ''), title: data.title || '(无标题)', date: data.date || '' });
+        }
+      } catch(e) {}
+    }
+    if (drafts.length === 0) {
+      section.style.display = 'none';
+      return;
+    }
+    section.style.display = '';
+    section.querySelector('.local-drafts-title').dataset.hint = t('manage.localDrafts.hint');
+    list.innerHTML = drafts.map(d => `
+      <div class="local-draft-item">
+        <span class="local-draft-title">${d.title}</span>
+        <span class="local-draft-date">${d.date}</span>
+        <div class="local-draft-actions">
+          <button class="btn btn-draft-edit" data-id="${d.id}" data-i18n="btn.edit">编辑</button>
+          <button class="btn btn-draft-clear" data-key="${d.key}">${t('btn.delete')}</button>
+        </div>
+      </div>
+    `).join('');
+
+    list.querySelectorAll('.btn-draft-edit').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.id;
+        window.location.href = id === 'new' ? '/editor/write.html' : '/editor/write.html?id=' + encodeURIComponent(id);
+      });
+    });
+
+    list.querySelectorAll('.btn-draft-clear').forEach(btn => {
+      btn.addEventListener('click', () => {
+        localStorage.removeItem(btn.dataset.key);
+        loadLocalDrafts();
+      });
+    });
+    applyI18n();
+  }
+
   async function loadPostList() {
     postListStatus.textContent = t('status.loading');
     postListEl.innerHTML = '';
+    loadLocalDrafts();
     try {
       const manifest = await storage.getManifest();
       if (manifest.length === 0) {

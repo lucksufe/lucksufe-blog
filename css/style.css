@@ -953,6 +953,67 @@ button.btn {
   opacity: 0.6;
 }
 
+/* Local drafts */
+.local-drafts-title {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 16px 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.local-drafts-title::after {
+  content: attr(data-hint);
+  font-size: 0.7rem;
+  font-weight: 400;
+  opacity: 0.6;
+}
+
+.local-drafts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.local-draft-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background: var(--bg);
+  border: 1px dashed var(--border);
+  border-radius: 4px;
+  gap: 12px;
+}
+
+.local-draft-title {
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: var(--text);
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.local-draft-date {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.local-draft-actions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.local-draft-actions .btn {
+  font-size: 0.7rem;
+  padding: 3px 10px;
+}
+
 /* Batch operations */
 .batch-bar {
   display: flex;
