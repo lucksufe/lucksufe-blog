@@ -17,7 +17,7 @@
       const res = await fetch('posts/manifest.json');
       allPosts = (await res.json()).filter(p => !p.draft);
     } catch {
-      postListEl.innerHTML = '<div class="empty-state"><p>Failed to load posts.</p></div>';
+      postListEl.innerHTML = `<div class="empty-state"><p>${t('status.loadingFailed')}</p></div>`;
       return;
     }
     renderTags();
@@ -49,7 +49,7 @@
 
     const allPill = document.createElement('span');
     allPill.className = 'tag-pill' + (activeTag === null ? ' active' : '');
-    allPill.textContent = 'All';
+    allPill.textContent = t('tag.all');
     allPill.addEventListener('click', () => { activeTag = null; currentPage = 0; renderTags(); renderPosts(); });
     tagListEl.appendChild(allPill);
 
@@ -68,7 +68,7 @@
     const page = filtered.slice(currentPage * PER_PAGE, (currentPage + 1) * PER_PAGE);
 
     if (filtered.length === 0) {
-      postListEl.innerHTML = '<div class="empty-state"><p>No posts found.</p></div>';
+      postListEl.innerHTML = `<div class="empty-state"><p>${t('empty.noResults')}</p></div>`;
     } else {
       postListEl.innerHTML = page.map(post => `
         <a href="post.html?id=${encodeURIComponent(post.id)}" class="post-card">

@@ -20,7 +20,7 @@
     if (!btn) return;
     var icons = { dark: '🌙', light: '☀️', green: '🌿', twilight: '🦄', rainbow: '🌈', fluttershy: '🦋', rarity: '💎' };
     btn.textContent = icons[current] || current;
-    btn.title = '主题: ' + current;
+    btn.title = t('theme.label') + ': ' + current;
   }
 
   function createSwitcher() {
@@ -36,7 +36,7 @@
     btn.id = 'theme-btn';
     btn.className = 'theme-btn';
     btn.textContent = icons[current] || current;
-    btn.title = '主题: ' + current;
+    btn.title = t('theme.label') + ': ' + current;
     wrapper.appendChild(btn);
 
     var menu = document.createElement('div');
@@ -60,8 +60,8 @@
     menu.innerHTML = '';
     var names = themes ? Object.keys(themes) : ['dark', 'light', 'green'];
     var labels = {
-      dark: '🌙 暗色', light: '☀️ 亮色', green: '🌿 护眼绿',
-      twilight: '🦄 紫悦', rainbow: '🌈 云宝', fluttershy: '🦋 柔柔', rarity: '💎 珍奇'
+      dark: t('theme.dark'), light: t('theme.light'), green: t('theme.green'),
+      twilight: t('theme.twilight'), rainbow: t('theme.rainbow'), fluttershy: t('theme.fluttershy'), rarity: t('theme.rarity')
     };
     names.forEach(function(name) {
       var item = document.createElement('div');

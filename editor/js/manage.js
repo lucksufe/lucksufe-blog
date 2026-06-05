@@ -20,16 +20,16 @@
   // Storage mode indicator
   var storageLabel = document.createElement('span');
   storageLabel.className = 'storage-mode';
-  storageLabel.textContent = storage === LOCAL ? '本地存储' : 'GitHub';
+  storageLabel.textContent = storage === LOCAL ? t('manage.storageLocal') : t('manage.storageGithub');
   storageLabel.style.cssText = 'font-size:0.75rem;color:var(--text-muted);padding:2px 8px;border:1px solid var(--border);border-radius:4px;';
   manageSection.querySelector('.editor-meta')?.prepend(storageLabel);
 
   function setupLocalAuth() {
-    tokenSection.querySelector('h2').textContent = '本地服务器认证';
-    tokenSection.querySelector('.hint').textContent = '服务器需要密码验证。';
-    tokenInput.placeholder = '输入密码...';
+    tokenSection.querySelector('h2').textContent = t('auth.local');
+    tokenSection.querySelector('.hint').textContent = t('auth.local.hint');
+    tokenInput.placeholder = t('auth.local.placeholder');
     tokenInput.type = 'password';
-    saveTokenBtn.textContent = '验证';
+    saveTokenBtn.textContent = t('btn.verify');
   }
 
   async function checkLocalAuth() {
@@ -73,11 +73,11 @@
       const pw = tokenInput.value.trim();
       if (!pw) return;
       LOCAL.setPassword(pw);
-      tokenStatus.textContent = '验证中...';
+      tokenStatus.textContent = t('status.verifying');
       tokenStatus.className = 'status-msg';
       const ok = await checkLocalAuth();
       if (ok) {
-        tokenStatus.textContent = 'OK';
+        tokenStatus.textContent = t('status.ok');
         tokenStatus.className = 'status-msg success';
         userDisplay.textContent = 'local';
         setTimeout(() => {
@@ -86,7 +86,7 @@
           loadPostList();
         }, 500);
       } else {
-        tokenStatus.textContent = '密码错误';
+        tokenStatus.textContent = t('status.wrongPassword');
         tokenStatus.className = 'status-msg error';
         LOCAL.setPassword('');
       }
@@ -95,11 +95,11 @@
     const token = tokenInput.value.trim();
     if (!token) return;
     storage.setToken(token);
-    tokenStatus.textContent = 'Verifying...';
+    tokenStatus.textContent = t('status.verifying');
     tokenStatus.className = 'status-msg';
     try {
       const user = await storage.getUser();
-      tokenStatus.textContent = 'OK';
+      tokenStatus.textContent = t('status.ok');
       tokenStatus.className = 'status-msg success';
       userDisplay.textContent = user;
       setTimeout(() => {
@@ -108,27 +108,27 @@
         loadPostList();
       }, 500);
     } catch (e) {
-      tokenStatus.textContent = 'Invalid: ' + e.message;
+      tokenStatus.textContent = e.message;
       tokenStatus.className = 'status-msg error';
       storage.setToken('');
     }
   });
 
   async function loadPostList() {
-    postListStatus.textContent = 'Loading...';
+    postListStatus.textContent = t('status.loading');
     postListEl.innerHTML = '';
     try {
       const manifest = await storage.getManifest();
       if (manifest.length === 0) {
-        postListStatus.textContent = 'No posts';
+        postListStatus.textContent = t('manage.noPosts');
         return;
       }
       allManifest = manifest;
       currentPage = 0;
-      postListStatus.textContent = `${manifest.length} posts`;
+      postListStatus.textContent = `${manifest.length} ${t('manage.postCount')}`;
       renderPostList();
     } catch (e) {
-      postListStatus.textContent = 'Failed: ' + e.message;
+      postListStatus.textContent = t('status.loadingFailed') + ': ' + e.message;
     }
   }
 
@@ -139,14 +139,14 @@
     postListEl.innerHTML = page.map(p => `
       <div class="post-item${p.draft ? ' post-item-draft' : ''}">
         <div class="post-item-info">
-          <span class="post-item-title">${p.title}${p.draft ? ' <span class="draft-badge">草稿</span>' : ''}</span>
+          <span class="post-item-title">${p.title}${p.draft ? ` <span class="draft-badge">${t('status.draftLabel')}</span>` : ''}</span>
           <span class="post-item-date">${p.date}</span>
           <span class="post-item-tags">${p.tags.join(', ')}</span>
         </div>
         <div class="post-item-actions">
-          <a href="/editor/write.html?id=${encodeURIComponent(p.id)}" class="btn btn-edit">Edit</a>
-          <button class="btn btn-draft-toggle" data-id="${p.id}" data-draft="${p.draft ? '1' : ''}">${p.draft ? '发布' : '草稿'}</button>
-          <button class="btn btn-delete" data-id="${p.id}">Delete</button>
+          <a href="/editor/write.html?id=${encodeURIComponent(p.id)}" class="btn btn-edit" data-i18n="btn.edit">编辑</a>
+          <button class="btn btn-draft-toggle" data-id="${p.id}" data-draft="${p.draft ? '1' : ''}">${p.draft ? t('btn.setPublish') : t('btn.setDraft')}</button>
+          <button class="btn btn-delete" data-id="${p.id}" data-i18n="btn.delete">删除</button>
         </div>
       </div>
     `).join('');
@@ -168,6 +168,7 @@
       pageNext.disabled = currentPage >= totalPages - 1;
       pageInfo.textContent = `${currentPage + 1} / ${totalPages}`;
     }
+    applyI18n();
   }
 
   async function handleDraftToggle(id, toDraft) {
@@ -190,12 +191,12 @@
   }
 
   async function handleDelete(id) {
-    if (!confirm(`Delete "${id}"? This cannot be undone.`)) return;
+    if (!confirm(t('confirm.delete').replace('{id}', id))) return;
     try {
       await storage.deletePost(id);
       loadPostList();
     } catch (e) {
-      alert('Delete failed: ' + e.message);
+      alert(t('status.deleteFailed') + ': ' + e.message);
     }
   }
 
@@ -234,8 +235,9 @@
       $('cfg-font').value = cfg.font || 'system-ui';
       $('cfg-fontsize').value = cfg.fontSize || '16';
       $('cfg-show-rss').checked = cfg.showRss !== false;
+      $('cfg-lang').value = cfg.lang || 'zh';
     } catch (e) {
-      settingsStatus.textContent = '加载失败: ' + e.message;
+      settingsStatus.textContent = t('status.loadingFailed') + ': ' + e.message;
       settingsStatus.className = 'status-msg error';
     }
   }
@@ -256,17 +258,23 @@
       font: $('cfg-font').value,
       fontSize: $('cfg-fontsize').value,
       showRss: $('cfg-show-rss').checked,
+      lang: $('cfg-lang').value,
     };
-    settingsStatus.textContent = '保存中...';
+    settingsStatus.textContent = t('status.saving');
     settingsStatus.className = 'status-msg';
     try {
       await storage.publishConfig(cfg);
-      settingsStatus.textContent = '已保存';
+      settingsStatus.textContent = t('settings.saved');
       settingsStatus.className = 'status-msg success';
       applyConfig(cfg);
+      if (cfg.lang && cfg.lang !== window._lang) {
+        window._lang = cfg.lang;
+        localStorage.setItem('site_config', JSON.stringify(cfg));
+        applyI18n();
+      }
       setTimeout(closeSettings, 800);
     } catch (e) {
-      settingsStatus.textContent = '保存失败: ' + e.message;
+      settingsStatus.textContent = t('settings.saveFailed') + ': ' + e.message;
       settingsStatus.className = 'status-msg error';
     }
   });

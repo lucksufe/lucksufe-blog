@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">
   <link rel="stylesheet" href="/css/style.css">
   <script>(function(){var v=localStorage.getItem('theme_vars');if(v)try{var s=JSON.parse(v),r=document.documentElement;for(var k in s)r.style.setProperty(k,s[k])}catch(e){}})();</script>
-  <script>(function(){var c=localStorage.getItem('site_config');if(c)try{var s=JSON.parse(c),r=document.documentElement;if(s.font)r.style.setProperty('--font-sans',s.font);if(s.fontSize)r.style.fontSize=s.fontSize+'px'}catch(e){}})();</script>
+  <script>(function(){var c=localStorage.getItem('site_config');if(c)try{var s=JSON.parse(c),r=document.documentElement;if(s.font)r.style.setProperty('--font-sans',s.font);if(s.fontSize)r.style.fontSize=s.fontSize+'px';if(s.lang)window._lang=s.lang}catch(e){}})();</script>
 </head>
 <body>
   <div class="container">
@@ -18,61 +18,61 @@
     </header>
 
     <section id="token-section" class="editor-card">
-      <h2>连接 GitHub</h2>
-      <p class="hint">输入 Fine-grained Personal Access Token，需要 Contents: Read and write 权限。</p>
+      <h2 data-i18n="auth.github">连接 GitHub</h2>
+      <p class="hint" data-i18n="auth.github.hint">输入 Fine-grained Personal Access Token，需要 Contents: Read and write 权限。</p>
       <div class="form-row">
-        <input type="password" id="token" placeholder="github_pat_..." class="input-full">
-        <button id="save-token" class="btn">验证</button>
+        <input type="password" id="token" data-i18n-ph="auth.github.placeholder" placeholder="github_pat_..." class="input-full">
+        <button id="save-token" class="btn" data-i18n="btn.verify">验证</button>
       </div>
       <div id="token-status" class="status-msg"></div>
     </section>
 
     <section id="editor-section" class="editor-card" style="display:none;">
       <div class="editor-header">
-        <h2 id="editor-title">写文章</h2>
+        <h2 id="editor-title" data-i18n="editor.newPost">写文章</h2>
         <div class="editor-meta">
-          <a href="/editor/index.html" class="btn">文章管理</a>
-          <button id="logout-btn" class="btn-link">切换账号</button>
+          <a href="/editor/index.html" class="btn" data-i18n="btn.manage">文章管理</a>
+          <button id="logout-btn" class="btn-link" data-i18n="btn.switchAccount">切换账号</button>
         </div>
       </div>
 
       <div class="form-group">
-        <label>标题</label>
-        <input type="text" id="title" placeholder="文章标题" class="input-full">
+        <label data-i18n="label.title">标题</label>
+        <input type="text" id="title" data-i18n-ph="placeholder.title" placeholder="文章标题" class="input-full">
       </div>
 
       <div class="form-row">
         <div class="form-group flex-1">
-          <label>Slug (URL 路径)</label>
-          <input type="text" id="slug" placeholder="自动生成" class="input-full">
+          <label data-i18n="label.slug">Slug (URL 路径)</label>
+          <input type="text" id="slug" data-i18n-ph="placeholder.slug" placeholder="自动生成" class="input-full">
         </div>
         <div class="form-group">
-          <label>日期</label>
+          <label data-i18n="label.date">日期</label>
           <input type="date" id="date" class="input-full">
         </div>
       </div>
 
       <div class="form-group">
-        <label>标签（逗号分隔）</label>
-        <input type="text" id="tags" placeholder="标签1, 标签2, 标签3" class="input-full">
+        <label data-i18n="label.tags">标签（逗号分隔）</label>
+        <input type="text" id="tags" data-i18n-ph="placeholder.tags" placeholder="标签1, 标签2, 标签3" class="input-full">
       </div>
 
       <div class="form-group">
-        <label>摘要</label>
-        <input type="text" id="summary" placeholder="一句话描述" class="input-full">
+        <label data-i18n="label.summary">摘要</label>
+        <input type="text" id="summary" data-i18n-ph="placeholder.summary" placeholder="一句话描述" class="input-full">
       </div>
 
       <div class="form-group">
-        <label>正文（Markdown）</label>
+        <label data-i18n="label.content">正文（Markdown）</label>
         <div id="toolbar" class="toolbar"></div>
-        <textarea id="content" rows="20" placeholder="在这里写 Markdown..." class="input-full" style="border-radius:0 0 8px 8px;"></textarea>
+        <textarea id="content" rows="20" data-i18n-ph="placeholder.content" placeholder="在这里写 Markdown..." class="input-full" style="border-radius:0 0 8px 8px;"></textarea>
       </div>
 
       <div class="form-actions">
-        <button id="publish-btn" class="btn">发布</button>
-        <button id="draft-btn" class="btn">存为草稿</button>
-        <button id="preview-btn" class="btn">预览</button>
-        <button id="preview-refresh" class="btn" style="display:none;">刷新预览</button>
+        <button id="publish-btn" class="btn" data-i18n="btn.publish">发布</button>
+        <button id="draft-btn" class="btn" data-i18n="btn.draft">存为草稿</button>
+        <button id="preview-btn" class="btn" data-i18n="btn.preview">预览</button>
+        <button id="preview-refresh" class="btn" style="display:none;" data-i18n="btn.refreshPreview">刷新预览</button>
         <div id="publish-status" class="status-msg"></div>
       </div>
 
@@ -109,7 +109,6 @@
       var mode = localStorage.getItem('storage_mode');
       if (mode === 'local') { window.storage = LOCAL; return; }
       if (mode === 'github') { window.storage = GH; return; }
-      // First visit: detect synchronously
       var xhr = new XMLHttpRequest();
       xhr.open('GET', '/api/user', false);
       try {
@@ -119,8 +118,9 @@
       } catch(e) { window.storage = GH; localStorage.setItem('storage_mode', 'github'); }
     })();
   </script>
+  <script src="/js/i18n.js"></script>
   <script src="/editor/js/write.js"></script>
   <script src="/js/theme.js"></script>
-  <script>(function(){fetch('/config.json').then(function(r){return r.json()}).then(function(s){localStorage.setItem('site_config',JSON.stringify(s));var t=document.querySelector('.site-header h1 a');if(t&&s.title)t.textContent=s.title}).catch(function(){})})();</script>
+  <script>(function(){fetch('/config.json').then(function(r){return r.json()}).then(function(s){localStorage.setItem('site_config',JSON.stringify(s));var t=document.querySelector('.site-header h1 a');if(t&&s.title)t.textContent=s.title;if(s.lang)window._lang=s.lang;applyI18n()}).catch(function(){})})();</script>
 </body>
 </html>

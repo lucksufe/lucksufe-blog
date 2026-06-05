@@ -46,58 +46,58 @@
 
     const menus = [
       {
-        label: 'Markdown',
+        label: t('tb.markdown'),
         items: [
-          { label: '# 标题', insert: ['# ', ''] },
-          { label: '**粗体**', insert: ['**', '**'] },
-          { label: '*斜体*', insert: ['*', '*'] },
-          { label: '> 引用', insert: ['> ', ''] },
-          { label: '`行内代码`', insert: ['`', '`'] },
-          { label: '--- 分隔线', insert: ['\n---\n', ''] },
+          { label: t('tb.heading'), insert: ['# ', ''] },
+          { label: t('tb.bold'), insert: ['**', '**'] },
+          { label: t('tb.italic'), insert: ['*', '*'] },
+          { label: t('tb.quote'), insert: ['> ', ''] },
+          { label: t('tb.inlineCode'), insert: ['`', '`'] },
+          { label: t('tb.hr'), insert: ['\n---\n', ''] },
           { sep: true },
-          { label: '代码块', sub: [
-            { label: '普通代码块', insert: ['```\n', '\n```'] },
+          { label: t('tb.codeBlock'), sub: [
+            { label: t('tb.codePlain'), insert: ['```\n', '\n```'] },
             { label: 'Python', insert: ['```python\n', '\n```'] },
             { label: 'JavaScript', insert: ['```javascript\n', '\n```'] },
             { label: 'Bash', insert: ['```bash\n', '\n```'] },
           ]},
-          { label: '列表', sub: [
-            { label: '无序列表', insert: ['- ', ''] },
-            { label: '有序列表', insert: ['1. ', ''] },
-            { label: '任务列表', insert: ['- [ ] ', ''] },
+          { label: t('tb.list'), sub: [
+            { label: t('tb.listUnordered'), insert: ['- ', ''] },
+            { label: t('tb.listOrdered'), insert: ['1. ', ''] },
+            { label: t('tb.listTask'), insert: ['- [ ] ', ''] },
           ]},
-          { label: '表格', sub: [
-            { label: '2 列', insert: ['| 列1 | 列2 |\n| --- | --- |\n| ', ' |  |'] },
-            { label: '3 列', insert: ['| 列1 | 列2 | 列3 |\n| --- | --- | --- |\n| ', ' |  |  |'] },
+          { label: t('tb.table'), sub: [
+            { label: '2', insert: ['| 列1 | 列2 |\n| --- | --- |\n| ', ' |  |'] },
+            { label: '3', insert: ['| 列1 | 列2 | 列3 |\n| --- | --- | --- |\n| ', ' |  |  |'] },
           ]},
         ]
       },
       {
-        label: '数学公式',
+        label: t('tb.math'),
         items: [
-          { label: '$ 行内公式', insert: ['$ ', ' $'] },
-          { label: '$$ 块级公式', insert: ['$$\n', '\n$$'] },
-          { label: '\\[ \\] 展示公式', insert: ['\\[\n', '\n\\]'] },
+          { label: t('tb.inlineMath'), insert: ['$ ', ' $'] },
+          { label: t('tb.blockMath'), insert: ['$$\n', '\n$$'] },
+          { label: t('tb.displayMath'), insert: ['\\[\n', '\n\\]'] },
           { sep: true },
-          { label: '分式  a/b', insert: ['\\frac{', '}{b}'] },
-          { label: '根号  √', insert: ['\\sqrt{', '}'] },
-          { label: '上标  x²', insert: ['x^{', '}'] },
-          { label: '下标  xₙ', insert: ['x_{', '}'] },
-          { label: '向量  →', insert: ['\\vec{', '}'] },
+          { label: t('tb.frac'), insert: ['\\frac{', '}{b}'] },
+          { label: t('tb.sqrt'), insert: ['\\sqrt{', '}'] },
+          { label: t('tb.superscript'), insert: ['x^{', '}'] },
+          { label: t('tb.subscript'), insert: ['x_{', '}'] },
+          { label: t('tb.vector'), insert: ['\\vec{', '}'] },
           { sep: true },
-          { label: '微积分', sub: [
-            { label: '∫ 积分', insert: ['\\int_{', '}^{\\infty} f(x) \\, \\mathrm{d}x'] },
-            { label: '∫∫ 二重积分', insert: ['\\iint_{', 'D} f(x,y) \\, \\mathrm{d}x \\mathrm{d}y'] },
-            { label: '∑ 求和', insert: ['\\sum_{i=', '}^{n} a_i'] },
-            { label: '∏ 求积', insert: ['\\prod_{i=', '}^{n} a_i'] },
-            { label: 'lim 极限', insert: ['\\lim_{x \\to ', '} f(x)'] },
+          { label: t('tb.calculus'), sub: [
+            { label: t('tb.integral'), insert: ['\\int_{', '}^{\\infty} f(x) \\, \\mathrm{d}x'] },
+            { label: t('tb.integral2'), insert: ['\\iint_{', 'D} f(x,y) \\, \\mathrm{d}x \\mathrm{d}y'] },
+            { label: t('tb.sum'), insert: ['\\sum_{i=', '}^{n} a_i'] },
+            { label: t('tb.prod'), insert: ['\\prod_{i=', '}^{n} a_i'] },
+            { label: t('tb.limit'), insert: ['\\lim_{x \\to ', '} f(x)'] },
           ]},
-          { label: '线性代数', sub: [
-            { label: '2×2 矩阵', insert: ['\\begin{pmatrix}\na & b \\\\\\\\\nc & d\n\\end{pmatrix}', ''] },
-            { label: '3×3 矩阵', insert: ['\\begin{pmatrix}\na & b & c \\\\\\\\\nd & e & f \\\\\\\\\ng & h & i\n\\end{pmatrix}', ''] },
-            { label: '行列式', insert: ['\\begin{vmatrix}\na & b \\\\\\\\\nc & d\n\\end{vmatrix}', ''] },
+          { label: t('tb.linalgebra'), sub: [
+            { label: t('tb.matrix2'), insert: ['\\begin{pmatrix}\na & b \\\\\\\\\nc & d\n\\end{pmatrix}', ''] },
+            { label: t('tb.matrix3'), insert: ['\\begin{pmatrix}\na & b & c \\\\\\\\\nd & e & f \\\\\\\\\ng & h & i\n\\end{pmatrix}', ''] },
+            { label: t('tb.det'), insert: ['\\begin{vmatrix}\na & b \\\\\\\\\nc & d\n\\end{vmatrix}', ''] },
           ]},
-          { label: '希腊字母', sub: [
+          { label: t('tb.greek'), sub: [
             { label: 'α β γ δ ε', insert: ['\\alpha \\beta \\gamma \\delta \\epsilon', ''] },
             { label: 'θ φ ψ ω', insert: ['\\theta \\varphi \\psi \\omega', ''] },
             { label: 'Γ Δ Θ Λ Ξ', insert: ['\\Gamma \\Delta \\Theta \\Lambda \\Xi', ''] },
@@ -105,18 +105,18 @@
         ]
       },
       {
-        label: '图表',
+        label: t('tb.diagram'),
         items: [
-          { label: '横向流程图', insert: ['```mermaid\ngraph LR\n    A[开始] --> B{判断}\n    B -->|是| C[执行]\n    B -->|否| D[结束]\n```', ''] },
-          { label: '竖向流程图', insert: ['```mermaid\ngraph TD\n    A[开始] --> B{判断}\n    B -->|是| C[执行]\n    B -->|否| D[结束]\n```', ''] },
-          { label: '时序图', insert: ['```mermaid\nsequenceDiagram\n    participant A as 用户\n    participant B as 服务器\n    A->>B: 请求\n    B-->>A: 响应\n```', ''] },
-          { label: '类图', insert: ['```mermaid\nclassDiagram\n    class Animal {\n        +String name\n        +makeSound()\n    }\n    class Dog {\n        +bark()\n    }\n    Animal <|-- Dog\n```', ''] },
+          { label: t('tb.flowchart'), insert: ['```mermaid\ngraph LR\n    A[开始] --> B{判断}\n    B -->|是| C[执行]\n    B -->|否| D[结束]\n```', ''] },
+          { label: t('tb.flowchartV'), insert: ['```mermaid\ngraph TD\n    A[开始] --> B{判断}\n    B -->|是| C[执行]\n    B -->|否| D[结束]\n```', ''] },
+          { label: t('tb.sequence'), insert: ['```mermaid\nsequenceDiagram\n    participant A as 用户\n    participant B as 服务器\n    A->>B: 请求\n    B-->>A: 响应\n```', ''] },
+          { label: t('tb.class'), insert: ['```mermaid\nclassDiagram\n    class Animal {\n        +String name\n        +makeSound()\n    }\n    class Dog {\n        +bark()\n    }\n    Animal <|-- Dog\n```', ''] },
           { sep: true },
-          { label: '其他', sub: [
-            { label: '状态图', insert: ['```mermaid\nstateDiagram-v2\n    [*] --> 待处理\n    待处理 --> 进行中\n    进行中 --> 已完成\n    已完成 --> [*]\n```', ''] },
-            { label: '甘特图', insert: ['```mermaid\ngantt\n    title 项目计划\n    dateFormat YYYY-MM-DD\n    section 阶段一\n    任务A :a1, 2026-01-01, 30d\n    任务B :a2, after a1, 20d\n```', ''] },
-            { label: '饼图', insert: ['```mermaid\npie title 分布\n    "A" : 40\n    "B" : 30\n    "C" : 30\n```', ''] },
-            { label: 'ER 图', insert: ['```mermaid\nerDiagram\n    USER ||--o{ ORDER : places\n    ORDER ||--|{ LINE-ITEM : contains\n```', ''] },
+          { label: t('tb.other'), sub: [
+            { label: t('tb.state'), insert: ['```mermaid\nstateDiagram-v2\n    [*] --> 待处理\n    待处理 --> 进行中\n    进行中 --> 已完成\n    已完成 --> [*]\n```', ''] },
+            { label: t('tb.gantt'), insert: ['```mermaid\ngantt\n    title 项目计划\n    dateFormat YYYY-MM-DD\n    section 阶段一\n    任务A :a1, 2026-01-01, 30d\n    任务B :a2, after a1, 20d\n```', ''] },
+            { label: t('tb.pie'), insert: ['```mermaid\npie title 分布\n    "A" : 40\n    "B" : 30\n    "C" : 30\n```', ''] },
+            { label: t('tb.er'), insert: ['```mermaid\nerDiagram\n    USER ||--o{ ORDER : places\n    ORDER ||--|{ LINE-ITEM : contains\n```', ''] },
           ]},
         ]
       }
@@ -209,16 +209,15 @@
   async function uploadAndInsert(file) {
     if (!isImageFile(file)) return;
     try {
-      insertAtCursor(contentInput, '![上传中...]()');
+      insertAtCursor(contentInput, `![${t('status.uploading')}]()`);
       const url = await storage.uploadImage(file);
-      // Replace the placeholder with actual markdown
       contentInput.value = contentInput.value.replace(
-        '![上传中...]()',
+        `![${t('status.uploading')}]()`,
         `![${file.name}](${url})`
       );
     } catch (e) {
-      contentInput.value = contentInput.value.replace('![上传中...]()', '');
-      alert('图片上传失败: ' + e.message);
+      contentInput.value = contentInput.value.replace(`![${t('status.uploading')}]()`, '');
+      alert(t('status.uploadFailed') + ': ' + e.message);
     }
   }
 
@@ -278,7 +277,7 @@
       if (!data.title && !data.content) return false;
       // Don't overwrite if loading for edit and content already loaded
       if (editId && contentInput.value) return false;
-      if (confirm('发现未保存的草稿，是否恢复？')) {
+      if (confirm(t('draft.restore'))) {
         titleInput.value = data.title || '';
         slugInput.value = data.slug || '';
         dateInput.value = data.date || '';
@@ -313,18 +312,18 @@
   // --- Storage mode indicator ---
   var storageLabel = document.createElement('span');
   storageLabel.className = 'storage-mode';
-  storageLabel.textContent = storage === LOCAL ? '本地存储' : 'GitHub';
+  storageLabel.textContent = storage === LOCAL ? t('manage.storageLocal') : t('manage.storageGithub');
   storageLabel.style.cssText = 'font-size:0.75rem;color:var(--text-muted);padding:2px 8px;border:1px solid var(--border);border-radius:4px;';
   editorSection.querySelector('.editor-meta')?.prepend(storageLabel);
 
   // --- Token / Auth ---
 
   function setupLocalAuth() {
-    tokenSection.querySelector('h2').textContent = '本地服务器认证';
-    tokenSection.querySelector('.hint').textContent = '服务器需要密码验证。';
-    tokenInput.placeholder = '输入密码...';
+    tokenSection.querySelector('h2').textContent = t('auth.local');
+    tokenSection.querySelector('.hint').textContent = t('auth.local.hint');
+    tokenInput.placeholder = t('auth.local.placeholder');
     tokenInput.type = 'password';
-    saveTokenBtn.textContent = '验证';
+    saveTokenBtn.textContent = t('btn.verify');
   }
 
   async function checkLocalAuth() {
@@ -368,11 +367,11 @@
       const pw = tokenInput.value.trim();
       if (!pw) return;
       LOCAL.setPassword(pw);
-      tokenStatus.textContent = '验证中...';
+      tokenStatus.textContent = t('status.verifying');
       tokenStatus.className = 'status-msg';
       const ok = await checkLocalAuth();
       if (ok) {
-        tokenStatus.textContent = 'OK';
+        tokenStatus.textContent = t('status.ok');
         tokenStatus.className = 'status-msg success';
         setTimeout(async () => {
           tokenSection.style.display = 'none';
@@ -381,7 +380,7 @@
           else { loadDraft(); }
         }, 500);
       } else {
-        tokenStatus.textContent = '密码错误';
+        tokenStatus.textContent = t('status.wrongPassword');
         tokenStatus.className = 'status-msg error';
         LOCAL.setPassword('');
       }
@@ -390,11 +389,11 @@
     const token = tokenInput.value.trim();
     if (!token) return;
     storage.setToken(token);
-    tokenStatus.textContent = 'Verifying...';
+    tokenStatus.textContent = t('status.verifying');
     tokenStatus.className = 'status-msg';
     try {
       await storage.getUser();
-      tokenStatus.textContent = 'OK';
+      tokenStatus.textContent = t('status.ok');
       tokenStatus.className = 'status-msg success';
       setTimeout(async () => {
         tokenSection.style.display = 'none';
@@ -403,7 +402,7 @@
         else { loadDraft(); }
       }, 500);
     } catch (e) {
-      tokenStatus.textContent = 'Invalid: ' + e.message;
+      tokenStatus.textContent = e.message;
       tokenStatus.className = 'status-msg error';
       storage.setToken('');
     }
@@ -414,10 +413,10 @@
   async function loadForEdit(id) {
     try {
       const post = await storage.getPost(id);
-      if (!post) { showStatus('Post not found', 'error'); return; }
+      if (!post) { showStatus(t('status.postNotFound'), 'error'); return; }
 
       editingId = id;
-      editorTitle.textContent = '编辑文章';
+      editorTitle.textContent = t('editor.editPost');
       document.title = 'Edit - Blog';
       titleInput.value = post.title;
       slugInput.value = post.id;
@@ -426,10 +425,10 @@
       tagsInput.value = post.tags.join(', ');
       summaryInput.value = post.summary;
       contentInput.value = post.content || '';
-      publishBtn.textContent = 'Update';
-      showStatus(`Editing: ${post.title}`, '');
+      publishBtn.textContent = t('btn.update');
+      showStatus(`${t('status.editing')}: ${post.title}`, '');
     } catch (e) {
-      showStatus('Load failed: ' + e.message, 'error');
+      showStatus(t('status.loadingFailed') + ': ' + e.message, 'error');
     }
   }
 
@@ -488,7 +487,7 @@
             pre.replaceWith(wrapper);
           } catch (e) {
             pre.classList.add('mermaid-error');
-            pre.textContent = 'Mermaid error: ' + e.message;
+            pre.textContent = t('status.mermaidError') + ': ' + e.message;
           }
         }
       }
@@ -498,22 +497,22 @@
   previewBtn.addEventListener('click', async () => {
     if (previewEl.style.display === 'none') {
       previewEl.style.display = 'block';
-      previewBtn.textContent = '隐藏预览';
+      previewBtn.textContent = t('btn.hidePreview');
       previewRefresh.style.display = '';
       await renderPreview();
     } else {
       previewEl.style.display = 'none';
-      previewBtn.textContent = '预览';
+      previewBtn.textContent = t('btn.preview');
       previewRefresh.style.display = 'none';
     }
   });
 
   previewRefresh.addEventListener('click', async () => {
     previewRefresh.disabled = true;
-    previewRefresh.textContent = '刷新中...';
+    previewRefresh.textContent = '...';
     await renderPreview();
     previewRefresh.disabled = false;
-    previewRefresh.textContent = '刷新预览';
+    previewRefresh.textContent = t('btn.refreshPreview');
   });
 
   // --- Publish / Draft ---
@@ -526,18 +525,18 @@
     const content = contentInput.value.trim();
     const id = slugInput.value.trim() || storage.slugify(title);
 
-    if (!title || !content) { showStatus('Title and content required', 'error'); return; }
-    if (tags.length === 0) { showStatus('At least one tag', 'error'); return; }
+    if (!title || !content) { showStatus(t('status.titleRequired'), 'error'); return; }
+    if (tags.length === 0) { showStatus(t('status.tagRequired'), 'error'); return; }
 
     const btn = isDraft ? draftBtn : publishBtn;
     const origText = btn.textContent;
     btn.disabled = true;
-    btn.textContent = '保存中...';
+    btn.textContent = t('status.saving');
     showStatus('', '');
 
     try {
       const resultId = await storage.publishPost({ id, title, date, tags, summary, content, draft: isDraft });
-      const label = isDraft ? '草稿' : (editingId ? '已更新' : '已发布');
+      const label = isDraft ? t('status.draftLabel') : (editingId ? t('status.updated') : t('status.published'));
       showStatus(`${label}: ${resultId}`, 'success');
       clearDraft();
       if (!editingId && !isDraft) {
@@ -550,7 +549,7 @@
         dateInput.value = new Date().toISOString().slice(0, 10);
       }
     } catch (e) {
-      showStatus('Failed: ' + e.message, 'error');
+      showStatus(t('status.failed') + ': ' + e.message, 'error');
     } finally {
       btn.disabled = false;
       btn.textContent = origText;

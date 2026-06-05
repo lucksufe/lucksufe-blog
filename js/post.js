@@ -57,7 +57,7 @@
     document.title = post.title + ' - Blog';
 
     headerEl.innerHTML = `
-      <a href="index.html" class="back-link">&larr; back</a>
+      <a href="index.html" class="back-link">${t('post.back')}</a>
       <h1>${post.title}</h1>
       <div class="post-meta">
         <span class="post-date">${post.date}</span>
@@ -98,7 +98,7 @@
             pre.replaceWith(wrapper);
           } catch (e) {
             pre.classList.add('mermaid-error');
-            pre.textContent = 'Mermaid error: ' + e.message;
+            pre.textContent = t('status.mermaidError') + ': ' + e.message;
           }
         }
       }

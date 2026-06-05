@@ -7,7 +7,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
   <script>(function(){var v=localStorage.getItem('theme_vars');if(v)try{var s=JSON.parse(v),r=document.documentElement;for(var k in s)r.style.setProperty(k,s[k])}catch(e){}})();</script>
-  <script>(function(){var c=localStorage.getItem('site_config');if(c)try{var s=JSON.parse(c),r=document.documentElement;if(s.font)r.style.setProperty('--font-sans',s.font);if(s.fontSize)r.style.fontSize=s.fontSize+'px'}catch(e){}})();</script>
+  <script>(function(){var c=localStorage.getItem('site_config');if(c)try{var s=JSON.parse(c),r=document.documentElement;if(s.font)r.style.setProperty('--font-sans',s.font);if(s.fontSize)r.style.fontSize=s.fontSize+'px';if(s.lang)window._lang=s.lang}catch(e){}})();</script>
 </head>
 <body>
   <div class="container">
@@ -20,19 +20,19 @@
 
     <div class="index-layout">
       <aside class="tag-sidebar">
-        <h2>Tags</h2>
+        <h2 data-i18n="tag.sidebar">标签</h2>
         <div class="tag-list" id="tag-list"></div>
       </aside>
 
       <main>
         <div class="search-bar">
-          <input type="text" id="search-input" placeholder="Search posts..." class="input-full">
+          <input type="text" id="search-input" data-i18n-ph="search.placeholder" placeholder="搜索文章..." class="input-full">
         </div>
         <div class="post-list" id="post-list"></div>
         <div class="pagination">
-          <button id="page-prev" class="btn" style="display:none;">&larr; Prev</button>
+          <button id="page-prev" class="btn" style="display:none;" data-i18n="page.prev">← 上一页</button>
           <span id="page-info" class="page-info"></span>
-          <button id="page-next" class="btn" style="display:none;">Next &rarr;</button>
+          <button id="page-next" class="btn" style="display:none;" data-i18n="page.next">下一页 →</button>
         </div>
       </main>
     </div>
@@ -44,8 +44,9 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  <script src="js/i18n.js"></script>
   <script src="js/app.js"></script>
   <script src="js/theme.js"></script>
-  <script>(function(){fetch('/config.json').then(function(r){return r.json()}).then(function(s){localStorage.setItem('site_config',JSON.stringify(s));var t=document.querySelector('.site-header h1 a');if(t&&s.title!==undefined)t.textContent=s.title;var g=document.querySelector('.subtitle');if(g&&s.tagline!==undefined)g.textContent=s.tagline;var f=document.querySelector('.site-footer p:last-child');if(f&&s.footer!==undefined)f.textContent=s.footer;var r=document.querySelector('.site-footer p:first-child');if(r)r.style.display=s.showRss===false?'none':''}).catch(function(){})})();</script>
+  <script>(function(){fetch('/config.json').then(function(r){return r.json()}).then(function(s){localStorage.setItem('site_config',JSON.stringify(s));var tl=document.querySelector('.site-header h1 a');if(tl&&s.title!==undefined)tl.textContent=s.title;var g=document.querySelector('.subtitle');if(g&&s.tagline!==undefined)g.textContent=s.tagline;var f=document.querySelector('.site-footer p:last-child');if(f&&s.footer!==undefined)f.textContent=s.footer;var r=document.querySelector('.site-footer p:first-child');if(r)r.style.display=s.showRss===false?'none':'';if(s.lang)window._lang=s.lang;applyI18n()}).catch(function(){})})();</script>
 </body>
 </html>

@@ -7,7 +7,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/css/style.css">
   <script>(function(){var v=localStorage.getItem('theme_vars');if(v)try{var s=JSON.parse(v),r=document.documentElement;for(var k in s)r.style.setProperty(k,s[k])}catch(e){}})();</script>
-  <script>(function(){var c=localStorage.getItem('site_config');if(c)try{var s=JSON.parse(c),r=document.documentElement;if(s.font)r.style.setProperty('--font-sans',s.font);if(s.fontSize)r.style.fontSize=s.fontSize+'px'}catch(e){}})();</script>
+  <script>(function(){var c=localStorage.getItem('site_config');if(c)try{var s=JSON.parse(c),r=document.documentElement;if(s.font)r.style.setProperty('--font-sans',s.font);if(s.fontSize)r.style.fontSize=s.fontSize+'px';if(s.lang)window._lang=s.lang}catch(e){}})();</script>
 </head>
 <body>
   <div class="container">
@@ -16,32 +16,32 @@
     </header>
 
     <section id="token-section" class="editor-card">
-      <h2>连接 GitHub</h2>
-      <p class="hint">输入 Fine-grained Personal Access Token，需要 Contents: Read and write 权限。</p>
+      <h2 data-i18n="auth.github">连接 GitHub</h2>
+      <p class="hint" data-i18n="auth.github.hint">输入 Fine-grained Personal Access Token，需要 Contents: Read and write 权限。</p>
       <div class="form-row">
-        <input type="password" id="token" placeholder="github_pat_..." class="input-full">
-        <button id="save-token" class="btn">验证</button>
+        <input type="password" id="token" data-i18n-ph="auth.github.placeholder" placeholder="github_pat_..." class="input-full">
+        <button id="save-token" class="btn" data-i18n="btn.verify">验证</button>
       </div>
       <div id="token-status" class="status-msg"></div>
     </section>
 
     <section id="manage-section" class="editor-card" style="display:none;">
       <div class="editor-header">
-        <h2>文章管理</h2>
+        <h2 data-i18n="manage.title">文章管理</h2>
         <div class="editor-meta">
-          <span>登录为 <strong id="user-display"></strong></span>
-          <a href="/editor/write.html" class="btn">写文章</a>
-          <button id="refresh-posts" class="btn">刷新</button>
+          <span><span data-i18n="manage.loginAs">登录为</span> <strong id="user-display"></strong></span>
+          <a href="/editor/write.html" class="btn" data-i18n="btn.write">写文章</a>
+          <button id="refresh-posts" class="btn" data-i18n="btn.refresh">刷新</button>
           <button id="settings-btn" class="btn-icon" title="站点设置">&#9881;</button>
-          <button id="logout-btn" class="btn-link">切换账号</button>
+          <button id="logout-btn" class="btn-link" data-i18n="btn.switchAccount">切换账号</button>
         </div>
       </div>
       <div id="post-list-status" class="status-msg"></div>
       <div id="post-list" class="post-list-manage"></div>
       <div class="pagination" id="pagination-controls" style="display:none;">
-        <button id="page-prev" class="btn">上一页</button>
+        <button id="page-prev" class="btn" data-i18n="page.prev">← 上一页</button>
         <span id="page-info" class="page-info"></span>
-        <button id="page-next" class="btn">下一页</button>
+        <button id="page-next" class="btn" data-i18n="page.next">下一页 →</button>
       </div>
     </section>
 
@@ -49,35 +49,35 @@
       <div class="modal-backdrop"></div>
       <div class="modal-content">
         <div class="modal-header">
-          <h3>站点设置</h3>
+          <h3 data-i18n="settings.title">站点设置</h3>
           <button id="settings-close" class="btn-icon">&times;</button>
         </div>
         <div class="modal-body">
           <div class="form-group">
-            <label>站点标题</label>
+            <label data-i18n="settings.siteTitle">站点标题</label>
             <input type="text" id="cfg-title" class="input-full" placeholder="~/blog">
           </div>
           <div class="form-group">
-            <label>标语</label>
+            <label data-i18n="settings.tagline">标语</label>
             <input type="text" id="cfg-tagline" class="input-full" placeholder="thoughts, code, stories">
           </div>
           <div class="form-group">
-            <label>页脚文本</label>
+            <label data-i18n="settings.footer">页脚文本</label>
             <input type="text" id="cfg-footer" class="input-full" placeholder="built with html & persistence">
           </div>
           <div class="form-row">
             <div class="form-group flex-1">
-              <label>字体</label>
+              <label data-i18n="settings.font">字体</label>
               <select id="cfg-font" class="input-full">
-                <option value="system-ui">System UI（系统默认）</option>
-                <option value="serif">Serif（衬线体）</option>
-                <option value="monospace">Monospace（等宽体）</option>
+                <option value="system-ui" data-i18n="font.systemUi">System UI（系统默认）</option>
+                <option value="serif" data-i18n="font.serif">Serif（衬线体）</option>
+                <option value="monospace" data-i18n="font.monospace">Monospace（等宽体）</option>
                 <option value="'Georgia', serif">Georgia</option>
                 <option value="'Palatino', serif">Palatino</option>
               </select>
             </div>
             <div class="form-group">
-              <label>基础字号</label>
+              <label data-i18n="settings.fontSize">基础字号</label>
               <select id="cfg-fontsize" class="input-full">
                 <option value="14">14px</option>
                 <option value="15">15px</option>
@@ -91,13 +91,20 @@
           <div class="form-group">
             <label class="checkbox-label">
               <input type="checkbox" id="cfg-show-rss" checked>
-              <span>显示 RSS 订阅链接</span>
+              <span data-i18n="settings.showRss">显示 RSS 订阅链接</span>
             </label>
+          </div>
+          <div class="form-group">
+            <label data-i18n="settings.language">语言</label>
+            <select id="cfg-lang" class="input-full">
+              <option value="zh">中文</option>
+              <option value="en">English</option>
+            </select>
           </div>
           <div id="settings-status" class="status-msg"></div>
         </div>
         <div class="modal-footer">
-          <button id="settings-save" class="btn">保存</button>
+          <button id="settings-save" class="btn" data-i18n="btn.save">保存</button>
         </div>
       </div>
     </div>
@@ -123,8 +130,9 @@
       } catch(e) { window.storage = GH; localStorage.setItem('storage_mode', 'github'); }
     })();
   </script>
+  <script src="/js/i18n.js"></script>
   <script src="/editor/js/manage.js"></script>
   <script src="/js/theme.js"></script>
-  <script>(function(){fetch('/config.json').then(function(r){return r.json()}).then(function(s){localStorage.setItem('site_config',JSON.stringify(s));var t=document.querySelector('.site-header h1 a');if(t&&s.title)t.textContent=s.title}).catch(function(){})})();</script>
+  <script>(function(){fetch('/config.json').then(function(r){return r.json()}).then(function(s){localStorage.setItem('site_config',JSON.stringify(s));var t=document.querySelector('.site-header h1 a');if(t&&s.title)t.textContent=s.title;if(s.lang)window._lang=s.lang;applyI18n()}).catch(function(){})})();</script>
 </body>
 </html>
