@@ -2,7 +2,7 @@
   "title": "~/blog",
   "tagline": "thoughts, code, stories",
   "footer": "built with html & persistence",
-  "font": "system-ui",
-  "fontSize": "16",
-  "showRss": true
+  "font": "serif",
+  "fontSize": "18",
+  "showRss": false
 }
