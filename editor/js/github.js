@@ -101,35 +101,63 @@ const GH = {
 
   // --- Publish ---
 
+  async _commitWithRetry(path, content, message, maxRetries) {
+    maxRetries = maxRetries || 3;
+    for (var attempt = 0; attempt < maxRetries; attempt++) {
+      var file = await this.getFile(path);
+      try {
+        return await this.commitFile(path, content, file?.sha, message);
+      } catch (e) {
+        if (attempt < maxRetries - 1 && /does not match|409/.test(e.message)) {
+          await new Promise(function(r) { setTimeout(r, 300 * (attempt + 1)); });
+          continue;
+        }
+        throw e;
+      }
+    }
+  },
+
   async publishPost(post) {
     const id = post.id || this.slugify(post.title);
 
     // 1. Save post JSON
     const postData = { id, title: post.title, date: post.date, tags: post.tags, summary: post.summary, content: post.content, draft: !!post.draft };
-    const existing = await this.getFile(`posts/${id}.json`);
-    await this.commitFile(
+    await this._commitWithRetry(
       `posts/${id}.json`,
       JSON.stringify(postData, null, 2),
-      existing?.sha,
       `post: ${post.title}`
     );
 
     // 2. Update manifest
-    const manifestFile = await this.getFile('posts/manifest.json');
-    let manifest = manifestFile ? JSON.parse(manifestFile.content) : [];
-
-    const meta = { id, title: post.title, date: post.date, tags: post.tags, summary: post.summary, draft: !!post.draft };
-    const idx = manifest.findIndex(p => p.id === id);
-    if (idx >= 0) {
-      manifest[idx] = meta;
-    } else {
-      manifest.push(meta);
-    }
-
-    manifest.sort((a, b) => b.date.localeCompare(a.date));
-    await this.saveManifest(manifest, manifestFile?.sha);
+    var self = this;
+    var meta = { id, title: post.title, date: post.date, tags: post.tags, summary: post.summary, draft: !!post.draft };
+    await (async function() {
+      for (var attempt = 0; attempt < 3; attempt++) {
+        var manifestFile = await self.getFile('posts/manifest.json');
+        var manifest = manifestFile ? JSON.parse(manifestFile.content) : [];
+        var idx = manifest.findIndex(function(p) { return p.id === id; });
+        if (idx >= 0) {
+          manifest[idx] = meta;
+        } else {
+          manifest.push(meta);
+        }
+        manifest.sort(function(a, b) { return b.date.localeCompare(a.date); });
+        try {
+          await self.saveManifest(manifest, manifestFile?.sha);
+          return manifest;
+        } catch (e) {
+          if (attempt < 2 && /does not match|409/.test(e.message)) {
+            await new Promise(function(r) { setTimeout(r, 300 * (attempt + 1)); });
+            continue;
+          }
+          throw e;
+        }
+      }
+    })();
 
     // 3. Update RSS
+    var manifestFile = await this.getFile('posts/manifest.json');
+    var manifest = manifestFile ? JSON.parse(manifestFile.content) : [];
     await this.generateRss(manifest);
 
     return id;
