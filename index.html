@@ -6,12 +6,15 @@
   <title>Blog</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
+  <script>(function(){var v=localStorage.getItem('theme_vars');if(v)try{var s=JSON.parse(v),r=document.documentElement;for(var k in s)r.style.setProperty(k,s[k])}catch(e){}})();</script>
 </head>
 <body>
   <div class="container">
     <header class="site-header">
-      <h1><a href="index.html">~/blog</a></h1>
-      <p class="subtitle">thoughts, code, stories</p>
+      <div>
+        <h1><a href="index.html">~/blog</a></h1>
+        <p class="subtitle">thoughts, code, stories</p>
+      </div>
     </header>
 
     <div class="index-layout">
@@ -34,7 +37,7 @@
     </div>
 
     <footer class="site-footer">
-      <p><a href="about.html">About</a> · <a href="tutorial.html">Tutorial</a> · <a href="rss.xml">RSS</a></p>
+      <p><a href="rss.xml">RSS</a></p>
       <p>built with html &amp; persistence</p>
     </footer>
   </div>

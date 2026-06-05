@@ -11,6 +11,7 @@
     }
     current = name;
     localStorage.setItem('theme', name);
+    localStorage.setItem('theme_vars', JSON.stringify(vars));
     updateButton();
   }
 
@@ -26,10 +27,12 @@
     var header = document.querySelector('.site-header');
     if (!header) return;
 
+    var icons = { dark: '🌙', light: '☀️', green: '🌿', twilight: '🦄', rainbow: '🌈', fluttershy: '🦋', rarity: '💎' };
     var btn = document.createElement('button');
     btn.id = 'theme-btn';
     btn.className = 'theme-btn';
-    btn.title = '切换主题';
+    btn.textContent = icons[current] || current;
+    btn.title = '主题: ' + current;
     header.appendChild(btn);
 
     var menu = document.createElement('div');
