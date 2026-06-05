@@ -6,6 +6,200 @@
   <title>Use Cases — Blog</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../css/pages.css">
+  <style>
+    .uc-hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 40px;
+      position: relative;
+    }
+    .uc-hero::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .uc-hero h1 {
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    .uc-hero .uc-sub {
+      font-size: 1.2rem;
+      color: var(--pg-text-muted);
+      max-width: 500px;
+    }
+
+    /* Full-page use case sections */
+    .uc-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .uc-section::before {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.15;
+      pointer-events: none;
+    }
+
+    .uc-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      max-width: 1100px;
+      width: 100%;
+      align-items: center;
+    }
+    .uc-section:nth-child(even) .uc-inner {
+      direction: rtl;
+    }
+    .uc-section:nth-child(even) .uc-inner > * {
+      direction: ltr;
+    }
+
+    .uc-text .uc-number {
+      font-family: var(--pg-mono);
+      font-size: 0.85rem;
+      color: var(--pg-accent);
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+    .uc-text h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .uc-text p {
+      font-size: 1.05rem;
+      color: var(--pg-text-muted);
+      line-height: 1.8;
+    }
+
+    .uc-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .uc-card {
+      width: 100%;
+      max-width: 440px;
+      background: var(--pg-surface);
+      border: 1px solid var(--pg-border);
+      border-radius: 20px;
+      padding: 40px;
+      font-family: var(--pg-mono);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--pg-text);
+      position: relative;
+    }
+    .uc-card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 20px;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(99,102,241,0.3), transparent 60%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    .uc-card-title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--pg-text-muted);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--pg-border);
+    }
+    .uc-card .katex { font-size: 1.1em; }
+    .uc-card .mermaid { font-size: 0.8rem; }
+
+    /* Color accents per section */
+    .uc-s1::before { background: var(--pg-accent); right: -100px; top: -100px; }
+    .uc-s1 h2 { background: linear-gradient(135deg, #fff 20%, var(--pg-accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    .uc-s2::before { background: var(--pg-green); left: -100px; bottom: -100px; }
+    .uc-s2 h2 { background: linear-gradient(135deg, #fff 20%, var(--pg-green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    .uc-s3::before { background: var(--pg-orange); right: -100px; top: -100px; }
+    .uc-s3 h2 { background: linear-gradient(135deg, #fff 20%, var(--pg-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    .uc-s4::before { background: var(--pg-pink); left: -100px; bottom: -100px; }
+    .uc-s4 h2 { background: linear-gradient(135deg, #fff 20%, var(--pg-pink)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    .uc-s5::before { background: var(--pg-cyan); right: -100px; top: -100px; }
+    .uc-s5 h2 { background: linear-gradient(135deg, #fff 20%, var(--pg-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    .uc-s6::before { background: #a78bfa; left: -100px; bottom: -100px; }
+    .uc-s6 h2 { background: linear-gradient(135deg, #fff 20%, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    .uc-s7::before { background: #fbbf24; right: -100px; top: -100px; }
+    .uc-s7 h2 { background: linear-gradient(135deg, #fff 20%, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    /* Scroll progress dots */
+    .uc-dots {
+      position: fixed;
+      right: 32px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 50;
+    }
+    .uc-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--pg-border);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      padding: 0;
+    }
+    .uc-dot.active {
+      background: var(--pg-accent);
+      box-shadow: 0 0 12px var(--pg-accent-glow);
+      transform: scale(1.3);
+    }
+
+    @media (max-width: 768px) {
+      .uc-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .uc-section:nth-child(even) .uc-inner { direction: ltr; }
+      .uc-section { min-height: auto; padding: 60px 20px; }
+      .uc-hero { min-height: 70vh; padding: 60px 20px; }
+      .uc-dots { display: none; }
+      .uc-card { max-width: 100%; }
+    }
+  </style>
 </head>
 <body>
 
@@ -20,58 +214,167 @@
     </div>
   </nav>
 
+  <!-- Scroll dots -->
+  <div class="uc-dots" id="uc-dots"></div>
+
   <!-- Hero -->
-  <section class="page-hero">
-    <h1>Use Cases</h1>
-    <p class="hero-sub">不只是博客。从个人笔记到团队文档，一个系统覆盖多种场景。</p>
+  <section class="uc-hero" id="uc-0">
+    <h1>More Than a Blog.</h1>
+    <p class="uc-sub">公式、图表、知识库、团队文档——一个系统，七种玩法。</p>
   </section>
 
-  <!-- Use Cases -->
-  <section class="page-section">
-    <div class="feature-grid">
-
-      <div class="feature-card">
-        <div class="feature-icon fi-purple">&#9997;</div>
-        <h3>写博客</h3>
-        <p>最直接的用法。Markdown 写作、标签分类、全文搜索、RSS 订阅，该有的都有。写完即发布，零构建流程。</p>
+  <!-- 1. Blog -->
+  <section class="uc-section uc-s1" id="uc-1">
+    <div class="uc-inner">
+      <div class="uc-text">
+        <div class="uc-number">01</div>
+        <h2>写博客</h2>
+        <p>Markdown 写作、标签分类、全文搜索、RSS 订阅。写完即发布，零构建流程。支持密码保护，私密文章也能写。</p>
       </div>
-
-      <div class="feature-card">
-        <div class="feature-icon fi-green">&#129302;</div>
-        <h3>存储 LLM 对话</h3>
-        <p>ChatGPT、Claude 生成的回答经常包含公式、代码、图表。直接复制粘贴到编辑器，KaTeX 和 Mermaid 自动渲染，比截图更清晰、可编辑、可检索。</p>
+      <div class="uc-visual">
+        <div class="uc-card">
+          <div class="uc-card-title">POST</div>
+          <div style="color:var(--pg-text-muted);font-size:0.75rem;margin-bottom:8px;">2026-06-05 · 技术</div>
+          <div style="font-size:1.1rem;font-weight:700;margin-bottom:16px;">我的第一篇博客</div>
+          <div style="color:var(--pg-text-muted);">用 Markdown 写作，支持代码高亮、数学公式、Mermaid 图表。一键发布到 GitHub Pages 或本地服务器...</div>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div class="feature-card">
-        <div class="feature-icon fi-orange">&#128202;</div>
-        <h3>公式 &amp; 图表素材</h3>
-        <p>需要把公式或流程图放进 PPT、论文、文档？在编辑器里写好，渲染效果截图即可。比手画快，比 LaTeX 编译方便。</p>
+  <!-- 2. LLM Storage -->
+  <section class="uc-section uc-s2" id="uc-2">
+    <div class="uc-inner">
+      <div class="uc-text">
+        <div class="uc-number">02</div>
+        <h2>存储 LLM 对话</h2>
+        <p>ChatGPT、Claude 的回答经常包含公式、代码、图表。直接复制粘贴到编辑器，KaTeX 和 Mermaid 自动渲染。比截图更清晰、可编辑、可检索。</p>
       </div>
+      <div class="uc-visual">
+        <div class="uc-card">
+          <div class="uc-card-title">LLM OUTPUT — RENDERED</div>
+          <p style="margin-bottom:12px;">解方程 $x^2 - 5x + 6 = 0$：</p>
+          <p>$$x = \frac{5 \pm \sqrt{25 - 24}}{2} = \frac{5 \pm 1}{2}$$</p>
+          <p>$$x_1 = 3, \quad x_2 = 2$$</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <div class="feature-card">
-        <div class="feature-icon fi-pink">&#128218;</div>
-        <h3>个人知识库</h3>
+  <!-- 3. Formula & Chart -->
+  <section class="uc-section uc-s3" id="uc-3">
+    <div class="uc-inner">
+      <div class="uc-text">
+        <div class="uc-number">03</div>
+        <h2>公式 &amp; 图表素材</h2>
+        <p>需要把公式或流程图放进 PPT、论文、文档？在编辑器里写好，渲染后截图。比手画快，比 LaTeX 编译方便。</p>
+      </div>
+      <div class="uc-visual">
+        <div class="uc-card">
+          <div class="uc-card-title">MERMAID DIAGRAM</div>
+          <pre><code class="language-mermaid">graph LR
+    A[需求分析] --> B[架构设计]
+    B --> C[编码实现]
+    C --> D[测试验证]
+    D --> E[部署上线]</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Knowledge Base -->
+  <section class="uc-section uc-s4" id="uc-4">
+    <div class="uc-inner">
+      <div class="uc-text">
+        <div class="uc-number">04</div>
+        <h2>个人知识库</h2>
         <p>按标签组织笔记，全文搜索快速定位。比 Notion 轻，比纯文本文件结构化。所有数据都是 JSON，随时可以迁移。</p>
       </div>
-
-      <div class="feature-card">
-        <div class="feature-icon fi-cyan">&#128187;</div>
-        <h3>项目文档</h3>
-        <p>代码高亮支持 Python、JavaScript、Bash、C/C++ 等语言。适合写 API 文档、技术方案、开发笔记。密码保护可限制访问范围。</p>
+      <div class="uc-visual">
+        <div class="uc-card">
+          <div class="uc-card-title">TAGS</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;">
+            <span style="padding:6px 14px;background:var(--pg-surface);border:1px solid var(--pg-border);border-radius:8px;font-size:0.8rem;">机器学习</span>
+            <span style="padding:6px 14px;background:var(--pg-surface);border:1px solid var(--pg-border);border-radius:8px;font-size:0.8rem;">Python</span>
+            <span style="padding:6px 14px;background:var(--pg-surface);border:1px solid var(--pg-border);border-radius:8px;font-size:0.8rem;">读书笔记</span>
+            <span style="padding:6px 14px;background:var(--pg-surface);border:1px solid var(--pg-border);border-radius:8px;font-size:0.8rem;">LeetCode</span>
+            <span style="padding:6px 14px;background:var(--pg-surface);border:1px solid var(--pg-border);border-radius:8px;font-size:0.8rem;">系统设计</span>
+          </div>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div class="feature-card">
-        <div class="feature-icon fi-yellow">&#127891;</div>
-        <h3>教学课件素材</h3>
+  <!-- 5. Project Docs -->
+  <section class="uc-section uc-s5" id="uc-5">
+    <div class="uc-inner">
+      <div class="uc-text">
+        <div class="uc-number">05</div>
+        <h2>项目文档</h2>
+        <p>代码高亮支持 Python、JavaScript、Bash、C/C++。适合写 API 文档、技术方案、开发笔记。</p>
+      </div>
+      <div class="uc-visual">
+        <div class="uc-card">
+          <div class="uc-card-title">API DOC</div>
+          <pre style="margin:0;background:rgba(255,255,255,0.03);border:1px solid var(--pg-border);border-radius:10px;padding:16px;"><code style="color:var(--pg-green);">GET /api/posts/:id</code>
+
+<span style="color:var(--pg-text-muted);">Response:</span>
+{
+  <span style="color:var(--pg-cyan);">"id"</span>: <span style="color:var(--pg-orange);">"my-post"</span>,
+  <span style="color:var(--pg-cyan);">"title"</span>: <span style="color:var(--pg-orange);">"Hello World"</span>,
+  <span style="color:var(--pg-cyan);">"draft"</span>: <span style="color:var(--pg-pink);">false</span>
+}</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Teaching -->
+  <section class="uc-section uc-s6" id="uc-6">
+    <div class="uc-inner">
+      <div class="uc-text">
+        <div class="uc-number">06</div>
+        <h2>教学课件素材</h2>
         <p>数学公式、化学方程式、流程图、时序图——教学中常用的复杂内容，写好渲染后截图插入课件或试卷。</p>
       </div>
+      <div class="uc-visual">
+        <div class="uc-card">
+          <div class="uc-card-title">FORMULA</div>
+          <p style="text-align:center;font-size:1.3rem;margin:16px 0;">$$\int_{0}^{\infty} e^{-x^2} dx = \frac{\sqrt{\pi}}{2}$$</p>
+          <p style="text-align:center;font-size:1.3rem;margin:16px 0;">$$\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}$$</p>
+          <p style="text-align:center;font-size:1.3rem;margin:16px 0;">$$e^{i\pi} + 1 = 0$$</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <div class="feature-card">
-        <div class="feature-icon fi-green">&#128101;</div>
-        <h3>团队内部博客</h3>
+  <!-- 7. Team -->
+  <section class="uc-section uc-s7" id="uc-7">
+    <div class="uc-inner">
+      <div class="uc-text">
+        <div class="uc-number">07</div>
+        <h2>团队内部博客</h2>
         <p>本地服务器加密码保护，只对团队成员开放。发布周报、技术分享、会议纪要，比邮件好找、比聊天软件好整理。</p>
       </div>
-
+      <div class="uc-visual">
+        <div class="uc-card">
+          <div class="uc-card-title">ACCESS</div>
+          <div style="margin-top:16px;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+              <span style="width:8px;height:8px;border-radius:50%;background:var(--pg-green);"></span>
+              <span>密码保护已启用</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+              <span style="width:8px;height:8px;border-radius:50%;background:var(--pg-green);"></span>
+              <span>Fine-grained Token 访问控制</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <span style="width:8px;height:8px;border-radius:50%;background:var(--pg-green);"></span>
+              <span>本地 / GitHub 双模式</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -80,5 +383,75 @@
     <p>MIT License &middot; <a href="blog.html">Blog</a> &middot; <a href="tutorial.html">Tutorial</a></p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script>if(typeof katex==='undefined')document.write('<script src="../js/vendor/katex.min.js"><\/script>')</script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script>if(typeof renderMathInElement==='undefined')document.write('<script src="../js/vendor/auto-render.min.js"><\/script>')</script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>if(typeof mermaid==='undefined')document.write('<script src="../js/vendor/mermaid.min.js"><\/script>')</script>
+  <script>
+    (function() {
+      var sections = document.querySelectorAll('.uc-hero, .uc-section');
+      var dotsEl = document.getElementById('uc-dots');
+
+      // Build dots
+      for (var i = 0; i < sections.length; i++) {
+        var dot = document.createElement('button');
+        dot.className = 'uc-dot';
+        dot.dataset.idx = i;
+        dot.addEventListener('click', function() {
+          sections[this.dataset.idx].scrollIntoView({ behavior: 'smooth' });
+        });
+        dotsEl.appendChild(dot);
+      }
+      var dots = dotsEl.querySelectorAll('.uc-dot');
+
+      // Update dots on scroll
+      function updateDots() {
+        var current = 0;
+        for (var j = 0; j < sections.length; j++) {
+          if (sections[j].getBoundingClientRect().top <= window.innerHeight * 0.5) {
+            current = j;
+          }
+        }
+        for (var k = 0; k < dots.length; k++) {
+          dots[k].classList.toggle('active', k === current);
+        }
+      }
+      window.addEventListener('scroll', updateDots);
+      updateDots();
+
+      // KaTeX
+      var content = document.querySelector('.page-section') || document.body;
+      if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false}
+          ],
+          throwOnError: false
+        });
+      }
+
+      // Mermaid
+      if (typeof mermaid !== 'undefined') {
+        var blocks = document.querySelectorAll('code.language-mermaid');
+        if (blocks.length) {
+          mermaid.initialize({startOnLoad: false, theme: 'dark'});
+          for (var m = 0; m < blocks.length; m++) {
+            (function(block) {
+              var id = 'mermaid-' + Math.random().toString(36).slice(2,10);
+              mermaid.render(id, block.textContent).then(function(r) {
+                var w = document.createElement('div');
+                w.className = 'mermaid';
+                w.innerHTML = r.svg;
+                block.parentElement.replaceWith(w);
+              });
+            })(blocks[m]);
+          }
+        }
+      }
+    })();
+  </script>
 </body>
 </html>
