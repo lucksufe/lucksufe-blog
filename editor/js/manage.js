@@ -209,6 +209,7 @@
       $('cfg-footer').value = cfg.footer || '';
       $('cfg-font').value = cfg.font || 'system-ui';
       $('cfg-fontsize').value = cfg.fontSize || '16';
+      $('cfg-show-rss').checked = cfg.showRss !== false;
     } catch (e) {
       settingsStatus.textContent = '加载失败: ' + e.message;
       settingsStatus.className = 'status-msg error';
@@ -230,6 +231,7 @@
       footer: $('cfg-footer').value.trim(),
       font: $('cfg-font').value,
       fontSize: $('cfg-fontsize').value,
+      showRss: $('cfg-show-rss').checked,
     };
     settingsStatus.textContent = '保存中...';
     settingsStatus.className = 'status-msg';
