@@ -40,6 +40,28 @@
       color: var(--pg-text-muted);
       max-width: 500px;
     }
+    .uc-scroll-hint {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--pg-text-muted);
+      font-size: 0.8rem;
+      animation: uc-bounce 2s ease-in-out infinite;
+    }
+    .uc-scroll-hint svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--pg-text-muted);
+    }
+    @keyframes uc-bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(10px); }
+    }
 
     /* Full-page use case sections */
     .uc-section {
@@ -59,6 +81,16 @@
       border-radius: 50%;
       filter: blur(120px);
       opacity: 0.15;
+      pointer-events: none;
+    }
+    .uc-section::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 120px;
+      background: linear-gradient(to bottom, transparent, var(--pg-bg));
       pointer-events: none;
     }
 
@@ -114,6 +146,7 @@
       line-height: 1.7;
       color: var(--pg-text);
       position: relative;
+      overflow-x: auto;
     }
     .uc-card::before {
       content: '';
@@ -221,6 +254,10 @@
   <section class="uc-hero" id="uc-0">
     <h1>More Than a Blog.</h1>
     <p class="uc-sub">公式、图表、知识库、团队文档——一个系统，七种玩法。</p>
+    <div class="uc-scroll-hint">
+      <span>Scroll</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </div>
   </section>
 
   <!-- 1. Blog -->
@@ -340,9 +377,9 @@
       <div class="uc-visual">
         <div class="uc-card">
           <div class="uc-card-title">FORMULA</div>
-          <p style="text-align:center;font-size:1.3rem;margin:16px 0;">$$\int_{0}^{\infty} e^{-x^2} dx = \frac{\sqrt{\pi}}{2}$$</p>
-          <p style="text-align:center;font-size:1.3rem;margin:16px 0;">$$\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}$$</p>
-          <p style="text-align:center;font-size:1.3rem;margin:16px 0;">$$e^{i\pi} + 1 = 0$$</p>
+          <p style="text-align:center;margin:16px 0;">$$\int_0^\infty e^{-x^2} dx = \tfrac{1}{2}\sqrt{\pi}$$</p>
+          <p style="text-align:center;margin:16px 0;">$$\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}$$</p>
+          <p style="text-align:center;margin:16px 0;">$$e^{i\pi} + 1 = 0$$</p>
         </div>
       </div>
     </div>
