@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 /* ===== Standalone Pages — Modern Dark Theme ===== */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -50,9 +52,11 @@ a:hover { color: var(--pg-accent2); }
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-.page-nav .nav-links { display: flex; gap: 28px; align-items: center; }
+.page-nav .nav-links { display: flex; gap: 36px; align-items: center; }
 .page-nav .nav-links a {
-  color: var(--pg-text-muted); font-size: 1.3rem; font-weight: 500;
+  color: var(--pg-text-muted); font-size: 1.3rem; font-weight: 600;
+  font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  letter-spacing: 0.02em;
   transition: color .2s;
 }
 .page-nav .nav-links a:hover { color: var(--pg-text); }
