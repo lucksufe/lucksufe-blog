@@ -525,7 +525,6 @@
     const id = slugInput.value.trim() || storage.slugify(title);
 
     if (!title || !content) { showStatus(t('status.titleRequired'), 'error'); return; }
-    if (tags.length === 0) { showStatus(t('status.tagRequired'), 'error'); return; }
 
     publishBtn.disabled = true;
     draftBtn.disabled = true;

@@ -321,7 +321,10 @@ sequenceDiagram
         e.preventDefault();
         var target = document.getElementById(link.dataset.target);
         if (target) {
-          window.scrollTo({ top: target.offsetTop - navHeight - 16, behavior: 'smooth' });
+          // h2 has margin-top:48 + padding-top:24, scroll to show the heading text
+          var cs = window.getComputedStyle(target);
+          var marginTop = parseInt(cs.marginTop) || 0;
+          window.scrollTo({ top: target.offsetTop - navHeight - marginTop + 8, behavior: 'smooth' });
         }
       });
 

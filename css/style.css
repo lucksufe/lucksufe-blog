@@ -493,6 +493,11 @@ textarea.input-full {
   resize: vertical;
 }
 
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.7);
+  cursor: pointer;
+}
+
 .form-actions {
   display: flex;
   align-items: center;
