@@ -94,6 +94,7 @@ a:hover {
   grid-template-columns: 200px 1fr;
   gap: 48px;
   align-items: start;
+  container-type: inline-size;
 }
 
 @media (max-width: 720px) {
@@ -101,15 +102,18 @@ a:hover {
     grid-template-columns: 1fr;
     gap: 24px;
   }
-  .tag-sidebar {
-    position: static;
-  }
 }
 
 /* ===== Tags Sidebar ===== */
 .tag-sidebar {
-  position: sticky;
-  top: 24px;
+  position: static;
+}
+
+@container (min-width: 700px) {
+  .tag-sidebar {
+    position: sticky;
+    top: 24px;
+  }
 }
 
 .tag-sidebar h2 {
