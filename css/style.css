@@ -771,6 +771,10 @@ button.btn {
   background: var(--border);
 }
 
+.tb-submenu-trigger {
+  position: relative;
+}
+
 .tb-submenu {
   display: none;
   position: absolute;

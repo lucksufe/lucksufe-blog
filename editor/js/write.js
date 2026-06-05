@@ -17,6 +17,7 @@
   const publishBtn = $('publish-btn');
   const statusEl = $('publish-status');
   const previewBtn = $('preview-btn');
+  const previewRefresh = $('preview-refresh');
   const previewEl = $('preview');
 
   const params = new URLSearchParams(window.location.search);
@@ -73,14 +74,15 @@
       {
         label: '数学公式',
         items: [
-          { label: '分式  a/b', insert: ['\\frac{', '}{b}'] },
-          { label: '根号  √', insert: ['\\sqrt{', '}'] },
-          { label: '上标下标  x²ₙ', insert: ['x^{', '}_{n}'] },
-          { label: '向量  →', insert: ['\\vec{', '}'] },
-          { sep: true },
           { label: '$ 行内公式', insert: ['$ ', ' $'] },
           { label: '$$ 块级公式', insert: ['$$\n', '\n$$'] },
           { label: '\\[ \\] 展示公式', insert: ['\\[\n', '\n\\]'] },
+          { sep: true },
+          { label: '分式  a/b', insert: ['\\frac{', '}{b}'] },
+          { label: '根号  √', insert: ['\\sqrt{', '}'] },
+          { label: '上标  x²', insert: ['x^{', '}'] },
+          { label: '下标  xₙ', insert: ['x_{', '}'] },
+          { label: '向量  →', insert: ['\\vec{', '}'] },
           { sep: true },
           { label: '微积分', sub: [
             { label: '∫ 积分', insert: ['\\int_{', '}^{\\infty} f(x) \\, \\mathrm{d}x'] },
@@ -104,7 +106,8 @@
       {
         label: '图表',
         items: [
-          { label: '流程图', insert: ['```mermaid\ngraph LR\n    A[开始] --> B{判断}\n    B -->|是| C[执行]\n    B -->|否| D[结束]\n```', ''] },
+          { label: '横向流程图', insert: ['```mermaid\ngraph LR\n    A[开始] --> B{判断}\n    B -->|是| C[执行]\n    B -->|否| D[结束]\n```', ''] },
+          { label: '竖向流程图', insert: ['```mermaid\ngraph TD\n    A[开始] --> B{判断}\n    B -->|是| C[执行]\n    B -->|否| D[结束]\n```', ''] },
           { label: '时序图', insert: ['```mermaid\nsequenceDiagram\n    participant A as 用户\n    participant B as 服务器\n    A->>B: 请求\n    B-->>A: 响应\n```', ''] },
           { label: '类图', insert: ['```mermaid\nclassDiagram\n    class Animal {\n        +String name\n        +makeSound()\n    }\n    class Dog {\n        +bark()\n    }\n    Animal <|-- Dog\n```', ''] },
           { sep: true },
@@ -454,49 +457,62 @@
     return html;
   }
 
-  previewBtn.addEventListener('click', async () => {
-    if (previewEl.style.display === 'none') {
-      const { src, store } = escapeMath(contentInput.value);
-      previewEl.innerHTML = restoreMath(marked.parse(src), store);
-      previewEl.style.display = 'block';
-      previewBtn.textContent = 'Hide preview';
-      if (typeof renderMathInElement === 'function') {
-        renderMathInElement(previewEl, {
-          delimiters: [
-            { left: '$$', right: '$$', display: true },
-            { left: '$', right: '$', display: false },
-            { left: '\\[', right: '\\]', display: true },
-            { left: '\\(', right: '\\)', display: false }
-          ],
-          throwOnError: false
-        });
-      }
-      if (typeof Prism !== 'undefined') Prism.highlightAllUnder(previewEl);
-      // Render Mermaid diagrams
-      if (typeof mermaid !== 'undefined') {
-        const mermaidBlocks = previewEl.querySelectorAll('code.language-mermaid');
-        if (mermaidBlocks.length > 0) {
-          mermaid.initialize({ startOnLoad: false, theme: 'dark' });
-          for (const block of mermaidBlocks) {
-            const pre = block.parentElement;
-            const id = 'mermaid-' + Math.random().toString(36).slice(2, 10);
-            try {
-              const { svg } = await mermaid.render(id, block.textContent);
-              const wrapper = document.createElement('div');
-              wrapper.className = 'mermaid';
-              wrapper.innerHTML = svg;
-              pre.replaceWith(wrapper);
-            } catch (e) {
-              pre.classList.add('mermaid-error');
-              pre.textContent = 'Mermaid error: ' + e.message;
-            }
+  async function renderPreview() {
+    const { src, store } = escapeMath(contentInput.value);
+    previewEl.innerHTML = restoreMath(marked.parse(src), store);
+    if (typeof renderMathInElement === 'function') {
+      renderMathInElement(previewEl, {
+        delimiters: [
+          { left: '$$', right: '$$', display: true },
+          { left: '$', right: '$', display: false },
+          { left: '\\[', right: '\\]', display: true },
+          { left: '\\(', right: '\\)', display: false }
+        ],
+        throwOnError: false
+      });
+    }
+    if (typeof Prism !== 'undefined') Prism.highlightAllUnder(previewEl);
+    if (typeof mermaid !== 'undefined') {
+      const mermaidBlocks = previewEl.querySelectorAll('code.language-mermaid');
+      if (mermaidBlocks.length > 0) {
+        mermaid.initialize({ startOnLoad: false, theme: 'dark' });
+        for (const block of mermaidBlocks) {
+          const pre = block.parentElement;
+          const id = 'mermaid-' + Math.random().toString(36).slice(2, 10);
+          try {
+            const { svg } = await mermaid.render(id, block.textContent);
+            const wrapper = document.createElement('div');
+            wrapper.className = 'mermaid';
+            wrapper.innerHTML = svg;
+            pre.replaceWith(wrapper);
+          } catch (e) {
+            pre.classList.add('mermaid-error');
+            pre.textContent = 'Mermaid error: ' + e.message;
           }
         }
       }
+    }
+  }
+
+  previewBtn.addEventListener('click', async () => {
+    if (previewEl.style.display === 'none') {
+      previewEl.style.display = 'block';
+      previewBtn.textContent = '隐藏预览';
+      previewRefresh.style.display = '';
+      await renderPreview();
     } else {
       previewEl.style.display = 'none';
-      previewBtn.textContent = 'Preview';
+      previewBtn.textContent = '预览';
+      previewRefresh.style.display = 'none';
     }
+  });
+
+  previewRefresh.addEventListener('click', async () => {
+    previewRefresh.disabled = true;
+    previewRefresh.textContent = '刷新中...';
+    await renderPreview();
+    previewRefresh.disabled = false;
+    previewRefresh.textContent = '刷新预览';
   });
 
   // --- Publish ---

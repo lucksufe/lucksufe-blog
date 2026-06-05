@@ -46,6 +46,6 @@
   <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
   <script src="js/app.js"></script>
   <script src="js/theme.js"></script>
-  <script>(function(){fetch('/config.json').then(function(r){return r.json()}).then(function(s){localStorage.setItem('site_config',JSON.stringify(s));var t=document.querySelector('.site-header h1 a');if(t&&s.title)t.textContent=s.title;var g=document.querySelector('.subtitle');if(g&&s.tagline)g.textContent=s.tagline;var f=document.querySelector('.site-footer p:last-child');if(f&&s.footer)f.textContent=s.footer;var r=document.querySelector('.site-footer p:first-child');if(r)r.style.display=s.showRss===false?'none':''}).catch(function(){})})();</script>
+  <script>(function(){fetch('/config.json').then(function(r){return r.json()}).then(function(s){localStorage.setItem('site_config',JSON.stringify(s));var t=document.querySelector('.site-header h1 a');if(t&&s.title!==undefined)t.textContent=s.title;var g=document.querySelector('.subtitle');if(g&&s.tagline!==undefined)g.textContent=s.tagline;var f=document.querySelector('.site-footer p:last-child');if(f&&s.footer!==undefined)f.textContent=s.footer;var r=document.querySelector('.site-footer p:first-child');if(r)r.style.display=s.showRss===false?'none':''}).catch(function(){})})();</script>
 </body>
 </html>
