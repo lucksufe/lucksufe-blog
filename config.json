@@ -1,8 +1,8 @@
 {
   "title": "~/blog",
   "tagline": "thoughts, code, stories",
-  "footer": "built with html & persistence",
-  "font": "serif",
-  "fontSize": "18",
+  "footer": "",
+  "font": "system-ui",
+  "fontSize": "16",
   "showRss": false
 }
