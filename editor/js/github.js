@@ -102,14 +102,14 @@ const GH = {
   // --- Publish ---
 
   async _commitWithRetry(path, content, message, maxRetries) {
-    maxRetries = maxRetries || 3;
+    maxRetries = maxRetries || 5;
     for (var attempt = 0; attempt < maxRetries; attempt++) {
       var file = await this.getFile(path);
       try {
         return await this.commitFile(path, content, file?.sha, message);
       } catch (e) {
         if (attempt < maxRetries - 1 && /does not match|409/.test(e.message)) {
-          await new Promise(function(r) { setTimeout(r, 300 * (attempt + 1)); });
+          await new Promise(function(r) { setTimeout(r, 1000 * (attempt + 1)); });
           continue;
         }
         throw e;
@@ -132,7 +132,7 @@ const GH = {
     var self = this;
     var meta = { id, title: post.title, date: post.date, tags: post.tags, summary: post.summary, draft: !!post.draft };
     await (async function() {
-      for (var attempt = 0; attempt < 3; attempt++) {
+      for (var attempt = 0; attempt < 5; attempt++) {
         var manifestFile = await self.getFile('posts/manifest.json');
         var manifest = manifestFile ? JSON.parse(manifestFile.content) : [];
         var idx = manifest.findIndex(function(p) { return p.id === id; });
@@ -146,8 +146,8 @@ const GH = {
           await self.saveManifest(manifest, manifestFile?.sha);
           return manifest;
         } catch (e) {
-          if (attempt < 2 && /does not match|409/.test(e.message)) {
-            await new Promise(function(r) { setTimeout(r, 300 * (attempt + 1)); });
+          if (attempt < 4 && /does not match|409/.test(e.message)) {
+            await new Promise(function(r) { setTimeout(r, 1000 * (attempt + 1)); });
             continue;
           }
           throw e;

@@ -529,10 +529,10 @@
     if (!title || !content) { showStatus(t('status.titleRequired'), 'error'); return; }
     if (tags.length === 0) { showStatus(t('status.tagRequired'), 'error'); return; }
 
-    const btn = isDraft ? draftBtn : publishBtn;
-    const origText = btn.textContent;
-    btn.disabled = true;
-    btn.textContent = t('status.saving');
+    publishBtn.disabled = true;
+    draftBtn.disabled = true;
+    const origText = isDraft ? draftBtn.textContent : publishBtn.textContent;
+    (isDraft ? draftBtn : publishBtn).textContent = t('status.saving');
     showStatus('', '');
 
     try {
@@ -549,11 +549,17 @@
         contentInput.value = '';
         dateInput.value = new Date().toISOString().slice(0, 10);
       }
+      // Re-enable for editing or draft; keep disabled after new publish
+      if (editingId || isDraft) {
+        publishBtn.disabled = false;
+        draftBtn.disabled = false;
+      }
     } catch (e) {
       showStatus(t('status.failed') + ': ' + e.message, 'error');
+      publishBtn.disabled = false;
+      draftBtn.disabled = false;
     } finally {
-      btn.disabled = false;
-      btn.textContent = origText;
+      (isDraft ? draftBtn : publishBtn).textContent = origText;
     }
   }
 
