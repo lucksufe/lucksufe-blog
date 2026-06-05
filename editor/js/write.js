@@ -339,17 +339,17 @@
     if (storage === LOCAL) {
       const ok = await checkLocalAuth();
       if (ok) {
-        tokenSection.style.display = 'none';
         editorSection.style.display = 'block';
         if (editId) { await loadForEdit(editId); }
         else { loadDraft(); }
       } else {
         setupLocalAuth();
+        tokenSection.style.display = 'block';
       }
       return;
     }
     const token = storage.getToken();
-    if (!token) return;
+    if (!token) { tokenSection.style.display = 'block'; return; }
     tokenInput.value = token;
     try {
       await storage.getUser();
@@ -359,6 +359,7 @@
       else { loadDraft(); }
     } catch {
       storage.setToken('');
+      tokenSection.style.display = 'block';
     }
   }
 

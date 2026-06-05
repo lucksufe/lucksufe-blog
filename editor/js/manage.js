@@ -45,17 +45,17 @@
     if (storage === LOCAL) {
       const ok = await checkLocalAuth();
       if (ok) {
-        tokenSection.style.display = 'none';
         manageSection.style.display = 'block';
         userDisplay.textContent = 'local';
         loadPostList();
       } else {
         setupLocalAuth();
+        tokenSection.style.display = 'block';
       }
       return;
     }
     const token = storage.getToken();
-    if (!token) return;
+    if (!token) { tokenSection.style.display = 'block'; return; }
     tokenInput.value = token;
     try {
       const user = await storage.getUser();
@@ -65,6 +65,7 @@
       loadPostList();
     } catch {
       storage.setToken('');
+      tokenSection.style.display = 'block';
     }
   }
 
