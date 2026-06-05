@@ -105,7 +105,7 @@ const GH = {
     const id = post.id || this.slugify(post.title);
 
     // 1. Save post JSON
-    const postData = { id, title: post.title, date: post.date, tags: post.tags, summary: post.summary, content: post.content };
+    const postData = { id, title: post.title, date: post.date, tags: post.tags, summary: post.summary, content: post.content, draft: !!post.draft };
     const existing = await this.getFile(`posts/${id}.json`);
     await this.commitFile(
       `posts/${id}.json`,
@@ -118,7 +118,7 @@ const GH = {
     const manifestFile = await this.getFile('posts/manifest.json');
     let manifest = manifestFile ? JSON.parse(manifestFile.content) : [];
 
-    const meta = { id, title: post.title, date: post.date, tags: post.tags, summary: post.summary };
+    const meta = { id, title: post.title, date: post.date, tags: post.tags, summary: post.summary, draft: !!post.draft };
     const idx = manifest.findIndex(p => p.id === id);
     if (idx >= 0) {
       manifest[idx] = meta;

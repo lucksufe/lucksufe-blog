@@ -137,14 +137,15 @@
     const page = allManifest.slice(currentPage * PER_PAGE, (currentPage + 1) * PER_PAGE);
 
     postListEl.innerHTML = page.map(p => `
-      <div class="post-item">
+      <div class="post-item${p.draft ? ' post-item-draft' : ''}">
         <div class="post-item-info">
-          <span class="post-item-title">${p.title}</span>
+          <span class="post-item-title">${p.title}${p.draft ? ' <span class="draft-badge">草稿</span>' : ''}</span>
           <span class="post-item-date">${p.date}</span>
           <span class="post-item-tags">${p.tags.join(', ')}</span>
         </div>
         <div class="post-item-actions">
           <a href="/editor/write.html?id=${encodeURIComponent(p.id)}" class="btn btn-edit">Edit</a>
+          <button class="btn btn-draft-toggle" data-id="${p.id}" data-draft="${p.draft ? '1' : ''}">${p.draft ? '发布' : '草稿'}</button>
           <button class="btn btn-delete" data-id="${p.id}">Delete</button>
         </div>
       </div>
@@ -152,6 +153,10 @@
 
     postListEl.querySelectorAll('.btn-delete').forEach(btn => {
       btn.addEventListener('click', () => handleDelete(btn.dataset.id));
+    });
+
+    postListEl.querySelectorAll('.btn-draft-toggle').forEach(btn => {
+      btn.addEventListener('click', () => handleDraftToggle(btn.dataset.id, !btn.dataset.draft));
     });
 
     const paginationEl = $('pagination-controls');
@@ -162,6 +167,25 @@
       pagePrev.disabled = currentPage === 0;
       pageNext.disabled = currentPage >= totalPages - 1;
       pageInfo.textContent = `${currentPage + 1} / ${totalPages}`;
+    }
+  }
+
+  async function handleDraftToggle(id, toDraft) {
+    try {
+      const post = await storage.getPost(id);
+      if (!post) { alert('Post not found'); return; }
+      await storage.publishPost({
+        id: post.id,
+        title: post.title,
+        date: post.date,
+        tags: post.tags,
+        summary: post.summary,
+        content: post.content || '',
+        draft: toDraft,
+      });
+      loadPostList();
+    } catch (e) {
+      alert('操作失败: ' + e.message);
     }
   }
 

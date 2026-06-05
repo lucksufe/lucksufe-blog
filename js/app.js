@@ -15,7 +15,7 @@
   async function init() {
     try {
       const res = await fetch('posts/manifest.json');
-      allPosts = await res.json();
+      allPosts = (await res.json()).filter(p => !p.draft);
     } catch {
       postListEl.innerHTML = '<div class="empty-state"><p>Failed to load posts.</p></div>';
       return;

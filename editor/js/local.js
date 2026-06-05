@@ -52,7 +52,7 @@ const LOCAL = {
     const res = await fetch(`${this.API}/posts/${encodeURIComponent(id)}`, {
       method: 'POST',
       headers: this.headers(),
-      body: JSON.stringify(post),
+      body: JSON.stringify({ ...post, draft: !!post.draft }),
     });
     if (res.status === 401) throw new Error('Password required');
     if (!res.ok) throw new Error('Failed to publish post');

@@ -15,6 +15,7 @@
   const summaryInput = $('summary');
   const contentInput = $('content');
   const publishBtn = $('publish-btn');
+  const draftBtn = $('draft-btn');
   const statusEl = $('publish-status');
   const previewBtn = $('preview-btn');
   const previewRefresh = $('preview-refresh');
@@ -515,9 +516,9 @@
     previewRefresh.textContent = '刷新预览';
   });
 
-  // --- Publish ---
+  // --- Publish / Draft ---
 
-  publishBtn.addEventListener('click', async () => {
+  async function savePost(isDraft) {
     const title = titleInput.value.trim();
     const date = dateInput.value;
     const tags = tagsInput.value.split(',').map(t => t.trim()).filter(Boolean);
@@ -528,16 +529,18 @@
     if (!title || !content) { showStatus('Title and content required', 'error'); return; }
     if (tags.length === 0) { showStatus('At least one tag', 'error'); return; }
 
-    publishBtn.disabled = true;
-    publishBtn.textContent = editingId ? 'Updating...' : 'Publishing...';
-    showStatus('Committing to GitHub...', '');
+    const btn = isDraft ? draftBtn : publishBtn;
+    const origText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = '保存中...';
+    showStatus('', '');
 
     try {
-      const resultId = await storage.publishPost({ id, title, date, tags, summary, content });
-      showStatus(editingId ? `Updated: ${resultId}` : `Published: ${resultId}`, 'success');
+      const resultId = await storage.publishPost({ id, title, date, tags, summary, content, draft: isDraft });
+      const label = isDraft ? '草稿' : (editingId ? '已更新' : '已发布');
+      showStatus(`${label}: ${resultId}`, 'success');
       clearDraft();
-      if (!editingId) {
-        // Clear form for next post
+      if (!editingId && !isDraft) {
         titleInput.value = '';
         slugInput.value = '';
         slugInput.dataset.manual = '';
@@ -549,10 +552,13 @@
     } catch (e) {
       showStatus('Failed: ' + e.message, 'error');
     } finally {
-      publishBtn.disabled = false;
-      publishBtn.textContent = editingId ? 'Update' : 'Publish';
+      btn.disabled = false;
+      btn.textContent = origText;
     }
-  });
+  }
+
+  publishBtn.addEventListener('click', () => savePost(false));
+  draftBtn.addEventListener('click', () => savePost(true));
 
   function showStatus(msg, type) {
     statusEl.textContent = msg;

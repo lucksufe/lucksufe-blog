@@ -28,17 +28,21 @@
     if (!header) return;
 
     var icons = { dark: '🌙', light: '☀️', green: '🌿', twilight: '🦄', rainbow: '🌈', fluttershy: '🦋', rarity: '💎' };
+    var wrapper = document.createElement('div');
+    wrapper.style.position = 'relative';
+    header.appendChild(wrapper);
+
     var btn = document.createElement('button');
     btn.id = 'theme-btn';
     btn.className = 'theme-btn';
     btn.textContent = icons[current] || current;
     btn.title = '主题: ' + current;
-    header.appendChild(btn);
+    wrapper.appendChild(btn);
 
     var menu = document.createElement('div');
     menu.className = 'theme-menu';
     menu.id = 'theme-menu';
-    header.appendChild(menu);
+    wrapper.appendChild(menu);
 
     btn.addEventListener('click', function(e) {
       e.stopPropagation();

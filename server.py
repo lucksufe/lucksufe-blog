@@ -149,6 +149,7 @@ class BlogHandler(SimpleHTTPRequestHandler):
                 'tags': body['tags'],
                 'summary': body['summary'],
                 'content': body['content'],
+                'draft': body.get('draft', False),
             }
             write_json(os.path.join(POSTS_DIR, f'{post_id}.json'), post_data)
 
@@ -160,6 +161,7 @@ class BlogHandler(SimpleHTTPRequestHandler):
                 'date': post_data['date'],
                 'tags': post_data['tags'],
                 'summary': post_data['summary'],
+                'draft': post_data['draft'],
             }
             idx = next((i for i, p in enumerate(manifest) if p['id'] == post_id), -1)
             if idx >= 0:
