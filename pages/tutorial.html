@@ -331,13 +331,15 @@ sequenceDiagram
       // Highlight active sidebar link on scroll
       function updateActive() {
         var links = document.querySelectorAll('.docs-sidebar a[data-target]');
-        var scrollPos = window.scrollY + navHeight + 24;
         var current = null;
-        var atBottom = (window.innerHeight + window.scrollY) >= document.body.scrollHeight - 40;
+        var threshold = navHeight + 20;
         for (var j = 0; j < h2s.length; j++) {
-          if (h2s[j].offsetTop <= scrollPos) current = h2s[j].id;
+          var rect = h2s[j].getBoundingClientRect();
+          if (rect.top <= threshold) current = h2s[j].id;
         }
-        if (atBottom && h2s.length) current = h2s[h2s.length - 1].id;
+        if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight - 40 && h2s.length) {
+          current = h2s[h2s.length - 1].id;
+        }
         for (var k = 0; k < links.length; k++) {
           links[k].classList.toggle('active', links[k].dataset.target === current);
         }
