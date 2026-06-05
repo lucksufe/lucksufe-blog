@@ -34,126 +34,231 @@
     <main class="docs-content" id="content">
 
 <h1>使用教程</h1>
-<p class="intro">从零开始，了解博客系统的每一个功能。</p>
+<p class="intro">从零开始，一步步了解博客系统的每一个功能。即使你从未接触过 Markdown、GitHub 或数学公式，也能跟着本教程上手。</p>
 
 <h2 id="sec-start">1. 启动博客</h2>
 
-<h3 id="sec-start-local">本地服务器模式</h3>
-<pre><code class="language-bash"># 进入博客目录
+<p>本博客有两种运行方式，选择适合你的场景。</p>
+
+<h3 id="sec-start-local">方式一：本地服务器</h3>
+
+<p>如果你只想在自己的电脑上写博客、不需要发布到互联网，用这种方式最简单。</p>
+
+<p><strong>前提条件：</strong>电脑上已安装 <a href="https://www.python.org/downloads/">Python 3</a>（macOS 和 Linux 通常自带，Windows 需要下载安装）。</p>
+
+<pre><code class="language-bash"># 打开终端（Terminal），进入博客目录
 cd blog
 
 # 启动服务器（默认 8080 端口）
-python3 server.py
+python3 server.py</code></pre>
 
-# 带密码认证
-python3 server.py --password mypassword
+<p>然后打开浏览器，访问 <code>http://localhost:8080</code> 即可看到博客首页。</p>
 
-# 自定义端口
-python3 server.py 3000</code></pre>
+<h4>密码保护</h4>
+<p>如果你的电脑在局域网内（比如公司 Wi-Fi），别人也可能通过 IP 地址访问你的管理页面。加上密码可以防止未授权访问：</p>
 
-<p>然后浏览器打开 <code>http://localhost:8080</code> 即可访问博客。</p>
+<pre><code class="language-bash"># --password 后面跟你想设置的密码
+python3 server.py --password mysecret</code></pre>
 
-<h3 id="sec-start-github">GitHub Pages 模式</h3>
-<p>将代码推送到 GitHub 仓库，在 Settings &rarr; Pages 中选择部署分支和目录。编辑器会自动检测并切换到 GitHub 模式。</p>
+<p>也可以自定义端口号（默认 8080）：</p>
+<pre><code class="language-bash">python3 server.py 3000</code></pre>
+
+<h3 id="sec-start-github">方式二：GitHub Pages</h3>
+
+<p><strong>GitHub Pages</strong> 是 GitHub 提供的免费静态网页托管服务。把你的博客代码推送到 GitHub，就能通过 <code>https://你的用户名.github.io</code> 访问。</p>
+
+<p>设置步骤：</p>
+<ol>
+  <li>在 GitHub 上创建一个仓库（Repository，即代码仓库，用来存放你的博客文件）</li>
+  <li>将博客代码推送到这个仓库</li>
+  <li>进入仓库的 <strong>Settings</strong>（设置）&rarr; <strong>Pages</strong>（页面）</li>
+  <li>在 <strong>Source</strong>（来源）中选择你的分支（通常是 <code>main</code>）和目录（通常是 <code>/root</code>）</li>
+  <li>点击 Save，等待几分钟后即可通过 URL 访问</li>
+</ol>
+
+<h4>获取 GitHub Token</h4>
+
+<p><strong>Token</strong>（令牌）是一种访问凭证，类似于密码，但权限可以精确控制。编辑器需要 Token 来读写你仓库中的文章文件。</p>
+
+<p>创建步骤：</p>
+<ol>
+  <li>登录 GitHub，点击右上角头像 &rarr; <strong>Settings</strong></li>
+  <li>左侧菜单最下方 &rarr; <strong>Developer settings</strong>（开发者设置）</li>
+  <li>左侧 &rarr; <strong>Personal access tokens</strong>（个人访问令牌）&rarr; <strong>Fine-grained tokens</strong>（细粒度令牌）</li>
+  <li>点击 <strong>Generate new token</strong>（生成新令牌）</li>
+  <li><strong>Token name</strong>：随便起个名字，比如 "blog-editor"</li>
+  <li><strong>Expiration</strong>（有效期）：建议选 90 天，到期后可以重新生成</li>
+  <li><strong>Repository access</strong>（仓库访问权限）：选择 <strong>Only select repositories</strong>（仅选定仓库），然后选择你的博客仓库</li>
+  <li>在 <strong>Permissions</strong>（权限）区域，找到 <strong>Repository permissions</strong> &rarr; <strong>Contents</strong>（内容），设置为 <strong>Read and write</strong>（读写权限）</li>
+  <li>点击 <strong>Generate token</strong>，复制生成的 token（以 <code>github_pat_</code> 开头的长字符串）</li>
+</ol>
+
+<p><strong>注意：</strong>Token 只会显示一次，请妥善保存。如果丢失，需要重新生成。</p>
 
 <h2 id="sec-write">2. 写文章</h2>
 
-<p>打开编辑器页面，你会看到：</p>
+<p>打开编辑器页面（<code>/editor/write.html</code>），你会看到以下区域：</p>
 
 <ul>
-  <li><strong>工具栏</strong> — 三个下拉菜单：Markdown、数学公式、图表</li>
-  <li><strong>输入区域</strong> — 标题、标签、摘要、正文</li>
-  <li><strong>预览按钮</strong> — 实时预览渲染效果</li>
+  <li><strong>工具栏</strong>（Toolbar）— 页面上方的按钮栏，提供 Markdown、数学公式、图表的快捷插入，不需要记住语法</li>
+  <li><strong>标题</strong> — 文章的大标题，会自动生成 URL 路径（Slug，即网址中文章的唯一标识，例如 <code>my-first-post</code>）</li>
+  <li><strong>标签</strong>（Tags）— 用逗号分隔的关键词，方便读者按分类浏览，例如 "教程, 入门"</li>
+  <li><strong>摘要</strong>（Summary）— 一句话描述文章内容，会显示在首页的文章列表中</li>
+  <li><strong>正文</strong> — 文章的主要内容，使用 Markdown 语法编写</li>
 </ul>
+
+<p>写完后点击 <strong>发布</strong>（Publish）按钮，文章就会保存并出现在博客首页。</p>
 
 <h3 id="sec-write-toolbar">使用工具栏</h3>
-<p>点击工具栏上的按钮，选择模板即可插入到光标位置。例如：</p>
+
+<p>工具栏让你不需要记住 Markdown 和 LaTeX 语法，点击按钮就能插入模板：</p>
+
 <ul>
-  <li>点击 <strong>数学公式 &rarr; 分式</strong>，插入 <code>$\frac{a}{b}$</code></li>
-  <li>点击 <strong>图表 &rarr; 流程图</strong>，插入 Mermaid 流程图模板</li>
-  <li>选中文本后点击 <strong>粗体</strong>，自动包裹 <code>**文本**</code></li>
+  <li><strong>Markdown 菜单</strong>：常用格式（标题、粗体、列表、链接等），选中文本后点击，自动包裹语法标记</li>
+  <li><strong>数学公式菜单</strong>：常用数学符号和结构（分式、积分、矩阵等），点击后插入到光标位置</li>
+  <li><strong>图表菜单</strong>：Mermaid 图表模板（流程图、时序图等），点击后插入代码框架，修改里面的文字即可</li>
 </ul>
+
+<h3 id="sec-write-preview">预览功能</h3>
+
+<p>点击 <strong>预览</strong>（Preview）按钮，可以在发布前查看文章的最终渲染效果。预览支持所有功能：Markdown 格式、数学公式、Mermaid 图表、代码高亮都会正确显示。</p>
+
+<h3 id="sec-write-image">图片上传</h3>
+
+<p>在编辑器中可以直接插入图片，不需要手动上传到服务器：</p>
+<ul>
+  <li><strong>粘贴</strong>：截图后直接 <code>Ctrl+V</code>（macOS 为 <code>Cmd+V</code>）</li>
+  <li><strong>拖拽</strong>：把图片文件从文件夹拖入正文编辑区域</li>
+</ul>
+
+<p>图片会自动上传到服务器，并在正文中插入对应的 Markdown 图片语法（<code>![描述](图片地址)</code>）。</p>
+
+<h3 id="sec-write-draft">草稿自动保存</h3>
+
+<p>编辑器每 30 秒自动将你正在写的内容保存到浏览器的 <strong>本地存储</strong>（localStorage，浏览器提供的本地数据存储功能，关闭页面后数据不会丢失）。如果你不小心关闭了页面，下次打开同一篇文章时会提示是否恢复草稿。</p>
+
+<p>草稿只保存在你当前使用的浏览器中，不会同步到其他设备。</p>
 
 <h2 id="sec-math">3. 数学公式</h2>
 
-<p>支持两种定界符：</p>
+<p>博客使用 <strong>KaTeX</strong>（一个快速的数学公式渲染引擎，类似 LaTeX 的语法）来显示数学公式。你不需要安装任何东西，直接在正文中写公式语法即可。</p>
 
 <h3>行内公式</h3>
-<p>用 <code>$...$</code> 包裹：<br>
-爱因斯坦的质能方程 $E = mc^2$ 是物理学中最著名的公式之一。</p>
+
+<p>行内公式（Inline）嵌入在文字中间，用一对美元符号 <code>$...$</code> 包裹：</p>
+
+<p>写法：<code>$E = mc^2$</code></p>
+<p>效果：爱因斯坦的质能方程 $E = mc^2$ 是物理学中最著名的公式之一。</p>
 
 <h3>块级公式</h3>
-<p>用 <code>$$...$$</code> 或 <code>\[...\]</code> 包裹：</p>
 
+<p>块级公式（Display）单独占一行，更醒目，适合复杂公式。用两对美元符号 <code>$$...$$</code> 包裹：</p>
+
+<pre><code>$$\int_{0}^{\infty} e^{-x^2} \, \mathrm{d}x = \frac{\sqrt{\pi}}{2}$$</code></pre>
+
+<p>渲染效果：</p>
 $$\int_{0}^{\infty} e^{-x^2} \, \mathrm{d}x = \frac{\sqrt{\pi}}{2}$$
 
-<h3>常用语法</h3>
+<h3>常用语法速查</h3>
 <table>
-  <tr><th>输入</th><th>效果</th></tr>
-  <tr><td><code>\frac{a}{b}</code></td><td>$\frac{a}{b}$</td></tr>
-  <tr><td><code>\sqrt{x}</code></td><td>$\sqrt{x}$</td></tr>
-  <tr><td><code>\sum_{i=1}^{n}</code></td><td>$\sum_{i=1}^{n}$</td></tr>
-  <tr><td><code>\int_{a}^{b}</code></td><td>$\int_{a}^{b}$</td></tr>
-  <tr><td><code>\vec{F}</code></td><td>$\vec{F}$</td></tr>
-  <tr><td><code>\alpha, \beta, \gamma</code></td><td>$\alpha, \beta, \gamma$</td></tr>
+  <tr><th>语法</th><th>含义</th><th>效果</th></tr>
+  <tr><td><code>\frac{a}{b}</code></td><td>分式</td><td>$\frac{a}{b}$</td></tr>
+  <tr><td><code>\sqrt{x}</code></td><td>平方根</td><td>$\sqrt{x}$</td></tr>
+  <tr><td><code>\sum_{i=1}^{n}</code></td><td>求和符号</td><td>$\sum_{i=1}^{n}$</td></tr>
+  <tr><td><code>\int_{a}^{b}</code></td><td>积分符号</td><td>$\int_{a}^{b}$</td></tr>
+  <tr><td><code>\vec{F}</code></td><td>向量箭头</td><td>$\vec{F}$</td></tr>
+  <tr><td><code>\alpha, \beta, \gamma</code></td><td>希腊字母</td><td>$\alpha, \beta, \gamma$</td></tr>
+  <tr><td><code>x^{2}</code></td><td>上标</td><td>$x^{2}$</td></tr>
+  <tr><td><code>x_{i}</code></td><td>下标</td><td>$x_{i}$</td></tr>
+  <tr><td><code>\pm</code></td><td>正负号</td><td>$\pm$</td></tr>
+  <tr><td><code>\times, \div</code></td><td>乘号、除号</td><td>$\times, \div$</td></tr>
+  <tr><td><code>\leq, \geq, \neq</code></td><td>小于等于、大于等于、不等于</td><td>$\leq, \geq, \neq$</td></tr>
+  <tr><td><code>\infty</code></td><td>无穷大</td><td>$\infty$</td></tr>
 </table>
+
+<p>你也可以使用工具栏中的数学公式菜单来插入这些模板，不需要记住语法。</p>
 
 <h2 id="sec-mermaid">4. Mermaid 图表</h2>
 
-<p>用 <code>```mermaid</code> 代码块包裹图表定义：</p>
+<p><strong>Mermaid</strong> 是一个用文字描述来生成图表的工具。你只需要写一段简单的文本定义，Mermaid 就会自动将其渲染为图形。不需要手动画图。</p>
 
-<h3>流程图</h3>
+<p>在正文中使用三个反引号加 <code>mermaid</code> 关键字来创建图表代码块：</p>
+
+<h3>流程图（Flowchart）</h3>
+<p>用来表示步骤之间的顺序关系。语法说明：<code>graph LR</code> 表示从左到右排列，<code>--></code> 表示箭头，<code>{}</code> 表示判断节点，<code>[]</code> 表示普通步骤。</p>
+
+<pre><code>```mermaid
+graph LR
+    A[开始] --> B{判断}
+    B -->|是| C[执行]
+    B -->|否| D[结束]
+```</code></pre>
+
+<p>渲染效果：</p>
 <pre><code class="language-mermaid">graph LR
     A[开始] --> B{判断}
     B -->|是| C[执行]
     B -->|否| D[结束]</code></pre>
 
-<h3>时序图</h3>
+<h3>时序图（Sequence Diagram）</h3>
+<p>用来表示多个对象之间的交互顺序。<code>participant</code> 定义参与者，<code>->></code> 表示请求，<code>-->> </code> 表示响应。</p>
+
+<pre><code>```mermaid
+sequenceDiagram
+    participant U as 用户
+    participant S as 服务器
+    U->>S: 请求
+    S-->>U: 响应
+```</code></pre>
+
+<p>渲染效果：</p>
 <pre><code class="language-mermaid">sequenceDiagram
     participant U as 用户
     participant S as 服务器
     U->>S: 请求
     S-->>U: 响应</code></pre>
 
+<p>也可以通过工具栏的图表菜单快速插入这些模板。</p>
+
 <h2 id="sec-code">5. 代码高亮</h2>
 
-<p>用三个反引号包裹代码块，指定语言名称：</p>
+<p>用三个反引号（反引号是键盘左上角 <code>`</code> 键）包裹代码块，并在开头指定语言名称，就能获得语法高亮（Syntax Highlighting，即根据编程语言的规则为代码中的关键字、字符串等添加不同颜色）。</p>
 
 <pre><code class="language-python">def hello():
     print("Hello, Blog!")</code></pre>
 
-<p>支持的语言包括：Python、JavaScript、C/C++、Bash 等。</p>
+<p>支持的常用语言：<code>python</code>、<code>javascript</code>、<code>c</code>、<code>cpp</code>、<code>bash</code> 等。语言名称写在三个反引号后面即可，例如 <code>```python</code>。</p>
 
-<h2 id="sec-image">6. 图片上传</h2>
+<h2 id="sec-theme">6. 主题切换</h2>
 
-<p>在编辑器中可以直接：</p>
+<p>点击页面右上角的主题按钮（一个圆形图标），会弹出主题选择菜单。选择后立即生效，刷新页面也会保持你的选择。</p>
+
+<p>可用的主题：</p>
 <ul>
-  <li><strong>粘贴</strong> — 复制图片后 <code>Ctrl+V</code></li>
-  <li><strong>拖拽</strong> — 将图片文件拖入编辑区</li>
+  <li>🌙 <strong>暗色</strong>（Dark）— 默认的深色主题，适合夜间或低光环境</li>
+  <li>☀️ <strong>亮色</strong>（Light）— 浅色背景，适合白天使用</li>
+  <li>🌿 <strong>护眼绿</strong>（Green）— 柔和的绿色调，减少视觉疲劳</li>
+  <li>🦄 <strong>紫悦</strong>（Twilight）— 紫色主题</li>
+  <li>🌈 <strong>云宝</strong>（Rainbow）— 青蓝色主题</li>
+  <li>🦋 <strong>柔柔</strong>（Fluttershy）— 粉色主题</li>
+  <li>💎 <strong>珍奇</strong>（Rarity）— 淡紫色主题</li>
 </ul>
 
-<p>图片会自动上传并插入 Markdown 图片语法。</p>
+<h2 id="sec-rss">7. RSS 订阅</h2>
 
-<h2 id="sec-draft">7. 草稿保存</h2>
+<p><strong>RSS</strong>（Really Simple Syndication，简易信息聚合）是一种标准格式，让读者可以通过 RSS 阅读器（如 Feedly、Inoreader）订阅你的博客，自动接收新文章通知，而不需要每次都打开网页查看。</p>
 
-<p>编辑器每 30 秒自动保存草稿到浏览器本地存储。下次打开同一文章时会提示是否恢复。</p>
+<p>博客自动生成 <a href="/rss.xml">rss.xml</a> 文件。读者只需要在 RSS 阅读器中输入你的博客地址，就能自动发现并订阅这个 RSS 源。</p>
 
-<h2 id="sec-theme">8. 主题切换</h2>
+<h2 id="sec-manage">8. 文章管理</h2>
 
-<p>点击页面右上角的主题按钮，可切换：</p>
+<p>打开管理页面（<code>/editor/index.html</code>），可以看到所有已发布的文章列表。在这里你可以：</p>
 <ul>
-  <li>🌙 暗色 — 默认深色主题</li>
-  <li>☀️ 亮色 — 浅色主题</li>
-  <li>🌿 护眼绿 — 柔和的绿色主题</li>
-  <li>🦄 紫悦 — 紫色主题</li>
-  <li>🌈 云宝 — 青蓝色主题</li>
-  <li>🦋 柔柔 — 粉色主题</li>
-  <li>💎 珍奇 — 淡紫色主题</li>
+  <li><strong>编辑</strong> — 点击文章标题，跳转到编辑器修改内容</li>
+  <li><strong>删除</strong> — 删除不需要的文章</li>
+  <li><strong>写文章</strong> — 快速跳转到编辑器创建新文章</li>
+  <li><strong>刷新</strong> — 重新加载文章列表</li>
 </ul>
-
-<h2 id="sec-rss">9. RSS 订阅</h2>
-
-<p>博客自动生成 <a href="/rss.xml">rss.xml</a>，可以用任何 RSS 阅读器订阅。</p>
 
 <div class="docs-nav-links">
   <a href="about.html">&larr; About</a>
