@@ -60,6 +60,7 @@ a:hover { color: var(--pg-accent2); }
   transition: color .2s;
 }
 .page-nav .nav-links a:hover { color: var(--pg-text); }
+.page-nav .nav-links a:last-child { margin-left: 16px; }
 
 /* ===== Hero ===== */
 .page-hero {
