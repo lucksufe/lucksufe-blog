@@ -15,8 +15,7 @@ const GH = {
     return {
       'Authorization': `Bearer ${this.getToken()}`,
       'Content-Type': 'application/json',
-      'Accept': 'application/vnd.github.v+json',
-      'Cache-Control': 'no-cache'
+      'Accept': 'application/vnd.github.v+json'
     };
   },
 
@@ -27,7 +26,7 @@ const GH = {
   },
 
   async getFile(path) {
-    const res = await fetch(`${this.API}/contents/${path}?ref=${this.BRANCH}`, { headers: this.headers() });
+    const res = await fetch(`${this.API}/contents/${path}?ref=${this.BRANCH}`, { headers: { ...this.headers(), 'Cache-Control': 'no-cache' } });
     if (res.status === 404) return null;
     if (!res.ok) throw new Error(`GET ${path} failed: ${res.status}`);
     const data = await res.json();
