@@ -101,6 +101,9 @@ a:hover {
     grid-template-columns: 1fr;
     gap: 24px;
   }
+  .tag-sidebar {
+    position: static;
+  }
 }
 
 /* ===== Tags Sidebar ===== */

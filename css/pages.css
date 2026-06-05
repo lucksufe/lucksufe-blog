@@ -403,6 +403,10 @@ a:hover { color: var(--pg-accent2); }
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   .page-nav { padding: 14px 20px; }
+  .page-nav .nav-links { gap: 16px; }
+  .page-nav .nav-links a { font-size: 0.9rem; }
+  .page-nav .nav-links a:last-child { margin-left: 8px; }
+  .page-nav .nav-links svg { width: 28px; height: 28px; }
   .page-hero { padding: 60px 20px 50px; }
   .page-section { padding: 50px 20px; }
   .feature-grid { grid-template-columns: 1fr; }
