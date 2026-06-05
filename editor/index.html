@@ -37,6 +37,13 @@
         </div>
       </div>
       <div id="post-list-status" class="status-msg"></div>
+      <div id="batch-bar" class="batch-bar" style="display:none;">
+        <label class="batch-select-all"><input type="checkbox" id="select-all-cb"> <span data-i18n="btn.selectAll">全选</span></label>
+        <span class="batch-count"></span>
+        <button class="btn btn-batch-draft" data-i18n="btn.batchDraft">批量草稿</button>
+        <button class="btn btn-batch-publish" data-i18n="btn.batchPublish">批量发布</button>
+        <button class="btn btn-batch-delete" data-i18n="btn.batchDelete">批量删除</button>
+      </div>
       <div id="post-list" class="post-list-manage"></div>
       <div class="pagination" id="pagination-controls" style="display:none;">
         <button id="page-prev" class="btn" data-i18n="page.prev">← 上一页</button>

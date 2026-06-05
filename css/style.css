@@ -952,3 +952,61 @@ button.btn {
 .post-item-draft {
   opacity: 0.6;
 }
+
+/* Batch operations */
+.batch-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  margin-top: 12px;
+  background: var(--bg);
+  border: 1px solid var(--accent-dim);
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.batch-select-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.batch-count {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  flex: 1;
+}
+
+.batch-bar .btn {
+  font-size: 0.75rem;
+  padding: 4px 12px;
+}
+
+.batch-bar .btn-batch-delete {
+  color: #f44336;
+  border-color: #f4433640;
+}
+
+.batch-bar .btn-batch-delete:hover {
+  background: #f4433620;
+  border-color: #f44336;
+}
+
+.post-cb-label {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.post-cb-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}

@@ -20,8 +20,10 @@
 
   function setBusy(v) {
     busy = v;
-    postListEl.querySelectorAll('.btn-edit, .btn-draft-toggle, .btn-delete').forEach(b => { b.disabled = v; });
+    postListEl.querySelectorAll('.btn-edit, .btn-draft-toggle, .btn-delete, .post-cb').forEach(b => { b.disabled = v; });
     $('refresh-posts').disabled = v;
+    $('select-all-cb').disabled = v;
+    updateBatchBar();
   }
 
   // Storage mode indicator
@@ -140,12 +142,32 @@
     }
   }
 
+  function getSelectedIds() {
+    return Array.from(postListEl.querySelectorAll('.post-cb:checked')).map(cb => cb.dataset.id);
+  }
+
+  function updateBatchBar() {
+    const ids = getSelectedIds();
+    const bar = $('batch-bar');
+    if (!bar) return;
+    if (ids.length === 0) {
+      bar.style.display = 'none';
+      return;
+    }
+    bar.style.display = 'flex';
+    bar.querySelector('.batch-count').textContent = t('manage.selected').replace('{n}', ids.length);
+    bar.querySelector('.btn-batch-delete').disabled = busy;
+    bar.querySelector('.btn-batch-draft').disabled = busy;
+    bar.querySelector('.btn-batch-publish').disabled = busy;
+  }
+
   function renderPostList() {
     const totalPages = Math.ceil(allManifest.length / PER_PAGE);
     const page = allManifest.slice(currentPage * PER_PAGE, (currentPage + 1) * PER_PAGE);
 
     postListEl.innerHTML = page.map(p => `
       <div class="post-item${p.draft ? ' post-item-draft' : ''}">
+        <label class="post-cb-label"><input type="checkbox" class="post-cb" data-id="${p.id}"></label>
         <div class="post-item-info">
           <span class="post-item-title">${p.title}${p.draft ? ` <span class="draft-badge">${t('status.draftLabel')}</span>` : ''}</span>
           <span class="post-item-date">${p.date}</span>
@@ -158,6 +180,10 @@
         </div>
       </div>
     `).join('');
+
+    postListEl.querySelectorAll('.post-cb').forEach(cb => {
+      cb.addEventListener('change', updateBatchBar);
+    });
 
     postListEl.querySelectorAll('.btn-edit').forEach(btn => {
       btn.addEventListener('click', () => { window.location.href = '/editor/write.html?id=' + encodeURIComponent(btn.dataset.id); });
@@ -180,6 +206,7 @@
       pageNext.disabled = currentPage >= totalPages - 1;
       pageInfo.textContent = `${currentPage + 1} / ${totalPages}`;
     }
+    updateBatchBar();
     applyI18n();
   }
 
@@ -232,6 +259,39 @@
     }
   }
 
+  async function handleBatch(ids, action) {
+    if (busy || ids.length === 0) return;
+    if (action === 'delete' && !confirm(t('confirm.batchDelete').replace('{n}', ids.length))) return;
+    setBusy(true);
+    updateBatchBar();
+    let done = 0;
+    const errors = [];
+    for (const id of ids) {
+      postListStatus.textContent = t('manage.batchProgress').replace('{done}', done + 1).replace('{total}', ids.length);
+      try {
+        if (action === 'delete') {
+          await storage.deletePost(id);
+        } else {
+          const post = await storage.getPost(id);
+          if (!post) continue;
+          await storage.publishPost({
+            id: post.id, title: post.title, date: post.date,
+            tags: post.tags, summary: post.summary,
+            content: post.content || '', draft: action === 'draft',
+          });
+        }
+      } catch (e) {
+        errors.push(id + ': ' + e.message);
+      }
+      done++;
+    }
+    postListStatus.textContent = errors.length
+      ? `${done}/${ids.length} OK, ${errors.length} failed`
+      : t('manage.batchDone').replace('{total}', done);
+    setBusy(false);
+    loadPostList();
+  }
+
   pagePrev.addEventListener('click', () => {
     if (currentPage > 0) {
       currentPage--;
@@ -248,6 +308,16 @@
   });
 
   $('refresh-posts')?.addEventListener('click', loadPostList);
+
+  // --- Batch operations ---
+  $('select-all-cb')?.addEventListener('change', function() {
+    postListEl.querySelectorAll('.post-cb').forEach(cb => { cb.checked = this.checked; });
+    updateBatchBar();
+  });
+
+  document.querySelector('.btn-batch-delete')?.addEventListener('click', () => handleBatch(getSelectedIds(), 'delete'));
+  document.querySelector('.btn-batch-draft')?.addEventListener('click', () => handleBatch(getSelectedIds(), 'draft'));
+  document.querySelector('.btn-batch-publish')?.addEventListener('click', () => handleBatch(getSelectedIds(), 'publish'));
 
   // --- Settings Modal ---
   const settingsModal = $('settings-modal');
