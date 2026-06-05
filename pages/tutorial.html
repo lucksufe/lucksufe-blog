@@ -315,13 +315,17 @@ sequenceDiagram
       var navHeight = document.querySelector('.page-nav')?.offsetHeight || 64;
 
       // Smooth scroll with offset for sidebar links
+      var scrollTarget = null;
       list.addEventListener('click', function(e) {
         var link = e.target.closest('a[data-target]');
         if (!link) return;
         e.preventDefault();
+        // Immediately highlight clicked link
+        list.querySelectorAll('a[data-target]').forEach(function(a) { a.classList.remove('active'); });
+        link.classList.add('active');
+        scrollTarget = link.dataset.target;
         var target = document.getElementById(link.dataset.target);
         if (target) {
-          // h2 has margin-top:48 + padding-top:24, scroll to show the heading text
           var cs = window.getComputedStyle(target);
           var marginTop = parseInt(cs.marginTop) || 0;
           window.scrollTo({ top: target.offsetTop - navHeight - marginTop + 8, behavior: 'smooth' });
@@ -329,6 +333,7 @@ sequenceDiagram
       });
 
       // Highlight active sidebar link on scroll
+      var scrollTimer = null;
       function updateActive() {
         var links = document.querySelectorAll('.docs-sidebar a[data-target]');
         var current = null;
@@ -339,6 +344,17 @@ sequenceDiagram
         }
         if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight - 40 && h2s.length) {
           current = h2s[h2s.length - 1].id;
+        }
+        // If a click-initiated scroll is in progress, keep the clicked target highlighted
+        if (scrollTarget && current !== scrollTarget) {
+          current = scrollTarget;
+        }
+        if (scrollTarget && current === scrollTarget) {
+          // Clear scrollTarget once we've reached or passed it
+          var el = document.getElementById(scrollTarget);
+          if (el && el.getBoundingClientRect().top <= threshold + 10) {
+            scrollTarget = null;
+          }
         }
         for (var k = 0; k < links.length; k++) {
           links[k].classList.toggle('active', links[k].dataset.target === current);
