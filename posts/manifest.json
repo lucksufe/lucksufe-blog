@@ -39,6 +39,16 @@
     "draft": false
   },
   {
+    "id": "六边形面光源辐照度模拟",
+    "title": "六边形面光源辐照度模拟",
+    "date": "2026-06-08",
+    "tags": [
+      "测试"
+    ],
+    "summary": "测试 KaTeX + Mermaid 实际渲染效果",
+    "draft": false
+  },
+  {
     "id": "latex公式支持测试",
     "title": "latex公式支持测试",
     "date": "2026-06-05",
