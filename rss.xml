@@ -29,6 +29,12 @@
       <pubDate>2026-06-08</pubDate>
     </item>
     <item>
+      <title>六边形面光源辐照度模拟</title>
+      <link>post.html?id=六边形面光源辐照度模拟</link>
+      <description>测试 KaTeX + Mermaid 实际渲染效果</description>
+      <pubDate>2026-06-08</pubDate>
+    </item>
+    <item>
       <title>latex公式支持测试</title>
       <link>post.html?id=latex公式支持测试</link>
       <description>在管理页面也支持预览，与发布后渲染一致</description>
