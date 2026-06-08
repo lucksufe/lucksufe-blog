@@ -130,7 +130,7 @@ const GH = {
 
     // 2. Update manifest
     var self = this;
-    var meta = { id, title: post.title, date: post.date, tags: post.tags, summary: post.summary, draft: !!post.draft };
+    var meta = { id, title: post.title, date: post.date, tags: post.tags, summary: post.summary, draft: !!post.draft, timestamp: Date.now() };
     await (async function() {
       for (var attempt = 0; attempt < 5; attempt++) {
         var manifestFile = await self.getFile('posts/manifest.json');
@@ -141,7 +141,11 @@ const GH = {
         } else {
           manifest.push(meta);
         }
-        manifest.sort(function(a, b) { return b.date.localeCompare(a.date); });
+        manifest.sort(function(a, b) {
+          var cmp = b.date.localeCompare(a.date);
+          if (cmp !== 0) return cmp;
+          return (b.timestamp || 0) - (a.timestamp || 0);
+        });
         try {
           await self.saveManifest(manifest, manifestFile?.sha);
           return manifest;

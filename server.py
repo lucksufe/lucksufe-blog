@@ -31,7 +31,7 @@ def get_manifest():
 
 
 def save_manifest(manifest):
-    manifest.sort(key=lambda p: p.get('date', ''), reverse=True)
+    manifest.sort(key=lambda p: (p.get('date', ''), p.get('timestamp', 0)), reverse=True)
     write_json(os.path.join(POSTS_DIR, 'manifest.json'), manifest)
 
 
@@ -162,6 +162,7 @@ class BlogHandler(SimpleHTTPRequestHandler):
                 'tags': post_data['tags'],
                 'summary': post_data['summary'],
                 'draft': post_data['draft'],
+                'timestamp': int(time.time() * 1000),
             }
             idx = next((i for i, p in enumerate(manifest) if p['id'] == post_id), -1)
             if idx >= 0:
