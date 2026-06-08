@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>周末真的很慌，今天反而还好</title>
+      <link>post.html?id=周末真的很慌今天反而还好</link>
+      <description>周五美股科技崩溃，看论坛一片哀嚎，询问AI说港股跟美股大跌是绝对的！</description>
+      <pubDate>2026-06-08</pubDate>
+    </item>
+    <item>
       <title>NGA论坛Cookie机制详解</title>
       <link>post.html?id=nga论坛cookie机制详解</link>
       <description>本文档详细分析每种Cookie的作用、格式、生命周期和相互关系。</description>
