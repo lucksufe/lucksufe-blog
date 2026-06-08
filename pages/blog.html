@@ -23,7 +23,7 @@
   <!-- Hero -->
   <section class="page-hero">
     <h1>Minimal Blog.<br>Maximum Possibility.</h1>
-    <p class="hero-sub">纯 HTML/CSS/JS 构建的静态博客系统。零依赖、零构建、双存储、多主题。开箱即用。</p>
+    <p class="hero-sub">纯 HTML/CSS/JS 构建的静态博客系统。自带编辑器，内置 Markdown、LaTeX、Mermaid 模板，零依赖、零构建、开箱即用。</p>
     <div class="hero-actions">
       <a href="tutorial.html" class="btn-hero btn-hero-primary">快速开始</a>
       <a href="../index.html" class="btn-hero btn-hero-ghost">查看博客</a>
@@ -39,8 +39,8 @@
     <div class="feature-grid">
       <div class="feature-card">
         <div class="feature-icon fi-purple">&#9997;</div>
-        <h3>Markdown 写作</h3>
-        <p>完整的 Markdown 支持，配合 KaTeX 数学公式和 Mermaid 图表，从笔记到论文都能写。</p>
+        <h3>内置编辑器</h3>
+        <p>自带 Web 编辑器，内置 Markdown 格式、LaTeX 公式、Mermaid 图表模板，点击即插入，无需记语法。新手也能立刻上手写作。</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon fi-green">&#128187;</div>
@@ -108,20 +108,21 @@
     </div>
     <div class="quickstart-grid">
       <div class="quickstart-card">
+        <h3>&#127760; GitHub Pages（推荐）</h3>
+        <p style="color:var(--pg-text-muted);font-size:0.9rem;margin-bottom:12px;">零依赖、开箱即用。最简单的发布方式。</p>
+        <pre><code>git push origin main
+
+# 在 GitHub Settings → Pages
+# 选择部署分支和目录
+# 完成</code></pre>
+      </div>
+      <div class="quickstart-card">
         <h3>&#9654; 本地服务器</h3>
         <pre><code>cd blog
 python3 server.py
 
 # 带密码认证
 python3 server.py --password mysecret</code></pre>
-      </div>
-      <div class="quickstart-card">
-        <h3>&#127760; GitHub Pages</h3>
-        <pre><code>git push origin main
-
-# 在 GitHub Settings → Pages
-# 选择部署分支和目录
-# 完成</code></pre>
       </div>
     </div>
   </section>

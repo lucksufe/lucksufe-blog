@@ -41,32 +41,9 @@
 
 <p>本博客有两种运行方式，选择适合你的场景。</p>
 
-<h3 id="sec-start-local">方式一：本地服务器</h3>
+<h3 id="sec-start-github">方式一：GitHub Pages（推荐）</h3>
 
-<p>如果你只想在自己的电脑上写博客、不需要发布到互联网，用这种方式最简单。</p>
-
-<p><strong>前提条件：</strong>电脑上已安装 <a href="https://www.python.org/downloads/">Python 3</a>（macOS 和 Linux 通常自带，Windows 需要下载安装）。</p>
-
-<pre><code class="language-bash"># 打开终端（Terminal），进入博客目录
-cd blog
-
-# 启动服务器（默认 8080 端口）
-python3 server.py</code></pre>
-
-<p>然后打开浏览器，访问 <code>http://localhost:8080</code> 即可看到博客首页。</p>
-
-<h4>密码保护</h4>
-<p>如果你的电脑在局域网内（比如公司 Wi-Fi），别人也可能通过 IP 地址访问你的管理页面。加上密码可以防止未授权访问：</p>
-
-<pre><code class="language-bash"># --password 后面跟你想设置的密码
-python3 server.py --password mysecret</code></pre>
-
-<p>也可以自定义端口号（默认 8080）：</p>
-<pre><code class="language-bash">python3 server.py 3000</code></pre>
-
-<h3 id="sec-start-github">方式二：GitHub Pages</h3>
-
-<p><strong>GitHub Pages</strong> 是 GitHub 提供的免费静态网页托管服务。把你的博客代码推送到 GitHub，就能通过 <code>https://你的用户名.github.io</code> 访问。</p>
+<p><strong>GitHub Pages</strong> 是最简单的发布方式——零依赖、开箱即用。把你的博客代码推送到 GitHub，几分钟后就能通过 <code>https://你的用户名.github.io</code> 访问。</p>
 
 <p>设置步骤：</p>
 <ol>
@@ -95,6 +72,29 @@ python3 server.py --password mysecret</code></pre>
 </ol>
 
 <p><strong>注意：</strong>Token 只会显示一次，请妥善保存。如果丢失，需要重新生成。</p>
+
+<h3 id="sec-start-local">方式二：本地服务器</h3>
+
+<p>如果你只想在自己的电脑上写博客、不需要发布到互联网，用这种方式最简单。</p>
+
+<p><strong>前提条件：</strong>电脑上已安装 <a href="https://www.python.org/downloads/">Python 3</a>（macOS 和 Linux 通常自带，Windows 需要下载安装）。</p>
+
+<pre><code class="language-bash"># 打开终端（Terminal），进入博客目录
+cd blog
+
+# 启动服务器（默认 8080 端口）
+python3 server.py</code></pre>
+
+<p>然后打开浏览器，访问 <code>http://localhost:8080</code> 即可看到博客首页。</p>
+
+<h4>密码保护</h4>
+<p>如果你的电脑在局域网内（比如公司 Wi-Fi），别人也可能通过 IP 地址访问你的管理页面。加上密码可以防止未授权访问：</p>
+
+<pre><code class="language-bash"># --password 后面跟你想设置的密码
+python3 server.py --password mysecret</code></pre>
+
+<p>也可以自定义端口号（默认 8080）：</p>
+<pre><code class="language-bash">python3 server.py 3000</code></pre>
 
 <h2 id="sec-write">2. 写文章</h2>
 
