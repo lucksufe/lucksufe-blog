@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>大时代 · 股市监控报告</title>
+      <link>post.html?id=大时代-股市监控报告</link>
+      <description>讨论聚焦科技板块如半导体和AI，热门标的有沪硅产业、利通电子；市场对底部有争议，部分看多加仓，部分谨慎；心态分化，有人踏空后悔，有人坚持空仓策略。</description>
+      <pubDate>2026-06-09</pubDate>
+    </item>
+    <item>
       <title>周末真的很慌，今天反而还好</title>
       <link>post.html?id=周末真的很慌今天反而还好</link>
       <description>周五美股科技崩溃，看论坛一片哀嚎，询问AI说港股跟美股大跌是绝对的！</description>
