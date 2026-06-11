@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>浏览器缓存与 Cache Busting</title>
+      <link>post.html?id=浏览器缓存与-cache-busting</link>
+      <description></description>
+      <pubDate>2026-06-11</pubDate>
+    </item>
+    <item>
       <title>HTML hidden 属性与 CSS display 的冲突</title>
       <link>post.html?id=html-hidden-属性与-css-display-的冲突</link>
       <description></description>
