@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>HTML hidden 属性与 CSS display 的冲突</title>
+      <link>post.html?id=html-hidden-属性与-css-display-的冲突</link>
+      <description></description>
+      <pubDate>2026-06-11</pubDate>
+    </item>
+    <item>
       <title>长元音（Long Vowels）</title>
       <link>post.html?id=长元音long-vowels</link>
       <description>长元音（Long Vowels）是英语自然拼读教学里的一个重要概念。简单来说，长元音通常就是指字母本身的名字（读音），而短元音则是字母在单词里常见的另一种更短促的发音。</description>
