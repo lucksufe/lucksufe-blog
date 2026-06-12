@@ -1,5 +1,16 @@
 [
   {
+    "id": "epubjs-主题切换问题分析与解决",
+    "title": "epub.js 主题切换问题分析与解决",
+    "date": "2026-06-12",
+    "tags": [
+      "coding"
+    ],
+    "summary": "切换阅读主题时，外层页面（header、footer、设置面板等）能正确切换，但 epub 内容区域（iframe 内部）在以下情况失效",
+    "draft": false,
+    "timestamp": 1781224943494
+  },
+  {
     "id": "浏览器缓存与-cache-busting",
     "title": "浏览器缓存与 Cache Busting",
     "date": "2026-06-11",
