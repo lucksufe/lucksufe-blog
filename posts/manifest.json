@@ -1,5 +1,18 @@
 [
   {
+    "id": "iptables-udp-转发配置指南",
+    "title": "iptables UDP 转发配置指南",
+    "date": "2026-06-16",
+    "tags": [
+      "iptables",
+      "udp",
+      "wireguard"
+    ],
+    "summary": "以前修过一次这个问题，半年以后服务器重启又出现了，让AI分析就是快，之前折腾老半天才解决",
+    "draft": false,
+    "timestamp": 1781572177509
+  },
+  {
     "id": "mihomo-wireguard-分流代理",
     "title": "Mihomo + WireGuard 分流代理",
     "date": "2026-06-16",
