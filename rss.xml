@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>Mihomo + WireGuard 分流代理</title>
+      <link>post.html?id=mihomo-wireguard-分流代理</link>
+      <description>通过 mihomo（Clash Meta）配合 WireGuard 实现域名级分流加速。只有指定域名（如 GitHub）通过新加坡 WireGuard 服务器访问，其余流量走原网络。</description>
+      <pubDate>2026-06-16</pubDate>
+    </item>
+    <item>
       <title>epub.js 主题切换问题分析与解决</title>
       <link>post.html?id=epubjs-主题切换问题分析与解决</link>
       <description>切换阅读主题时，外层页面（header、footer、设置面板等）能正确切换，但 epub 内容区域（iframe 内部）在以下情况失效</description>
