@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>技术指标详解</title>
+      <link>post.html?id=技术指标详解</link>
+      <description>目前项目中使用的技术指标计算</description>
+      <pubDate>2026-06-17</pubDate>
+    </item>
+    <item>
       <title>回测方法与思路</title>
       <link>post.html?id=回测方法与思路</link>
       <description>回测（Backtesting）是用**历史数据**验证一个交易策略是否有效的方法</description>
@@ -117,12 +123,6 @@
       <link>post.html?id=宣传文章</link>
       <description>宣传</description>
       <pubDate>2026-06-05</pubDate>
-    </item>
-    <item>
-      <title>六月第四个交易日</title>
-      <link>post.html?id=六月第四个交易日</link>
-      <description>六月迎来第四天，我的道心也破碎了。</description>
-      <pubDate>2026-06-04</pubDate>
     </item>
   </channel>
 </rss>
