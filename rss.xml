@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>技术指标胜率的局限与优化方向</title>
+      <link>post.html?id=技术指标胜率的局限与优化方向</link>
+      <description>技术指标是"温度计"，能告诉你市场现在是热还是冷，但不能告诉你"为什么热"以及"会不会继续热"。要提高胜率，需要把温度计（技术面）和体检报告（基本面）、天气预报（宏观/政策）、人流数据（资金面）结合起来看。</description>
+      <pubDate>2026-06-17</pubDate>
+    </item>
+    <item>
       <title>技术指标详解</title>
       <link>post.html?id=技术指标详解</link>
       <description>目前项目中使用的技术指标计算</description>
@@ -116,12 +122,6 @@
       <title>图片测试</title>
       <link>post.html?id=图片测试</link>
       <description></description>
-      <pubDate>2026-06-05</pubDate>
-    </item>
-    <item>
-      <title>我做了一个「反工程化」的博客系统：零依赖、零构建、打开就写</title>
-      <link>post.html?id=宣传文章</link>
-      <description>宣传</description>
       <pubDate>2026-06-05</pubDate>
     </item>
   </channel>
