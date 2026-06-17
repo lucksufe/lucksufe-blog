@@ -1,5 +1,14 @@
 [
   {
+    "id": "投资综合分析系统-开发指南",
+    "title": "投资综合分析系统 - 开发指南",
+    "date": "2026-06-17",
+    "tags": [],
+    "summary": "项目结构总览",
+    "draft": false,
+    "timestamp": 1781682036364
+  },
+  {
     "id": "iptables-udp-转发配置指南",
     "title": "iptables UDP 转发配置指南",
     "date": "2026-06-16",
