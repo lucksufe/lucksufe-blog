@@ -292,6 +292,9 @@ a:hover {
   width: max-content;
   min-width: 100%;
 }
+.post-content .table-scroll th {
+  text-align: left;
+}
 
 .post-content p {
   margin-bottom: 1.2em;
