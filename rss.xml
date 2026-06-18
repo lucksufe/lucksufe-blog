@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>XtQuant API 完整接口文档</title>
+      <link>post.html?id=xtquant-api-完整接口文档</link>
+      <description>基于 xtquant 库源码及官方文档整理，涵盖行情（xtdata）和交易（xttrader）全部接口。</description>
+      <pubDate>2026-06-18</pubDate>
+    </item>
+    <item>
       <title>板块分析</title>
       <link>post.html?id=板块分析</link>
       <description>基于你提供的板块数据，结合基本面、估值、资金面、技术面四个维度，以下是18个板块的完整评分</description>
@@ -117,12 +123,6 @@
       <link>post.html?id=六边形面光源辐照度模拟</link>
       <description>测试 KaTeX + Mermaid 实际渲染效果</description>
       <pubDate>2026-06-08</pubDate>
-    </item>
-    <item>
-      <title>latex公式支持测试</title>
-      <link>post.html?id=latex公式支持测试</link>
-      <description>在管理页面也支持预览，与发布后渲染一致</description>
-      <pubDate>2026-06-05</pubDate>
     </item>
   </channel>
 </rss>
