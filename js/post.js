@@ -7,6 +7,11 @@
   const notFoundEl = document.getElementById('not-found');
   const articleEl = document.getElementById('post-article');
 
+  // Fix bold (**text**) not rendering when followed directly by CJK characters
+  function fixCJKBold(src) {
+    return src.replace(/\*\*((?:[^*]|\*(?!\*))*[^*，。、；：？！""''（）【】《》\s](?:[^*]|\*(?!\*))*)\*\*(?=[一-鿿])/g, '**$1** ');
+  }
+
   // Protect LaTeX expressions from being mangled by marked's markdown parser
   function escapeMath(src) {
     const store = [];
@@ -67,7 +72,7 @@
       </div>
     `;
 
-    const { src, store } = escapeMath(post.content.trim());
+    const { src, store } = escapeMath(fixCJKBold(post.content.trim()));
     const html = restoreMath(marked.parse(src), store);
     contentEl.innerHTML = html;
 
