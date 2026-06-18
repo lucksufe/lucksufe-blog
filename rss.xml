@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>板块分析</title>
+      <link>post.html?id=板块分析</link>
+      <description>基于你提供的板块数据，结合基本面、估值、资金面、技术面四个维度，以下是18个板块的完整评分</description>
+      <pubDate>2026-06-18</pubDate>
+    </item>
+    <item>
       <title>技术指标胜率的局限与优化方向</title>
       <link>post.html?id=技术指标胜率的局限与优化方向</link>
       <description>技术指标是"温度计"，能告诉你市场现在是热还是冷，但不能告诉你"为什么热"以及"会不会继续热"。要提高胜率，需要把温度计（技术面）和体检报告（基本面）、天气预报（宏观/政策）、人流数据（资金面）结合起来看。</description>
@@ -116,12 +122,6 @@
       <title>latex公式支持测试</title>
       <link>post.html?id=latex公式支持测试</link>
       <description>在管理页面也支持预览，与发布后渲染一致</description>
-      <pubDate>2026-06-05</pubDate>
-    </item>
-    <item>
-      <title>图片测试</title>
-      <link>post.html?id=图片测试</link>
-      <description></description>
       <pubDate>2026-06-05</pubDate>
     </item>
   </channel>
