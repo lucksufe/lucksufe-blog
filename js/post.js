@@ -9,7 +9,7 @@
 
   // Fix bold (**text**) not rendering when followed directly by CJK characters
   function fixCJKBold(src) {
-    return src.replace(/\*\*((?:[^*]|\*(?!\*))*[^*，。、；：？！""''（）【】《》\s](?:[^*]|\*(?!\*))*)\*\*(?=[一-鿿])/g, '**$1** ');
+    return src.replace(/\*\*((?:[^*]|\*(?!\*))+[，。、；？！])\*\*(?=[一-鿿])/g, '**$1** ');
   }
 
   // Protect LaTeX expressions from being mangled by marked's markdown parser
