@@ -1,5 +1,17 @@
 [
   {
+    "id": "xtquant-api-完整接口文档",
+    "title": "XtQuant API 完整接口文档",
+    "date": "2026-06-18",
+    "tags": [
+      "股市",
+      "coding"
+    ],
+    "summary": "基于 xtquant 库源码及官方文档整理，涵盖行情（xtdata）和交易（xttrader）全部接口。",
+    "draft": false,
+    "timestamp": 1781826917189
+  },
+  {
     "id": "板块分析",
     "title": "板块分析",
     "date": "2026-06-18",
