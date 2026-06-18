@@ -7,9 +7,9 @@
   const notFoundEl = document.getElementById('not-found');
   const articleEl = document.getElementById('post-article');
 
-  // Fix bold (**text**) not rendering when followed directly by CJK characters
-  function fixCJKBold(src) {
-    return src.replace(/\*\*((?:[^*]|\*(?!\*))+[，。、；？！])\*\*(?=[一-鿿])/g, '**$1** ');
+  // Fix bold (**text**) not rendering due to marked.js GFM limitations
+  function fixBoldHTML(html) {
+    return html.replace(/\*\*((?:[^*]|\*(?!\*))+)\*\*/g, '<strong>$1</strong>');
   }
 
   // Protect LaTeX expressions from being mangled by marked's markdown parser
@@ -72,8 +72,8 @@
       </div>
     `;
 
-    const { src, store } = escapeMath(fixCJKBold(post.content.trim()));
-    const html = restoreMath(marked.parse(src), store);
+    const { src, store } = escapeMath(post.content.trim());
+    const html = fixBoldHTML(restoreMath(marked.parse(src), store));
     contentEl.innerHTML = html;
 
     contentEl.querySelectorAll('table').forEach(function(tbl) {
