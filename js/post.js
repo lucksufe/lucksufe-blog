@@ -10,7 +10,8 @@
   // Generate slug from heading text for anchor links
   function headingSlug(text) {
     return text.toLowerCase().trim()
-      .replace(/[^\w.\u4e00-\u9fff\u3400-\u4dbf-]+/g, '-')
+      .replace(/\./g, '')
+      .replace(/[^\w\u4e00-\u9fff\u3400-\u4dbf-]+/g, '-')
       .replace(/^-+|-+$/g, '');
   }
 
