@@ -7,6 +7,23 @@
   const notFoundEl = document.getElementById('not-found');
   const articleEl = document.getElementById('post-article');
 
+  // Generate slug from heading text for anchor links
+  function headingSlug(text) {
+    return text.toLowerCase().trim()
+      .replace(/[^\w.\u4e00-\u9fff\u3400-\u4dbf-]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+  }
+
+  // Configure marked to add id attributes to headings
+  marked.use({
+    renderer: {
+      heading(text, depth, raw) {
+        const slug = headingSlug(raw);
+        return '<h' + depth + ' id="' + slug + '">' + text + '</h' + depth + '>\n';
+      }
+    }
+  });
+
   // Fix bold (**text**) not rendering due to marked.js GFM limitations
   function fixBoldHTML(html) {
     return html.replace(/\*\*((?:[^*]|\*(?!\*))+)\*\*/g, '<strong>$1</strong>');
@@ -113,6 +130,28 @@
             pre.textContent = t('status.mermaidError') + ': ' + e.message;
           }
         }
+      }
+    }
+
+    // Smooth scroll for in-page anchor links
+    contentEl.addEventListener('click', function(e) {
+      var link = e.target.closest('a[href^="#"]');
+      if (!link) return;
+      var targetId = decodeURIComponent(link.getAttribute('href').slice(1));
+      var target = document.getElementById(targetId);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+        history.replaceState(null, '', '#' + targetId);
+      }
+    });
+
+    // Scroll to anchor on page load if URL has hash
+    if (location.hash) {
+      var hashId = decodeURIComponent(location.hash.slice(1));
+      var hashTarget = document.getElementById(hashId);
+      if (hashTarget) {
+        setTimeout(function() { hashTarget.scrollIntoView({ behavior: 'smooth' }); }, 100);
       }
     }
   }

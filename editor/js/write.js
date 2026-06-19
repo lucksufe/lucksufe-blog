@@ -433,6 +433,23 @@
 
   // --- Preview ---
 
+  // Generate slug from heading text for anchor links
+  function headingSlug(text) {
+    return text.toLowerCase().trim()
+      .replace(/[^\w.\u4e00-\u9fff\u3400-\u4dbf-]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+  }
+
+  // Configure marked to add id attributes to headings
+  marked.use({
+    renderer: {
+      heading(text, depth, raw) {
+        var slug = headingSlug(raw);
+        return '<h' + depth + ' id="' + slug + '">' + text + '</h' + depth + '>\n';
+      }
+    }
+  });
+
   function escapeMath(src) {
     const store = [];
     src = src.replace(/(```[\s\S]*?```)/g, m => { store.push(m); return `%%MATH${store.length - 1}%%`; });
@@ -537,20 +554,8 @@
       const label = isDraft ? t('status.draftLabel') : (editingId ? t('status.updated') : t('status.published'));
       showStatus(`${label}: ${resultId}`, 'success');
       clearDraft();
-      if (!editingId && !isDraft) {
-        titleInput.value = '';
-        slugInput.value = '';
-        slugInput.dataset.manual = '';
-        tagsInput.value = '';
-        summaryInput.value = '';
-        contentInput.value = '';
-        dateInput.value = new Date().toISOString().slice(0, 10);
-      }
-      // Re-enable for editing or draft; keep disabled after new publish
-      if (editingId || isDraft) {
-        publishBtn.disabled = false;
-        draftBtn.disabled = false;
-      }
+      // Redirect to management page after ~1s
+      setTimeout(function() { window.location.href = '/editor/index.html'; }, 1000);
     } catch (e) {
       showStatus(t('status.failed') + ': ' + e.message, 'error');
       publishBtn.disabled = false;
