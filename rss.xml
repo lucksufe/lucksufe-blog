@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>XtQuant.XtData 行情模块</title>
+      <link>post.html?id=xtquantxtdata-行情模块</link>
+      <description>xtdata是xtquant库中提供行情相关数据的模块，本模块旨在提供精简直接的数据满足量化交易者的数据需求，作为python库的形式可以被灵活添加到各种策略脚本中。</description>
+      <pubDate>2026-06-19</pubDate>
+    </item>
+    <item>
       <title>XtQuant API 完整接口文档</title>
       <link>post.html?id=xtquant-api-完整接口文档</link>
       <description>基于 xtquant 库源码及官方文档整理，涵盖行情（xtdata）和交易（xttrader）全部接口。</description>
@@ -116,12 +122,6 @@
       <title>NGA关注版块分析报告</title>
       <link>post.html?id=nga关注版块分析报告</link>
       <description></description>
-      <pubDate>2026-06-08</pubDate>
-    </item>
-    <item>
-      <title>六边形面光源辐照度模拟</title>
-      <link>post.html?id=六边形面光源辐照度模拟</link>
-      <description>测试 KaTeX + Mermaid 实际渲染效果</description>
       <pubDate>2026-06-08</pubDate>
     </item>
   </channel>
