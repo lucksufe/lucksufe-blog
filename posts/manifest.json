@@ -1,5 +1,17 @@
 [
   {
+    "id": "xtquantxtdata-行情模块",
+    "title": "XtQuant.XtData 行情模块",
+    "date": "2026-06-19",
+    "tags": [
+      "股市",
+      "coding"
+    ],
+    "summary": "xtdata是xtquant库中提供行情相关数据的模块，本模块旨在提供精简直接的数据满足量化交易者的数据需求，作为python库的形式可以被灵活添加到各种策略脚本中。",
+    "draft": false,
+    "timestamp": 1781829943240
+  },
+  {
     "id": "xtquant-api-完整接口文档",
     "title": "XtQuant API 完整接口文档",
     "date": "2026-06-18",
