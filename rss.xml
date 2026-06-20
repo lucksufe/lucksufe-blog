@@ -5,6 +5,18 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>量化研判 2026-06-20 | 持有 | STRUCTURAL</title>
+      <link>post.html?id=量化研判-2026-06-20</link>
+      <description>持有 | STRUCTURAL | 半导体、通信、有色金属领涨</description>
+      <pubDate>2026-06-20</pubDate>
+    </item>
+    <item>
+      <title>板块走势与宏观数据</title>
+      <link>post.html?id=板块走势与宏观数据</link>
+      <description>板块走势与宏观数据之间确实存在深刻的映射关系。寻找这种关系，本质上是从“统计学相关性”走向“经济学因果性”的过程。结合当前市场环境（如2026年6月美债收益率高企、AI算力爆发、消费疲软等现象），以下是具体寻找关联的方法论与代码实施方案。</description>
+      <pubDate>2026-06-20</pubDate>
+    </item>
+    <item>
       <title>XtQuant.XtData 行情模块</title>
       <link>post.html?id=xtquantxtdata-行情模块</link>
       <description>xtdata是xtquant库中提供行情相关数据的模块，本模块旨在提供精简直接的数据满足量化交易者的数据需求，作为python库的形式可以被灵活添加到各种策略脚本中。</description>
@@ -110,18 +122,6 @@
       <title>NGA论坛反爬机制突破教程</title>
       <link>post.html?id=nga论坛反爬机制突破教程</link>
       <description>本文档详细分析该机制并提供突破方案。</description>
-      <pubDate>2026-06-08</pubDate>
-    </item>
-    <item>
-      <title>NGA论坛全量分析报告</title>
-      <link>post.html?id=nga论坛全量分析报告</link>
-      <description></description>
-      <pubDate>2026-06-08</pubDate>
-    </item>
-    <item>
-      <title>NGA关注版块分析报告</title>
-      <link>post.html?id=nga关注版块分析报告</link>
-      <description></description>
       <pubDate>2026-06-08</pubDate>
     </item>
   </channel>
