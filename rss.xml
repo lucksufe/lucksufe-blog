@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>量化研判 2026-06-24 | 持有 | UNCERTAIN</title>
+      <link>post.html?id=quant-insight-2026-06-24</link>
+      <description>持有 | UNCERTAIN | 医药、金融、半导体领涨</description>
+      <pubDate>2026-06-24</pubDate>
+    </item>
+    <item>
       <title>量化研判 2026-06-23 | 观望 | UNCERTAIN</title>
       <link>post.html?id=quant-insight-2026-06-23</link>
       <description>观望 | UNCERTAIN | 金融、半导体、有色金属领涨</description>
@@ -117,12 +123,6 @@
       <link>post.html?id=epubjs-主题切换问题分析与解决</link>
       <description>切换阅读主题时，外层页面（header、footer、设置面板等）能正确切换，但 epub 内容区域（iframe 内部）在以下情况失效</description>
       <pubDate>2026-06-12</pubDate>
-    </item>
-    <item>
-      <title>浏览器缓存与 Cache Busting</title>
-      <link>post.html?id=浏览器缓存与-cache-busting</link>
-      <description></description>
-      <pubDate>2026-06-11</pubDate>
     </item>
   </channel>
 </rss>
