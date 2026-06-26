@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>Linux 文件搜索速查</title>
+      <link>post.html?id=linux-文件搜索速查</link>
+      <description>grep — 搜文件内容  find — 搜文件名  核心思路：**不确定文件在哪用 find，不确定内容在哪用 grep，两个组合能定位任何东西。**</description>
+      <pubDate>2026-06-26</pubDate>
+    </item>
+    <item>
       <title>美债收益率如何传导至港股</title>
       <link>post.html?id=美债收益率如何传导至港股</link>
       <description></description>
@@ -116,12 +122,6 @@
       <title>回测方法与思路</title>
       <link>post.html?id=回测方法与思路</link>
       <description>回测（Backtesting）是用**历史数据**验证一个交易策略是否有效的方法</description>
-      <pubDate>2026-06-17</pubDate>
-    </item>
-    <item>
-      <title>投资综合分析系统 - 配置与部署指南</title>
-      <link>post.html?id=投资综合分析系统-配置与部署指南</link>
-      <description>系统架构</description>
       <pubDate>2026-06-17</pubDate>
     </item>
   </channel>
