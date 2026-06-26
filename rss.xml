@@ -5,15 +5,15 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
-      <title>量化研判 2026-06-26 | 观望 | UNCERTAIN</title>
-      <link>post.html?id=quant-insight-2026-06-26</link>
-      <description>观望 | UNCERTAIN | 半导体、医药、金融领涨</description>
+      <title>权重股研判 2026-06-26 | 观望 | RISK_ON</title>
+      <link>post.html?id=stock-insight-2026-06-26</link>
+      <description>观望 | RISK_ON | 寒武纪、拓荆科技、药明康德领涨</description>
       <pubDate>2026-06-26</pubDate>
     </item>
     <item>
-      <title>权重股研判 2026-06-26 | 观望 | STRUCTURAL</title>
-      <link>post.html?id=stock-insight-2026-06-26</link>
-      <description>观望 | STRUCTURAL | 药明康德、中信证券、紫金矿业领涨</description>
+      <title>量化研判 2026-06-26 | 观望 | UNCERTAIN</title>
+      <link>post.html?id=quant-insight-2026-06-26</link>
+      <description>观望 | UNCERTAIN | 半导体、医药、金融领涨</description>
       <pubDate>2026-06-26</pubDate>
     </item>
     <item>
