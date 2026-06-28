@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>量化研判 2026-06-28 | 观望 | UNCERTAIN</title>
+      <link>post.html?id=quant-insight-2026-06-28</link>
+      <description>观望 | UNCERTAIN | 半导体、金融、港股领涨</description>
+      <pubDate>2026-06-28</pubDate>
+    </item>
+    <item>
       <title>prompt问题分析</title>
       <link>post.html?id=prompt问题分析</link>
       <description></description>
@@ -116,12 +122,6 @@
       <title>XtQuant API 完整接口文档</title>
       <link>post.html?id=xtquant-api-完整接口文档</link>
       <description>基于 xtquant 库源码及官方文档整理，涵盖行情（xtdata）和交易（xttrader）全部接口。</description>
-      <pubDate>2026-06-18</pubDate>
-    </item>
-    <item>
-      <title>板块分析</title>
-      <link>post.html?id=板块分析</link>
-      <description>基于你提供的板块数据，结合基本面、估值、资金面、技术面四个维度，以下是18个板块的完整评分</description>
       <pubDate>2026-06-18</pubDate>
     </item>
   </channel>
