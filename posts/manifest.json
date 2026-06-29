@@ -1,5 +1,17 @@
 [
   {
+    "id": "dll-依赖分析与收集工具",
+    "title": "DLL 依赖分析与收集工具",
+    "date": "2026-06-29",
+    "tags": [
+      "dll",
+      "python"
+    ],
+    "summary": "完爆了以前的dependency，我服了，以前过的什么苦日子",
+    "draft": false,
+    "timestamp": 1782712820570
+  },
+  {
     "id": "stock-insight-2026-06-28",
     "title": "权重股研判 2026-06-28 | 观望 | UNCERTAIN",
     "date": "2026-06-28",
