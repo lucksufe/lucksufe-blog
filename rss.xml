@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>DLL 依赖分析与收集工具</title>
+      <link>post.html?id=dll-依赖分析与收集工具</link>
+      <description>完爆了以前的dependency，我服了，以前过的什么苦日子</description>
+      <pubDate>2026-06-29</pubDate>
+    </item>
+    <item>
       <title>权重股研判 2026-06-28 | 观望 | UNCERTAIN</title>
       <link>post.html?id=stock-insight-2026-06-28</link>
       <description>观望 | UNCERTAIN | 药明康德、北方华创、海大集团领涨</description>
@@ -117,12 +123,6 @@
       <link>post.html?id=板块走势与宏观数据</link>
       <description>板块走势与宏观数据之间确实存在深刻的映射关系。寻找这种关系，本质上是从“统计学相关性”走向“经济学因果性”的过程。结合当前市场环境（如2026年6月美债收益率高企、AI算力爆发、消费疲软等现象），以下是具体寻找关联的方法论与代码实施方案。</description>
       <pubDate>2026-06-20</pubDate>
-    </item>
-    <item>
-      <title>XtQuant.XtData 行情模块</title>
-      <link>post.html?id=xtquantxtdata-行情模块</link>
-      <description>xtdata是xtquant库中提供行情相关数据的模块，本模块旨在提供精简直接的数据满足量化交易者的数据需求，作为python库的形式可以被灵活添加到各种策略脚本中。</description>
-      <pubDate>2026-06-19</pubDate>
     </item>
   </channel>
 </rss>
