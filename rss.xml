@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>量化研判 2026-06-30 | 持有 | UNCERTAIN</title>
+      <link>post.html?id=quant-insight-2026-06-30</link>
+      <description>持有 | UNCERTAIN | 半导体、医药、金融领涨</description>
+      <pubDate>2026-06-30</pubDate>
+    </item>
+    <item>
       <title>权重股研判 2026-06-29 | 观望 | UNCERTAIN</title>
       <link>post.html?id=stock-insight-2026-06-29</link>
       <description>观望 | UNCERTAIN | 恒瑞医药、药明康德、贵州茅台领涨</description>
@@ -116,12 +122,6 @@
       <title>Claude Code Agent 常用模式详解</title>
       <link>post.html?id=claude-code-agent-patterns</link>
       <description>1. [直接对话模式](#1-直接对话模式) 2. [Plan Mode（规划模式）](#2-plan-mode规划模式) 3. [Workflow（工作流模式）](#3-workflow工作流模式)</description>
-      <pubDate>2026-06-21</pubDate>
-    </item>
-    <item>
-      <title>量化研判 2026-06-21 | 观望 | RISK_ON</title>
-      <link>post.html?id=量化研判-2026-06-21</link>
-      <description>观望 | RISK_ON | 半导体、通信、医药领涨</description>
       <pubDate>2026-06-21</pubDate>
     </item>
   </channel>
