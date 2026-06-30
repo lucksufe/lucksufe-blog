@@ -5,124 +5,124 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
-      <title>XtQuant.XtData 行情模块</title>
-      <link>post.html?id=xtquantxtdata-行情模块</link>
-      <description>xtdata是xtquant库中提供行情相关数据的模块，本模块旨在提供精简直接的数据满足量化交易者的数据需求，作为python库的形式可以被灵活添加到各种策略脚本中。</description>
-      <pubDate>2026-06-19</pubDate>
+      <title>权重股研判 2026-06-29 | 观望 | UNCERTAIN</title>
+      <link>post.html?id=stock-insight-2026-06-29</link>
+      <description>观望 | UNCERTAIN | 恒瑞医药、药明康德、贵州茅台领涨</description>
+      <pubDate>2026-06-29</pubDate>
     </item>
     <item>
-      <title>XtQuant API 完整接口文档</title>
-      <link>post.html?id=xtquant-api-完整接口文档</link>
-      <description>基于 xtquant 库源码及官方文档整理，涵盖行情（xtdata）和交易（xttrader）全部接口。</description>
-      <pubDate>2026-06-18</pubDate>
+      <title>量化研判 2026-06-29 | 观望 | UNCERTAIN</title>
+      <link>post.html?id=quant-insight-2026-06-29</link>
+      <description>观望 | UNCERTAIN | 医药、金融、半导体领涨</description>
+      <pubDate>2026-06-29</pubDate>
     </item>
     <item>
-      <title>板块分析</title>
-      <link>post.html?id=板块分析</link>
-      <description>基于你提供的板块数据，结合基本面、估值、资金面、技术面四个维度，以下是18个板块的完整评分</description>
-      <pubDate>2026-06-18</pubDate>
+      <title>DLL 依赖分析与收集工具</title>
+      <link>post.html?id=dll-依赖分析与收集工具</link>
+      <description>完爆了以前的dependency，我服了，以前过的什么苦日子</description>
+      <pubDate>2026-06-29</pubDate>
     </item>
     <item>
-      <title>技术指标胜率的局限与优化方向</title>
-      <link>post.html?id=技术指标胜率的局限与优化方向</link>
-      <description>技术指标是"温度计"，能告诉你市场现在是热还是冷，但不能告诉你"为什么热"以及"会不会继续热"。要提高胜率，需要把温度计（技术面）和体检报告（基本面）、天气预报（宏观/政策）、人流数据（资金面）结合起来看。</description>
-      <pubDate>2026-06-17</pubDate>
+      <title>权重股研判 2026-06-28 | 观望 | UNCERTAIN</title>
+      <link>post.html?id=stock-insight-2026-06-28</link>
+      <description>观望 | UNCERTAIN | 药明康德、北方华创、海大集团领涨</description>
+      <pubDate>2026-06-28</pubDate>
     </item>
     <item>
-      <title>技术指标详解</title>
-      <link>post.html?id=技术指标详解</link>
-      <description>目前项目中使用的技术指标计算</description>
-      <pubDate>2026-06-17</pubDate>
+      <title>量化研判 2026-06-28 | 观望 | UNCERTAIN</title>
+      <link>post.html?id=quant-insight-2026-06-28</link>
+      <description>观望 | UNCERTAIN | 半导体、金融、港股领涨</description>
+      <pubDate>2026-06-28</pubDate>
     </item>
     <item>
-      <title>回测方法与思路</title>
-      <link>post.html?id=回测方法与思路</link>
-      <description>回测（Backtesting）是用**历史数据**验证一个交易策略是否有效的方法</description>
-      <pubDate>2026-06-17</pubDate>
-    </item>
-    <item>
-      <title>投资综合分析系统 - 配置与部署指南</title>
-      <link>post.html?id=投资综合分析系统-配置与部署指南</link>
-      <description>系统架构</description>
-      <pubDate>2026-06-17</pubDate>
-    </item>
-    <item>
-      <title>投资综合分析系统 - 开发指南</title>
-      <link>post.html?id=投资综合分析系统-开发指南</link>
-      <description>项目结构总览</description>
-      <pubDate>2026-06-17</pubDate>
-    </item>
-    <item>
-      <title>iptables UDP 转发配置指南</title>
-      <link>post.html?id=iptables-udp-转发配置指南</link>
-      <description>以前修过一次这个问题，半年以后服务器重启又出现了，让AI分析就是快，之前折腾老半天才解决</description>
-      <pubDate>2026-06-16</pubDate>
-    </item>
-    <item>
-      <title>Mihomo + WireGuard 分流代理</title>
-      <link>post.html?id=mihomo-wireguard-分流代理</link>
-      <description>通过 mihomo（Clash Meta）配合 WireGuard 实现域名级分流加速。只有指定域名（如 GitHub）通过新加坡 WireGuard 服务器访问，其余流量走原网络。</description>
-      <pubDate>2026-06-16</pubDate>
-    </item>
-    <item>
-      <title>epub.js 主题切换问题分析与解决</title>
-      <link>post.html?id=epubjs-主题切换问题分析与解决</link>
-      <description>切换阅读主题时，外层页面（header、footer、设置面板等）能正确切换，但 epub 内容区域（iframe 内部）在以下情况失效</description>
-      <pubDate>2026-06-12</pubDate>
-    </item>
-    <item>
-      <title>浏览器缓存与 Cache Busting</title>
-      <link>post.html?id=浏览器缓存与-cache-busting</link>
+      <title>prompt问题分析</title>
+      <link>post.html?id=prompt问题分析</link>
       <description></description>
-      <pubDate>2026-06-11</pubDate>
+      <pubDate>2026-06-28</pubDate>
     </item>
     <item>
-      <title>HTML hidden 属性与 CSS display 的冲突</title>
-      <link>post.html?id=html-hidden-属性与-css-display-的冲突</link>
+      <title>权重股研判 2026-06-27 | 观望 | UNCERTAIN</title>
+      <link>post.html?id=stock-insight-2026-06-27</link>
+      <description>观望 | UNCERTAIN | 中金公司、药明康德、北方华创领涨</description>
+      <pubDate>2026-06-27</pubDate>
+    </item>
+    <item>
+      <title>量化研判 2026-06-27 | 观望 | UNCERTAIN</title>
+      <link>post.html?id=quant-insight-2026-06-27</link>
+      <description>观望 | UNCERTAIN | 半导体、医药、金融领涨</description>
+      <pubDate>2026-06-27</pubDate>
+    </item>
+    <item>
+      <title>Linux 文件搜索速查</title>
+      <link>post.html?id=linux-文件搜索速查</link>
+      <description>grep — 搜文件内容  find — 搜文件名  核心思路：**不确定文件在哪用 find，不确定内容在哪用 grep，两个组合能定位任何东西。**</description>
+      <pubDate>2026-06-26</pubDate>
+    </item>
+    <item>
+      <title>美债收益率如何传导至港股</title>
+      <link>post.html?id=美债收益率如何传导至港股</link>
       <description></description>
-      <pubDate>2026-06-11</pubDate>
+      <pubDate>2026-06-26</pubDate>
     </item>
     <item>
-      <title>长元音（Long Vowels）</title>
-      <link>post.html?id=长元音long-vowels</link>
-      <description>长元音（Long Vowels）是英语自然拼读教学里的一个重要概念。简单来说，长元音通常就是指字母本身的名字（读音），而短元音则是字母在单词里常见的另一种更短促的发音。</description>
-      <pubDate>2026-06-10</pubDate>
-    </item>
-    <item>
-      <title>大时代 · 股市监控报告</title>
-      <link>post.html?id=大时代-股市监控报告</link>
-      <description>讨论聚焦科技板块如半导体和AI，热门标的有沪硅产业、利通电子；市场对底部有争议，部分看多加仓，部分谨慎；心态分化，有人踏空后悔，有人坚持空仓策略。</description>
-      <pubDate>2026-06-09</pubDate>
-    </item>
-    <item>
-      <title>周末真的很慌，今天反而还好</title>
-      <link>post.html?id=周末真的很慌今天反而还好</link>
-      <description>周五美股科技崩溃，看论坛一片哀嚎，询问AI说港股跟美股大跌是绝对的！</description>
-      <pubDate>2026-06-08</pubDate>
-    </item>
-    <item>
-      <title>NGA论坛Cookie机制详解</title>
-      <link>post.html?id=nga论坛cookie机制详解</link>
-      <description>本文档详细分析每种Cookie的作用、格式、生命周期和相互关系。</description>
-      <pubDate>2026-06-08</pubDate>
-    </item>
-    <item>
-      <title>NGA论坛反爬机制突破教程</title>
-      <link>post.html?id=nga论坛反爬机制突破教程</link>
-      <description>本文档详细分析该机制并提供突破方案。</description>
-      <pubDate>2026-06-08</pubDate>
-    </item>
-    <item>
-      <title>NGA论坛全量分析报告</title>
-      <link>post.html?id=nga论坛全量分析报告</link>
+      <title>国债与美债影响</title>
+      <link>post.html?id=国债与美债影响</link>
       <description></description>
-      <pubDate>2026-06-08</pubDate>
+      <pubDate>2026-06-26</pubDate>
     </item>
     <item>
-      <title>NGA关注版块分析报告</title>
-      <link>post.html?id=nga关注版块分析报告</link>
-      <description></description>
-      <pubDate>2026-06-08</pubDate>
+      <title>权重股研判 2026-06-25 | 观望 | RISK_ON</title>
+      <link>post.html?id=stock-insight-2026-06-25</link>
+      <description>观望 | RISK_ON | 寒武纪、拓荆科技、药明康德领涨</description>
+      <pubDate>2026-06-25</pubDate>
+    </item>
+    <item>
+      <title>量化研判 2026-06-25 | 观望 | UNCERTAIN</title>
+      <link>post.html?id=quant-insight-2026-06-25</link>
+      <description>观望 | UNCERTAIN | 半导体、医药、金融领涨</description>
+      <pubDate>2026-06-25</pubDate>
+    </item>
+    <item>
+      <title>量化研判 2026-06-24 | 持有 | UNCERTAIN</title>
+      <link>post.html?id=quant-insight-2026-06-24</link>
+      <description>持有 | UNCERTAIN | 医药、金融、半导体领涨</description>
+      <pubDate>2026-06-24</pubDate>
+    </item>
+    <item>
+      <title>量化研判 2026-06-23 | 观望 | UNCERTAIN</title>
+      <link>post.html?id=quant-insight-2026-06-23</link>
+      <description>观望 | UNCERTAIN | 金融、半导体、有色金属领涨</description>
+      <pubDate>2026-06-23</pubDate>
+    </item>
+    <item>
+      <title>《小马宝莉》主要角色的完整名单</title>
+      <link>post.html?id=小马宝莉主要角色的完整名单</link>
+      <description>所有条目均包含英文名、可爱标记、名字含义及读音音标。</description>
+      <pubDate>2026-06-23</pubDate>
+    </item>
+    <item>
+      <title>量化研判 2026-06-22 | 持有 | UNCERTAIN</title>
+      <link>post.html?id=量化研判-2026-06-22</link>
+      <description>持有 | UNCERTAIN | 金融、医药、消费领涨</description>
+      <pubDate>2026-06-22</pubDate>
+    </item>
+    <item>
+      <title>Mihomo + WireGuard 分流代理配置</title>
+      <link>post.html?id=mihomo-wireguard</link>
+      <description>通过 mihomo（Clash Meta）配合 WireGuard 实现域名级分流加速。只有指定域名（如 GitHub）通过新加坡 WireGuard 服务器访问，其余流量走原网络。 ``` 本机程序 → mihomo（127.0.0.1:7890）→ 域名规则匹配 → WireGuard节点（新加</description>
+      <pubDate>2026-06-21</pubDate>
+    </item>
+    <item>
+      <title>Claude Code Agent 常用模式详解</title>
+      <link>post.html?id=claude-code-agent-patterns</link>
+      <description>1. [直接对话模式](#1-直接对话模式) 2. [Plan Mode（规划模式）](#2-plan-mode规划模式) 3. [Workflow（工作流模式）](#3-workflow工作流模式)</description>
+      <pubDate>2026-06-21</pubDate>
+    </item>
+    <item>
+      <title>量化研判 2026-06-21 | 观望 | RISK_ON</title>
+      <link>post.html?id=量化研判-2026-06-21</link>
+      <description>观望 | RISK_ON | 半导体、通信、医药领涨</description>
+      <pubDate>2026-06-21</pubDate>
     </item>
   </channel>
 </rss>
