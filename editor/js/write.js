@@ -508,6 +508,7 @@
           }
         }
       }
+      addCopyButtons(previewEl);
     }
   }
 
@@ -586,6 +587,35 @@
   });
 
   window.addEventListener('beforeunload', saveDraft);
+
+  function addCopyButtons(container) {
+    container.querySelectorAll('pre').forEach(function(pre) {
+      if (pre.classList.contains('mermaid-error')) return;
+      if (pre.parentElement.classList.contains('code-block-wrapper')) return;
+
+      var wrapper = document.createElement('div');
+      wrapper.className = 'code-block-wrapper';
+      pre.parentNode.insertBefore(wrapper, pre);
+      wrapper.appendChild(pre);
+
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.textContent = '复制';
+      btn.addEventListener('click', function() {
+        var code = pre.querySelector('code');
+        var text = code ? code.textContent : pre.textContent;
+        navigator.clipboard.writeText(text).then(function() {
+          btn.textContent = '已复制';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.textContent = '复制';
+            btn.classList.remove('copied');
+          }, 1500);
+        });
+      });
+      wrapper.appendChild(btn);
+    });
+  }
 
   checkToken();
 })();

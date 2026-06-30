@@ -134,6 +134,9 @@
       }
     }
 
+    // Add copy buttons to code blocks
+    addCopyButtons(contentEl);
+
     // Smooth scroll for in-page anchor links
     contentEl.addEventListener('click', function(e) {
       var link = e.target.closest('a[href^="#"]');
@@ -155,6 +158,37 @@
         setTimeout(function() { hashTarget.scrollIntoView({ behavior: 'smooth' }); }, 100);
       }
     }
+  }
+
+  function addCopyButtons(container) {
+    container.querySelectorAll('pre').forEach(function(pre) {
+      // Skip mermaid error blocks — they show error messages, not code to copy
+      if (pre.classList.contains('mermaid-error')) return;
+      // Skip if already wrapped (idempotent)
+      if (pre.parentElement.classList.contains('code-block-wrapper')) return;
+
+      var wrapper = document.createElement('div');
+      wrapper.className = 'code-block-wrapper';
+      pre.parentNode.insertBefore(wrapper, pre);
+      wrapper.appendChild(pre);
+
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.textContent = '复制';
+      btn.addEventListener('click', function() {
+        var code = pre.querySelector('code');
+        var text = code ? code.textContent : pre.textContent;
+        navigator.clipboard.writeText(text).then(function() {
+          btn.textContent = '已复制';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.textContent = '复制';
+            btn.classList.remove('copied');
+          }, 1500);
+        });
+      });
+      wrapper.appendChild(btn);
+    });
   }
 
   if (id) loadPost();
