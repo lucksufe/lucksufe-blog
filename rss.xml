@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>Cython 编译导致的连环崩溃：从 IndexError 到 0xC0000005</title>
+      <link>post.html?id=cython-编译导致的连环崩溃从-indexerror-到-0xc0000005</link>
+      <description></description>
+      <pubDate>2026-07-03</pubDate>
+    </item>
+    <item>
       <title>修复：寄存器读取时 c_byte 溢出导致 "out of bounds for uint8" 错误</title>
       <link>post.html?id=修复寄存器读取时-c_byte-溢出导致-out-of-bounds-for-uint8-错误</link>
       <description></description>
@@ -116,12 +122,6 @@
       <title>权重股研判 2026-06-25 | 观望 | RISK_ON</title>
       <link>post.html?id=stock-insight-2026-06-25</link>
       <description>观望 | RISK_ON | 寒武纪、拓荆科技、药明康德领涨</description>
-      <pubDate>2026-06-25</pubDate>
-    </item>
-    <item>
-      <title>量化研判 2026-06-25 | 观望 | UNCERTAIN</title>
-      <link>post.html?id=quant-insight-2026-06-25</link>
-      <description>观望 | UNCERTAIN | 半导体、医药、金融领涨</description>
       <pubDate>2026-06-25</pubDate>
     </item>
   </channel>
