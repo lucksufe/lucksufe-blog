@@ -1,5 +1,17 @@
 [
   {
+    "id": "cython-编译导致的连环崩溃从-indexerror-到-0xc0000005",
+    "title": "Cython 编译导致的连环崩溃：从 IndexError 到 0xC0000005",
+    "date": "2026-07-03",
+    "tags": [
+      "coding",
+      "debug"
+    ],
+    "summary": "",
+    "draft": false,
+    "timestamp": 1783058232568
+  },
+  {
     "id": "修复寄存器读取时-c_byte-溢出导致-out-of-bounds-for-uint8-错误",
     "title": "修复：寄存器读取时 c_byte 溢出导致 \"out of bounds for uint8\" 错误",
     "date": "2026-07-03",
