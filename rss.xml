@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>个股投资研判报告 prompt v2 优化后测试报告</title>
+      <link>post.html?id=个股投资研判报告-prompt-v2-优化后测试报告</link>
+      <description>数据截止：2026-07-04 约束声明：估值同时考虑分位和绝对水平 | 宏观状态基于量化指标</description>
+      <pubDate>2026-07-04</pubDate>
+    </item>
+    <item>
       <title>Prompt工程 V2 优化 + 数据层修复</title>
       <link>post.html?id=prompt工程-v2-优化-数据层修复</link>
       <description></description>
@@ -117,12 +123,6 @@
       <link>post.html?id=quant-insight-2026-06-27</link>
       <description>观望 | UNCERTAIN | 半导体、医药、金融领涨</description>
       <pubDate>2026-06-27</pubDate>
-    </item>
-    <item>
-      <title>Linux 文件搜索速查</title>
-      <link>post.html?id=linux-文件搜索速查</link>
-      <description>grep — 搜文件内容  find — 搜文件名  核心思路：**不确定文件在哪用 find，不确定内容在哪用 grep，两个组合能定位任何东西。**</description>
-      <pubDate>2026-06-26</pubDate>
     </item>
   </channel>
 </rss>
