@@ -5,15 +5,15 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
-      <title>投资研判报告 prompt v2 测试报告</title>
-      <link>post.html?id=投资研判报告-prompt-v2-测试报告</link>
-      <description>> **约束声明**：资金流基于5日/20日均值判断 | 估值同时考虑分位和绝对水平 | 宏观状态基于量化指标</description>
-      <pubDate>2026-07-04</pubDate>
-    </item>
-    <item>
       <title>个股投资研判报告 prompt v2 优化后测试报告</title>
       <link>post.html?id=个股投资研判报告-prompt-v2-优化后测试报告</link>
       <description>数据截止：2026-07-04 约束声明：估值同时考虑分位和绝对水平 | 宏观状态基于量化指标</description>
+      <pubDate>2026-07-04</pubDate>
+    </item>
+    <item>
+      <title>投资研判报告 prompt v2 测试报告</title>
+      <link>post.html?id=投资研判报告-prompt-v2-测试报告</link>
+      <description>> **约束声明**：资金流基于5日/20日均值判断 | 估值同时考虑分位和绝对水平 | 宏观状态基于量化指标</description>
       <pubDate>2026-07-04</pubDate>
     </item>
     <item>
