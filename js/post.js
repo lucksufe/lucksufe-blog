@@ -158,6 +158,16 @@
         setTimeout(function() { hashTarget.scrollIntoView({ behavior: 'smooth' }); }, 100);
       }
     }
+
+    // Umami tracking: send custom event with post ID for article-level analytics
+    var trackPostView = function() {
+      if (window.umami) {
+        window.umami.track('Post View', { id: id, title: post.title });
+      } else {
+        setTimeout(trackPostView, 100);
+      }
+    };
+    trackPostView();
   }
 
   function addCopyButtons(container) {
