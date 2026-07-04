@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>Prompt工程 V2 优化 + 数据层修复</title>
+      <link>post.html?id=prompt工程-v2-优化-数据层修复</link>
+      <description></description>
+      <pubDate>2026-07-04</pubDate>
+    </item>
+    <item>
       <title>权重股研判 2026-07-03 | 观望 | UNCERTAIN</title>
       <link>post.html?id=stock-insight-2026-07-03</link>
       <description>观望 | UNCERTAIN | 恒瑞医药、中金公司、药明康德领涨</description>
@@ -116,12 +122,6 @@
       <title>Linux 文件搜索速查</title>
       <link>post.html?id=linux-文件搜索速查</link>
       <description>grep — 搜文件内容  find — 搜文件名  核心思路：**不确定文件在哪用 find，不确定内容在哪用 grep，两个组合能定位任何东西。**</description>
-      <pubDate>2026-06-26</pubDate>
-    </item>
-    <item>
-      <title>美债收益率如何传导至港股</title>
-      <link>post.html?id=美债收益率如何传导至港股</link>
-      <description></description>
       <pubDate>2026-06-26</pubDate>
     </item>
   </channel>
