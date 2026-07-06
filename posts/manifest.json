@@ -13,6 +13,19 @@
     "timestamp": 1783380953092
   },
   {
+    "id": "quant-insight-2026-07-06",
+    "title": "量化研判 2026-07-06 | 减仓 | UNCERTAIN",
+    "date": "2026-07-06",
+    "tags": [
+      "股市",
+      "量化",
+      "研判"
+    ],
+    "summary": "减仓 | UNCERTAIN | 金融、医药、消费领涨",
+    "draft": false,
+    "timestamp": 1783381596358
+  },
+  {
     "id": "stock-insight-2026-07-06",
     "title": "权重股研判 2026-07-06 | 重点关注 | UNCERTAIN",
     "date": "2026-07-06",
@@ -24,19 +37,6 @@
     "summary": "重点关注 | UNCERTAIN | 中金公司、云南白药、复星医药领涨",
     "draft": false,
     "timestamp": 1783347449226
-  },
-  {
-    "id": "quant-insight-2026-07-06",
-    "title": "量化研判 2026-07-06 | 观望 | UNCERTAIN",
-    "date": "2026-07-06",
-    "tags": [
-      "股市",
-      "量化",
-      "研判"
-    ],
-    "summary": "观望 | UNCERTAIN | 医药、金融、消费领涨",
-    "draft": false,
-    "timestamp": 1783347434706
   },
   {
     "id": "个股投资研判报告-prompt-v2-优化后测试报告",
