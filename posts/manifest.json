@@ -1,5 +1,18 @@
 [
   {
+    "id": "stock-insight-2026-07-06",
+    "title": "权重股研判 2026-07-06 | 重点关注 | RISK_ON",
+    "date": "2026-07-06",
+    "tags": [
+      "股市",
+      "量化",
+      "权重股分析"
+    ],
+    "summary": "重点关注 | RISK_ON | 恒瑞医药、药明康德、中金公司领涨",
+    "draft": false,
+    "timestamp": 1783384935015
+  },
+  {
     "id": "quant-insight-2026-07-06",
     "title": "量化研判 2026-07-06 | 减仓 | UNCERTAIN",
     "date": "2026-07-06",
@@ -11,19 +24,6 @@
     "summary": "减仓 | UNCERTAIN | 医药、金融、消费领涨",
     "draft": false,
     "timestamp": 1783381673401
-  },
-  {
-    "id": "stock-insight-2026-07-06",
-    "title": "权重股研判 2026-07-06 | 重点关注 | UNCERTAIN",
-    "date": "2026-07-06",
-    "tags": [
-      "股市",
-      "量化",
-      "权重股分析"
-    ],
-    "summary": "重点关注 | UNCERTAIN | 中金公司、云南白药、复星医药领涨",
-    "draft": false,
-    "timestamp": 1783347449226
   },
   {
     "id": "个股投资研判报告-prompt-v2-优化后测试报告",
