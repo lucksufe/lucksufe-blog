@@ -5,12 +5,6 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
-      <title>量化研判 2026-07-07 | 减仓 | UNCERTAIN</title>
-      <link>post.html?id=quant-insight-2026-07-07</link>
-      <description>减仓 | UNCERTAIN | 消费、金融、医药领涨</description>
-      <pubDate>2026-07-07</pubDate>
-    </item>
-    <item>
       <title>量化研判 2026-07-06 | 减仓 | UNCERTAIN</title>
       <link>post.html?id=quant-insight-2026-07-06</link>
       <description>减仓 | UNCERTAIN | 医药、金融、消费领涨</description>
@@ -122,6 +116,12 @@
       <title>权重股研判 2026-06-28 | 观望 | UNCERTAIN</title>
       <link>post.html?id=stock-insight-2026-06-28</link>
       <description>观望 | UNCERTAIN | 药明康德、北方华创、海大集团领涨</description>
+      <pubDate>2026-06-28</pubDate>
+    </item>
+    <item>
+      <title>量化研判 2026-06-28 | 观望 | UNCERTAIN</title>
+      <link>post.html?id=quant-insight-2026-06-28</link>
+      <description>观望 | UNCERTAIN | 半导体、金融、港股领涨</description>
       <pubDate>2026-06-28</pubDate>
     </item>
   </channel>
