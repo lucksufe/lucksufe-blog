@@ -1,5 +1,16 @@
 [
   {
+    "id": "tui-原理与项目实践指南",
+    "title": "TUI 原理与项目实践指南",
+    "date": "2026-07-08",
+    "tags": [
+      "coding"
+    ],
+    "summary": "TUI（Text-based User Interface，文本用户界面） 是一种在终端（Terminal）内呈现的交互式界面。",
+    "draft": false,
+    "timestamp": 1783475458640
+  },
+  {
     "id": "stock-insight-2026-07-07",
     "title": "权重股研判 2026-07-07 | 小额建仓 | UNCERTAIN",
     "date": "2026-07-07",
