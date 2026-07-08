@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>数据接口文档</title>
+      <link>post.html?id=数据接口文档</link>
+      <description></description>
+      <pubDate>2026-07-08</pubDate>
+    </item>
+    <item>
       <title>TUI 原理与项目实践指南</title>
       <link>post.html?id=tui-原理与项目实践指南</link>
       <description>TUI（Text-based User Interface，文本用户界面） 是一种在终端（Terminal）内呈现的交互式界面。</description>
@@ -116,12 +122,6 @@
       <title>权重股研判 2026-06-29 | 观望 | UNCERTAIN</title>
       <link>post.html?id=stock-insight-2026-06-29</link>
       <description>观望 | UNCERTAIN | 恒瑞医药、药明康德、贵州茅台领涨</description>
-      <pubDate>2026-06-29</pubDate>
-    </item>
-    <item>
-      <title>量化研判 2026-06-29 | 观望 | UNCERTAIN</title>
-      <link>post.html?id=quant-insight-2026-06-29</link>
-      <description>观望 | UNCERTAIN | 医药、金融、半导体领涨</description>
       <pubDate>2026-06-29</pubDate>
     </item>
   </channel>
