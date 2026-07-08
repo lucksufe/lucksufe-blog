@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>TUI 原理与项目实践指南</title>
+      <link>post.html?id=tui-原理与项目实践指南</link>
+      <description>TUI（Text-based User Interface，文本用户界面） 是一种在终端（Terminal）内呈现的交互式界面。</description>
+      <pubDate>2026-07-08</pubDate>
+    </item>
+    <item>
       <title>权重股研判 2026-07-07 | 小额建仓 | UNCERTAIN</title>
       <link>post.html?id=stock-insight-2026-07-07</link>
       <description>小额建仓 | UNCERTAIN | 赤峰黄金、药明康德、海康威视领涨</description>
@@ -116,12 +122,6 @@
       <title>量化研判 2026-06-29 | 观望 | UNCERTAIN</title>
       <link>post.html?id=quant-insight-2026-06-29</link>
       <description>观望 | UNCERTAIN | 医药、金融、半导体领涨</description>
-      <pubDate>2026-06-29</pubDate>
-    </item>
-    <item>
-      <title>DLL 依赖分析与收集工具</title>
-      <link>post.html?id=dll-依赖分析与收集工具</link>
-      <description>完爆了以前的dependency，我服了，以前过的什么苦日子</description>
       <pubDate>2026-06-29</pubDate>
     </item>
   </channel>
