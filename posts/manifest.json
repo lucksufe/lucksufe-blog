@@ -1,5 +1,18 @@
 [
   {
+    "id": "stock-insight-2026-07-09",
+    "title": "权重股研判 2026-07-09 | 观望 | UNCERTAIN",
+    "date": "2026-07-09",
+    "tags": [
+      "股市",
+      "量化",
+      "权重股分析"
+    ],
+    "summary": "观望 | UNCERTAIN | 金山办公、中兴通讯、寒武纪领涨",
+    "draft": false,
+    "timestamp": 1783607230977
+  },
+  {
     "id": "quant-insight-2026-07-09",
     "title": "量化研判 2026-07-09 | 观望 | UNCERTAIN",
     "date": "2026-07-09",
