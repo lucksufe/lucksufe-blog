@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>量化研判 2026-07-14 | 持有 | UNCERTAIN</title>
+      <link>post.html?id=quant-insight-2026-07-14</link>
+      <description>持有 | UNCERTAIN | 互联网、医药、港股领涨</description>
+      <pubDate>2026-07-14</pubDate>
+    </item>
+    <item>
       <title>权重股研判 2026-07-13 | 观望 | RISK_ON</title>
       <link>post.html?id=stock-insight-2026-07-13</link>
       <description>观望 | RISK_ON | 工商银行、长江电力、招商银行领涨</description>
@@ -117,12 +123,6 @@
       <link>post.html?id=prompt工程-v2-优化-数据层修复</link>
       <description></description>
       <pubDate>2026-07-04</pubDate>
-    </item>
-    <item>
-      <title>权重股研判 2026-07-03 | 观望 | UNCERTAIN</title>
-      <link>post.html?id=stock-insight-2026-07-03</link>
-      <description>观望 | UNCERTAIN | 恒瑞医药、中金公司、药明康德领涨</description>
-      <pubDate>2026-07-03</pubDate>
     </item>
   </channel>
 </rss>
