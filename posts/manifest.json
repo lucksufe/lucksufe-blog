@@ -1,5 +1,18 @@
 [
   {
+    "id": "stock-insight-2026-07-14",
+    "title": "权重股研判 2026-07-14 | 持有 | UNCERTAIN",
+    "date": "2026-07-14",
+    "tags": [
+      "股市",
+      "量化",
+      "权重股分析"
+    ],
+    "summary": "持有 | UNCERTAIN | 药明康德、云南白药、复星医药领涨",
+    "draft": false,
+    "timestamp": 1784039732889
+  },
+  {
     "id": "quant-insight-2026-07-14",
     "title": "量化研判 2026-07-14 | 持有 | UNCERTAIN",
     "date": "2026-07-14",
