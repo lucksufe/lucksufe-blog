@@ -1,5 +1,17 @@
 [
   {
+    "id": "baostock-api-参考手册",
+    "title": "Baostock API 参考手册",
+    "date": "2026-07-16",
+    "tags": [
+      "股市",
+      "coding"
+    ],
+    "summary": "适合历史数据批量下载、财务数据查询",
+    "draft": false,
+    "timestamp": 1784192469136
+  },
+  {
     "id": "stock-insight-2026-07-15",
     "title": "权重股研判 2026-07-15 | 重点关注 | RISK_ON",
     "date": "2026-07-15",
