@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>Baostock API 参考手册</title>
+      <link>post.html?id=baostock-api-参考手册</link>
+      <description>适合历史数据批量下载、财务数据查询</description>
+      <pubDate>2026-07-16</pubDate>
+    </item>
+    <item>
       <title>权重股研判 2026-07-15 | 重点关注 | RISK_ON</title>
       <link>post.html?id=stock-insight-2026-07-15</link>
       <description>重点关注 | RISK_ON | 云南白药、贵州茅台、牧原股份领涨</description>
@@ -116,12 +122,6 @@
       <title>权重股研判 2026-07-06 | 重点关注 | RISK_ON</title>
       <link>post.html?id=stock-insight-2026-07-06</link>
       <description>重点关注 | RISK_ON | 恒瑞医药、药明康德、中金公司领涨</description>
-      <pubDate>2026-07-06</pubDate>
-    </item>
-    <item>
-      <title>量化研判 2026-07-06 | 减仓 | UNCERTAIN</title>
-      <link>post.html?id=quant-insight-2026-07-06</link>
-      <description>减仓 | UNCERTAIN | 医药、金融、消费领涨</description>
       <pubDate>2026-07-06</pubDate>
     </item>
   </channel>
