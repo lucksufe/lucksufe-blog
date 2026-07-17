@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>权重股研判 2026-07-17 | 观望 | RISK_ON</title>
+      <link>post.html?id=stock-insight-2026-07-17</link>
+      <description>观望 | RISK_ON | 贵州茅台、海康威视、兴业银行领涨</description>
+      <pubDate>2026-07-17</pubDate>
+    </item>
+    <item>
       <title>量化研判 2026-07-17 | 观望 | RISK_ON</title>
       <link>post.html?id=quant-insight-2026-07-17</link>
       <description>观望 | RISK_ON | 领涨</description>
@@ -116,12 +122,6 @@
       <title>自适应阈值系统</title>
       <link>post.html?id=自适应阈值系统</link>
       <description>自适应阈值系统为每只股票维护独立的统计画像，根据其历史行为自动调整判断阈值，让"异常"的定义因股而异。</description>
-      <pubDate>2026-07-08</pubDate>
-    </item>
-    <item>
-      <title>数据接口文档</title>
-      <link>post.html?id=数据接口文档</link>
-      <description></description>
       <pubDate>2026-07-08</pubDate>
     </item>
   </channel>
