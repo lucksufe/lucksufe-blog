@@ -1,5 +1,18 @@
 [
   {
+    "id": "quant-insight-2026-07-31",
+    "title": "量化研判 2026-07-31 | 加仓 | RISK_ON",
+    "date": "2026-07-31",
+    "tags": [
+      "股市",
+      "量化",
+      "研判"
+    ],
+    "summary": "加仓 | RISK_ON | 消费、互联网、港股领涨",
+    "draft": false,
+    "timestamp": 1785510315941
+  },
+  {
     "id": "stock-insight-2026-07-31",
     "title": "权重股研判 2026-07-31 | 重点关注 | RISK_ON",
     "date": "2026-07-31",
@@ -11,19 +24,6 @@
     "summary": "重点关注 | RISK_ON | 金山办公、赤峰黄金、贵州茅台领涨",
     "draft": false,
     "timestamp": 1785507695745
-  },
-  {
-    "id": "quant-insight-2026-07-31",
-    "title": "量化研判 2026-07-31 | 观望 | RISK_ON",
-    "date": "2026-07-31",
-    "tags": [
-      "股市",
-      "量化",
-      "研判"
-    ],
-    "summary": "观望 | RISK_ON | 领涨",
-    "draft": false,
-    "timestamp": 1785507679403
   },
   {
     "id": "stock-insight-2026-07-30",
