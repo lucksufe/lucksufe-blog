@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>权重股研判 2026-08-03 | 重点关注 | STRUCTURAL</title>
+      <link>post.html?id=stock-insight-2026-08-03</link>
+      <description>重点关注 | STRUCTURAL | 金山办公、海天味业、伊利股份领涨</description>
+      <pubDate>2026-08-03</pubDate>
+    </item>
+    <item>
       <title>量化研判 2026-08-03 | 持有 | STRUCTURAL</title>
       <link>post.html?id=quant-insight-2026-08-03</link>
       <description>持有 | STRUCTURAL | 消费、互联网、港股领涨</description>
@@ -116,12 +122,6 @@
       <title>权重股研判 2026-07-21 | 持有 | RISK_ON</title>
       <link>post.html?id=stock-insight-2026-07-21</link>
       <description>持有 | RISK_ON | 贵州茅台、金山办公、东方财富领涨</description>
-      <pubDate>2026-07-21</pubDate>
-    </item>
-    <item>
-      <title>量化研判 2026-07-21 | 持有 | RISK_ON</title>
-      <link>post.html?id=quant-insight-2026-07-21</link>
-      <description>持有 | RISK_ON | 消费、金融、宽基领涨</description>
       <pubDate>2026-07-21</pubDate>
     </item>
   </channel>
