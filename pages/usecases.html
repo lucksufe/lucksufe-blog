@@ -398,8 +398,25 @@
 
   <script src="../js/vendor/katex.min.js"></script>
   <script src="../js/vendor/auto-render.min.js"></script>
-  <script src="../js/vendor/mermaid.min.js"></script>
   <script>
+    // Lazy load mermaid.js from CDN with local fallback
+    function loadMermaid() {
+      if (typeof mermaid !== 'undefined') return Promise.resolve();
+      return new Promise(function(resolve) {
+        var script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js';
+        script.onload = resolve;
+        script.onerror = function() {
+          var fallback = document.createElement('script');
+          fallback.src = '../js/vendor/mermaid.min.js';
+          fallback.onload = resolve;
+          fallback.onerror = resolve;
+          document.head.appendChild(fallback);
+        };
+        document.head.appendChild(script);
+      });
+    }
+
     (function() {
       var sections = document.querySelectorAll('.uc-hero, .uc-section');
       var dotsEl = document.getElementById('uc-dots');
@@ -443,23 +460,25 @@
         });
       }
 
-      // Mermaid
-      if (typeof mermaid !== 'undefined') {
-        var blocks = document.querySelectorAll('code.language-mermaid');
-        if (blocks.length) {
-          mermaid.initialize({startOnLoad: false, theme: 'dark'});
-          for (var m = 0; m < blocks.length; m++) {
-            (function(block) {
-              var id = 'mermaid-' + Math.random().toString(36).slice(2,10);
-              mermaid.render(id, block.textContent).then(function(r) {
-                var w = document.createElement('div');
-                w.className = 'mermaid';
-                w.innerHTML = r.svg;
-                block.parentElement.replaceWith(w);
-              });
-            })(blocks[m]);
+      // Mermaid (lazy load)
+      var mermaidBlocks = document.querySelectorAll('code.language-mermaid');
+      if (mermaidBlocks.length) {
+        loadMermaid().then(function() {
+          if (typeof mermaid !== 'undefined') {
+            mermaid.initialize({startOnLoad: false, theme: 'dark'});
+            for (var m = 0; m < mermaidBlocks.length; m++) {
+              (function(block) {
+                var id = 'mermaid-' + Math.random().toString(36).slice(2,10);
+                mermaid.render(id, block.textContent).then(function(r) {
+                  var w = document.createElement('div');
+                  w.className = 'mermaid';
+                  w.innerHTML = r.svg;
+                  block.parentElement.replaceWith(w);
+                });
+              })(mermaidBlocks[m]);
+            }
           }
-        }
+        });
       }
     })();
   </script>

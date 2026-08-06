@@ -1,4 +1,22 @@
 (function() {
+  // Lazy load mermaid.js from CDN with local fallback
+  function loadMermaid() {
+    if (typeof mermaid !== 'undefined') return Promise.resolve();
+    return new Promise(function(resolve) {
+      var script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js';
+      script.onload = resolve;
+      script.onerror = function() {
+        var fallback = document.createElement('script');
+        fallback.src = 'js/vendor/mermaid.min.js';
+        fallback.onload = resolve;
+        fallback.onerror = resolve;
+        document.head.appendChild(fallback);
+      };
+      document.head.appendChild(script);
+    });
+  }
+
   const params = new URLSearchParams(window.location.search);
   const id = params.get('id');
 
@@ -112,10 +130,11 @@
       Prism.highlightAllUnder(contentEl);
     }
 
-    // Render Mermaid diagrams
-    if (typeof mermaid !== 'undefined') {
-      const mermaidBlocks = contentEl.querySelectorAll('code.language-mermaid');
-      if (mermaidBlocks.length > 0) {
+    // Render Mermaid diagrams (lazy load mermaid.js only when needed)
+    const mermaidBlocks = contentEl.querySelectorAll('code.language-mermaid');
+    if (mermaidBlocks.length > 0) {
+      await loadMermaid();
+      if (typeof mermaid !== 'undefined') {
         mermaid.initialize({ startOnLoad: false, theme: 'dark' });
         for (const block of mermaidBlocks) {
           const pre = block.parentElement;
