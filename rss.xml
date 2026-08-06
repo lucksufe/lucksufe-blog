@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>宏观变量与A股板块轮动：一套完整的“资金流向”推演框架</title>
+      <link>post.html?id=宏观变量与a股板块轮动一套完整的资金流向推演框架</link>
+      <description>今天这篇文章，我就把这套“宏观因子→板块映射”的框架，毫无保留地分享出来。你可以把它当作一份**“宏观推演速查手册”**，下次再看到新闻时，拿出来对号入座。</description>
+      <pubDate>2026-08-06</pubDate>
+    </item>
+    <item>
       <title>黄金和银行红利同为避险为什么会出现背离</title>
       <link>post.html?id=黄金和银行红利同为避险为什么会出现背离</link>
       <description>你这个问题，其实触及到了 **“宏观对冲”和“板块轮动”的核心**。你之前的思考已经打通了“黄金 vs 银行红利”这一条线，现在我们可以把这个框架**系统化地扩展**，让你看到一张更完整的**“外部变量→A股板块”**映射图。</description>
@@ -117,12 +123,6 @@
       <link>post.html?id=quant-insight-2026-07-24</link>
       <description>观望 | RISK_ON | 消费、有色金属、贵金属领涨</description>
       <pubDate>2026-07-24</pubDate>
-    </item>
-    <item>
-      <title>权重股研判 2026-07-23 | 重点关注 | RISK_ON</title>
-      <link>post.html?id=stock-insight-2026-07-23</link>
-      <description>重点关注 | RISK_ON | 紫金矿业、新和成、伊利股份领涨</description>
-      <pubDate>2026-07-23</pubDate>
     </item>
   </channel>
 </rss>
