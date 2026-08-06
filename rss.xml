@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>量化研判 2026-08-06 | 持有 | STRUCTURAL</title>
+      <link>post.html?id=quant-insight-2026-08-06</link>
+      <description>持有 | STRUCTURAL | 贵金属、有色金属、科技领涨</description>
+      <pubDate>2026-08-06</pubDate>
+    </item>
+    <item>
       <title>宏观变量与A股板块轮动：一套完整的“资金流向”推演框架</title>
       <link>post.html?id=宏观变量与a股板块轮动一套完整的资金流向推演框架</link>
       <description>今天这篇文章，我就把这套“宏观因子→板块映射”的框架，毫无保留地分享出来。你可以把它当作一份**“宏观推演速查手册”**，下次再看到新闻时，拿出来对号入座。</description>
@@ -116,12 +122,6 @@
       <title>权重股研判 2026-07-24 | 重点关注 | RISK_ON</title>
       <link>post.html?id=stock-insight-2026-07-24</link>
       <description>重点关注 | RISK_ON | 赤峰黄金、伊利股份、紫金矿业领涨</description>
-      <pubDate>2026-07-24</pubDate>
-    </item>
-    <item>
-      <title>量化研判 2026-07-24 | 观望 | RISK_ON</title>
-      <link>post.html?id=quant-insight-2026-07-24</link>
-      <description>观望 | RISK_ON | 消费、有色金属、贵金属领涨</description>
       <pubDate>2026-07-24</pubDate>
     </item>
   </channel>
