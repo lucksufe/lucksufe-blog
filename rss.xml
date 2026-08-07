@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>权重股研判 2026-08-07 | 结构性配置 | STRUCTURAL</title>
+      <link>post.html?id=stock-insight-2026-08-07</link>
+      <description>结构性配置 | STRUCTURAL | 药明康德、紫金矿业、中金黄金领涨</description>
+      <pubDate>2026-08-07</pubDate>
+    </item>
+    <item>
       <title>量化研判 2026-08-07 | 持有 | STRUCTURAL</title>
       <link>post.html?id=quant-insight-2026-08-07</link>
       <description>持有 | STRUCTURAL | 有色金属、医药、贵金属领涨</description>
@@ -117,12 +123,6 @@
       <link>post.html?id=quant-insight-2026-07-28</link>
       <description>观望 | RISK_ON | 消费、红利、医药领涨</description>
       <pubDate>2026-07-28</pubDate>
-    </item>
-    <item>
-      <title>权重股研判 2026-07-27 | 重点关注 | RISK_ON</title>
-      <link>post.html?id=stock-insight-2026-07-27</link>
-      <description>重点关注 | RISK_ON | 金山办公、爱尔眼科、海康威视领涨</description>
-      <pubDate>2026-07-27</pubDate>
     </item>
   </channel>
 </rss>
