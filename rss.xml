@@ -7,7 +7,7 @@
     <item>
       <title>ifind-finance-data解析成独立脚本</title>
       <link>post.html?id=ifind-finance-data解析成独立脚本</link>
-      <description>不通过llm调用，而是当作独立api调用，40一个月5000次请求</description>
+      <description>不通过llm调用，而是当作独立api调用，40一个月5000次请求，看一下发现接口质量非常差根本没用</description>
       <pubDate>2026-08-08</pubDate>
     </item>
     <item>
