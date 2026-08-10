@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>ifind-finance-data解析成独立脚本</title>
+      <link>post.html?id=ifind-finance-data解析成独立脚本</link>
+      <description>不通过llm调用，而是当作独立api调用，40一个月5000次请求</description>
+      <pubDate>2026-08-08</pubDate>
+    </item>
+    <item>
       <title>安装引导：ifind-finance-data 金融数据查询 SKILL</title>
       <link>post.html?id=安装引导ifind-finance-data-金融数据查询-skill</link>
       <description></description>
@@ -116,12 +122,6 @@
       <title>权重股研判 2026-07-29 | 持有 | RISK_ON</title>
       <link>post.html?id=stock-insight-2026-07-29</link>
       <description>持有 | RISK_ON | 紫金矿业、贵州茅台、赤峰黄金领涨</description>
-      <pubDate>2026-07-29</pubDate>
-    </item>
-    <item>
-      <title>量化研判 2026-07-29 | 加仓 | RISK_ON</title>
-      <link>post.html?id=quant-insight-2026-07-29</link>
-      <description>加仓 | RISK_ON | 消费、互联网、港股领涨</description>
       <pubDate>2026-07-29</pubDate>
     </item>
   </channel>
