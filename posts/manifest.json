@@ -1,5 +1,17 @@
 [
   {
+    "id": "ifind-finance-data解析成独立脚本",
+    "title": "ifind-finance-data解析成独立脚本",
+    "date": "2026-08-08",
+    "tags": [
+      "股市",
+      "笔记"
+    ],
+    "summary": "不通过llm调用，而是当作独立api调用，40一个月5000次请求",
+    "draft": false,
+    "timestamp": 1786362223229
+  },
+  {
     "id": "安装引导ifind-finance-data-金融数据查询-skill",
     "title": "安装引导：ifind-finance-data 金融数据查询 SKILL",
     "date": "2026-08-08",
