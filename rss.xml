@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>量化研判 2026-08-14 | 观望 | STRUCTURAL</title>
+      <link>post.html?id=quant-insight-2026-08-14</link>
+      <description>观望 | STRUCTURAL | 贵金属、新能源、有色金属领涨</description>
+      <pubDate>2026-08-14</pubDate>
+    </item>
+    <item>
       <title>权重股研判 2026-08-13 | 持有 | STRUCTURAL</title>
       <link>post.html?id=stock-insight-2026-08-13</link>
       <description>持有 | STRUCTURAL | 药明康德、贵州茅台、宁德时代领涨</description>
@@ -117,12 +123,6 @@
       <link>post.html?id=quant-insight-2026-08-05</link>
       <description>结构调仓 | STRUCTURAL | 新能源、化工、医药领涨</description>
       <pubDate>2026-08-05</pubDate>
-    </item>
-    <item>
-      <title>权重股研判 2026-08-04 | 结构性配置 | STRUCTURAL</title>
-      <link>post.html?id=stock-insight-2026-08-04</link>
-      <description>结构性配置 | STRUCTURAL | 藏格矿业、金山办公、华友钴业领涨</description>
-      <pubDate>2026-08-04</pubDate>
     </item>
   </channel>
 </rss>
