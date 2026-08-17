@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>量化研判 2026-08-17 | 持有 | STRUCTURAL</title>
+      <link>post.html?id=quant-insight-2026-08-17</link>
+      <description>持有 | STRUCTURAL | 有色金属、贵金属、医药领涨</description>
+      <pubDate>2026-08-17</pubDate>
+    </item>
+    <item>
       <title>权重股研判 2026-08-14 | 小额建仓 | STRUCTURAL</title>
       <link>post.html?id=stock-insight-2026-08-14</link>
       <description>小额建仓 | STRUCTURAL | 药明康德、贵州茅台、山西汾酒领涨</description>
@@ -117,12 +123,6 @@
       <link>post.html?id=黄金和银行红利同为避险为什么会出现背离</link>
       <description>你这个问题，其实触及到了 **“宏观对冲”和“板块轮动”的核心**。你之前的思考已经打通了“黄金 vs 银行红利”这一条线，现在我们可以把这个框架**系统化地扩展**，让你看到一张更完整的**“外部变量→A股板块”**映射图。</description>
       <pubDate>2026-08-06</pubDate>
-    </item>
-    <item>
-      <title>权重股研判 2026-08-05 | 持有 | STRUCTURAL</title>
-      <link>post.html?id=stock-insight-2026-08-05</link>
-      <description>持有 | STRUCTURAL | 药明康德、紫金矿业、泸州老窖领涨</description>
-      <pubDate>2026-08-05</pubDate>
     </item>
   </channel>
 </rss>
