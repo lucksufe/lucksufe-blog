@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>量化研判 2026-08-21 | 持有 | STRUCTURAL</title>
+      <link>post.html?id=quant-insight-2026-08-21</link>
+      <description>持有 | STRUCTURAL | 贵金属、有色金属、互联网领涨</description>
+      <pubDate>2026-08-21</pubDate>
+    </item>
+    <item>
       <title>权重股研判 2026-08-20 | 持有 | UNCERTAIN</title>
       <link>post.html?id=stock-insight-2026-08-20</link>
       <description>持有 | UNCERTAIN | 赤峰黄金、山东黄金、中信证券领涨</description>
@@ -116,12 +122,6 @@
       <title>安装引导：ifind-finance-data 金融数据查询 SKILL</title>
       <link>post.html?id=安装引导ifind-finance-data-金融数据查询-skill</link>
       <description></description>
-      <pubDate>2026-08-08</pubDate>
-    </item>
-    <item>
-      <title>复盘最近操作</title>
-      <link>post.html?id=复盘最近操作</link>
-      <description>最近分别在黄金产业股和医药大涨前一天大幅减仓了，还买了反弹的通信和半导体，来复盘一下</description>
       <pubDate>2026-08-08</pubDate>
     </item>
   </channel>
