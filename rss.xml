@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>权重股研判 2026-08-25 | 持有 | STRUCTURAL</title>
+      <link>post.html?id=stock-insight-2026-08-25</link>
+      <description>持有 | STRUCTURAL | 山东黄金、东方财富、贵州茅台领涨</description>
+      <pubDate>2026-08-25</pubDate>
+    </item>
+    <item>
       <title>量化研判 2026-08-25 | 持有 | STRUCTURAL</title>
       <link>post.html?id=quant-insight-2026-08-25</link>
       <description>持有 | STRUCTURAL | 贵金属、有色金属、金融领涨</description>
@@ -116,12 +122,6 @@
       <title>权重股研判 2026-08-11 | 结构性配置 | STRUCTURAL</title>
       <link>post.html?id=stock-insight-2026-08-11</link>
       <description>结构性配置 | STRUCTURAL | 药明康德、金山办公、赤峰黄金领涨</description>
-      <pubDate>2026-08-11</pubDate>
-    </item>
-    <item>
-      <title>量化研判 2026-08-11 | 观望 | UNCERTAIN</title>
-      <link>post.html?id=quant-insight-2026-08-11</link>
-      <description>观望 | UNCERTAIN | 医药、贵金属、有色金属领涨</description>
       <pubDate>2026-08-11</pubDate>
     </item>
   </channel>
