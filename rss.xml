@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>DCA优化版参数表</title>
+      <link>post.html?id=dca优化版参数表</link>
+      <description>优化版本的参数</description>
+      <pubDate>2026-08-28</pubDate>
+    </item>
+    <item>
       <title>DCA 定投策略说明书优化版</title>
       <link>post.html?id=DCA</link>
       <description>优化了止盈策略和一些bug</description>
@@ -116,12 +122,6 @@
       <title>权重股研判 2026-08-17 | 持有 | STRUCTURAL</title>
       <link>post.html?id=stock-insight-2026-08-17</link>
       <description>持有 | STRUCTURAL | 山东黄金、中金黄金、云铝股份领涨</description>
-      <pubDate>2026-08-17</pubDate>
-    </item>
-    <item>
-      <title>量化研判 2026-08-17 | 持有 | STRUCTURAL</title>
-      <link>post.html?id=quant-insight-2026-08-17</link>
-      <description>持有 | STRUCTURAL | 有色金属、贵金属、医药领涨</description>
       <pubDate>2026-08-17</pubDate>
     </item>
   </channel>
