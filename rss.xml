@@ -5,15 +5,15 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
-      <title>DCA 策略板块参数表</title>
-      <link>post.html?id=dca-策略板块参数表</link>
-      <description>每个板块独立优化参数，基于 2026-08-27 回测结果。</description>
-      <pubDate>2026-08-28</pubDate>
-    </item>
-    <item>
       <title>DCA 定投策略说明书</title>
       <link>post.html?id=dca-定投策略说明书</link>
       <description>核心思路：不在下跌时抄底，而是等价格站上均线（右侧确认）后才开始定投；持仓盈利后用移动止盈锁定利润；极端行情下用硬止损保护本金。</description>
+      <pubDate>2026-08-28</pubDate>
+    </item>
+    <item>
+      <title>DCA 策略板块参数表</title>
+      <link>post.html?id=dca-策略板块参数表</link>
+      <description>每个板块独立优化参数，基于 2026-08-27 回测结果。</description>
       <pubDate>2026-08-28</pubDate>
     </item>
     <item>
