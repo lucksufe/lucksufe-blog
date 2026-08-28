@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>DCA 定投策略说明书优化版</title>
+      <link>post.html?id=DCA</link>
+      <description>优化了止盈策略和一些bug</description>
+      <pubDate>2026-08-28</pubDate>
+    </item>
+    <item>
       <title>DCA 策略板块参数表</title>
       <link>post.html?id=dca-策略板块参数表</link>
       <description>每个板块独立优化参数，基于 2026-08-27 回测结果。</description>
@@ -117,12 +123,6 @@
       <link>post.html?id=quant-insight-2026-08-17</link>
       <description>持有 | STRUCTURAL | 有色金属、贵金属、医药领涨</description>
       <pubDate>2026-08-17</pubDate>
-    </item>
-    <item>
-      <title>权重股研判 2026-08-14 | 小额建仓 | STRUCTURAL</title>
-      <link>post.html?id=stock-insight-2026-08-14</link>
-      <description>小额建仓 | STRUCTURAL | 药明康德、贵州茅台、山西汾酒领涨</description>
-      <pubDate>2026-08-14</pubDate>
     </item>
   </channel>
 </rss>
