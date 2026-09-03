@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>TRDCA 顶部转向定投策略</title>
+      <link>post.html?id=trdca-顶部转向定投策略</link>
+      <description></description>
+      <pubDate>2026-09-03</pubDate>
+    </item>
+    <item>
       <title>权重股研判 2026-09-02 | 持有 | RISK_ON</title>
       <link>post.html?id=stock-insight-2026-09-02</link>
       <description>持有 | RISK_ON | 赣锋锂业、伊利股份、广发证券领涨</description>
@@ -116,12 +122,6 @@
       <title>权重股研判 2026-08-24 | 观望 | STRUCTURAL</title>
       <link>post.html?id=stock-insight-2026-08-24</link>
       <description>观望 | STRUCTURAL | 贵州茅台、中信证券、国泰海通领涨</description>
-      <pubDate>2026-08-24</pubDate>
-    </item>
-    <item>
-      <title>量化研判 2026-08-24 | 观望 | STRUCTURAL</title>
-      <link>post.html?id=quant-insight-2026-08-24</link>
-      <description>观望 | STRUCTURAL | 贵金属、有色金属、金融领涨</description>
       <pubDate>2026-08-24</pubDate>
     </item>
   </channel>
