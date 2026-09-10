@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>CPI 情景下的观察仓配置方案</title>
+      <link>post.html?id=cpi-情景下的观察仓配置方案</link>
+      <description></description>
+      <pubDate>2026-09-10</pubDate>
+    </item>
+    <item>
       <title>权重股研判 2026-09-10 | 观望 | RISK_ON</title>
       <link>post.html?id=stock-insight-2026-09-10</link>
       <description>观望 | RISK_ON | 兴业银行、中国核电、中国船舶领涨</description>
@@ -116,12 +122,6 @@
       <title>权重股研判 2026-08-31 | 重点关注 | RISK_ON</title>
       <link>post.html?id=stock-insight-2026-08-31</link>
       <description>重点关注 | RISK_ON | 东方财富、兆易创新、深信服领涨</description>
-      <pubDate>2026-08-31</pubDate>
-    </item>
-    <item>
-      <title>量化研判 2026-08-31 | 持有 | RISK_ON</title>
-      <link>post.html?id=quant-insight-2026-08-31</link>
-      <description>持有 | RISK_ON | 金融、有色金属、人工智能领涨</description>
       <pubDate>2026-08-31</pubDate>
     </item>
   </channel>
