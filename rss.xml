@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>量化研判 2026-09-15 | 观望 | RISK_ON</title>
+      <link>post.html?id=quant-insight-2026-09-15</link>
+      <description>观望 | RISK_ON | 有色金属、金融、医药领涨 | 模型:港股、新能源、贵金属</description>
+      <pubDate>2026-09-15</pubDate>
+    </item>
+    <item>
       <title>权重股研判 2026-09-14 | 观望 | RISK_ON</title>
       <link>post.html?id=stock-insight-2026-09-14</link>
       <description>观望 | RISK_ON | 药明康德、深信服、天赐材料领涨</description>
@@ -117,12 +123,6 @@
       <link>post.html?id=trdca-顶部转向定投策略</link>
       <description></description>
       <pubDate>2026-09-03</pubDate>
-    </item>
-    <item>
-      <title>权重股研判 2026-09-02 | 持有 | RISK_ON</title>
-      <link>post.html?id=stock-insight-2026-09-02</link>
-      <description>持有 | RISK_ON | 赣锋锂业、伊利股份、广发证券领涨</description>
-      <pubDate>2026-09-02</pubDate>
     </item>
   </channel>
 </rss>
