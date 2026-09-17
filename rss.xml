@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>量化研判 2026-09-17 | 观望 | RISK_ON</title>
+      <link>post.html?id=quant-insight-2026-09-17</link>
+      <description>观望 | RISK_ON | 通信、人工智能、医药领涨 | 模型:港股、新能源、互联网</description>
+      <pubDate>2026-09-17</pubDate>
+    </item>
+    <item>
       <title>权重股研判 2026-09-16 | 重点关注 | RISK_ON</title>
       <link>post.html?id=stock-insight-2026-09-16</link>
       <description>重点关注 | RISK_ON | 兆易创新、新易盛、中际旭创领涨</description>
@@ -116,12 +122,6 @@
       <title>权重股研判 2026-09-04 | 持有 | STRUCTURAL</title>
       <link>post.html?id=stock-insight-2026-09-04</link>
       <description>持有 | STRUCTURAL | 云铝股份、中国铝业、贵州茅台领涨</description>
-      <pubDate>2026-09-04</pubDate>
-    </item>
-    <item>
-      <title>量化研判 2026-09-04 | 加仓 | RISK_ON</title>
-      <link>post.html?id=quant-insight-2026-09-04</link>
-      <description>加仓 | RISK_ON | 金融、消费、科技领涨</description>
       <pubDate>2026-09-04</pubDate>
     </item>
   </channel>
