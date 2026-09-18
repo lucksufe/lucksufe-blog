@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>量化研判 2026-09-18 | 小额定投 | RISK_ON</title>
+      <link>post.html?id=quant-insight-2026-09-18</link>
+      <description>小额定投 | RISK_ON | 半导体、通信、金融领涨 | 模型:港股、新能源、互联网</description>
+      <pubDate>2026-09-18</pubDate>
+    </item>
+    <item>
       <title>权重股研判 2026-09-17 | 小额建仓 | RISK_ON</title>
       <link>post.html?id=stock-insight-2026-09-17</link>
       <description>小额建仓 | RISK_ON | 贵州茅台、药明康德、海康威视领涨</description>
@@ -116,12 +122,6 @@
       <title>权重股研判 2026-09-07 | 重点关注 | RISK_ON</title>
       <link>post.html?id=stock-insight-2026-09-07</link>
       <description>重点关注 | RISK_ON | 中际旭创、润泽科技、新和成领涨</description>
-      <pubDate>2026-09-07</pubDate>
-    </item>
-    <item>
-      <title>量化研判 2026-09-07 | 观望 | RISK_ON</title>
-      <link>post.html?id=quant-insight-2026-09-07</link>
-      <description>观望 | RISK_ON | 金融、消费、通信领涨</description>
       <pubDate>2026-09-07</pubDate>
     </item>
   </channel>
