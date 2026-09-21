@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>权重股研判 2026-09-21 | 重点关注 | RISK_ON</title>
+      <link>post.html?id=stock-insight-2026-09-21</link>
+      <description>重点关注 | RISK_ON | 中金公司、招商证券、寒武纪领涨</description>
+      <pubDate>2026-09-21</pubDate>
+    </item>
+    <item>
       <title>量化研判 2026-09-21 | 持有 | RISK_ON</title>
       <link>post.html?id=quant-insight-2026-09-21</link>
       <description>持有 | RISK_ON | 半导体、人工智能、通信领涨 | 模型:贵金属、新能源、港股</description>
@@ -117,12 +123,6 @@
       <link>post.html?id=quant-insight-2026-09-09</link>
       <description>持有 | RISK_ON | 军工、金融、有色金属领涨 | 模型:港股、新能源、互联网</description>
       <pubDate>2026-09-09</pubDate>
-    </item>
-    <item>
-      <title>权重股研判 2026-09-08 | 小额建仓 | STRUCTURAL</title>
-      <link>post.html?id=stock-insight-2026-09-08</link>
-      <description>小额建仓 | STRUCTURAL | 云铝股份、万华化学、兆易创新领涨</description>
-      <pubDate>2026-09-08</pubDate>
     </item>
   </channel>
 </rss>
