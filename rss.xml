@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>量化研判 2026-09-24 | 观望 | RISK_ON</title>
+      <link>post.html?id=quant-insight-2026-09-24</link>
+      <description>观望 | RISK_ON | 互联网、医药、金融领涨 | 模型:有色金属、化工、金融</description>
+      <pubDate>2026-09-24</pubDate>
+    </item>
+    <item>
       <title>权重股研判 2026-09-23 | 持有 | RISK_ON</title>
       <link>post.html?id=stock-insight-2026-09-23</link>
       <description>持有 | RISK_ON | 新易盛、藏格矿业、佰维存储领涨 | 模型:云铝股份、华友钴业、盐湖股份</description>
@@ -116,12 +122,6 @@
       <title>CPI 情景下的观察仓配置方案</title>
       <link>post.html?id=cpi-情景下的观察仓配置方案</link>
       <description></description>
-      <pubDate>2026-09-10</pubDate>
-    </item>
-    <item>
-      <title>权重股研判 2026-09-10 | 观望 | RISK_ON</title>
-      <link>post.html?id=stock-insight-2026-09-10</link>
-      <description>观望 | RISK_ON | 兴业银行、中国核电、中国船舶领涨</description>
       <pubDate>2026-09-10</pubDate>
     </item>
   </channel>
