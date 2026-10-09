@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>量化研判 2026-10-08 | 观望 | STRUCTURAL</title>
+      <link>post.html?id=quant-insight-2026-10-08</link>
+      <description>观望 | STRUCTURAL | 医药、消费、有色金属领涨 | 模型:有色金属、金融、港股</description>
+      <pubDate>2026-10-08</pubDate>
+    </item>
+    <item>
       <title>权重股研判 2026-09-30 | 持有 | STRUCTURAL</title>
       <link>post.html?id=stock-insight-2026-09-30</link>
       <description>持有 | STRUCTURAL | 藏格矿业、药明康德、金山办公领涨 | 模型:中国铝业、华友钴业、盐湖股份</description>
@@ -116,12 +122,6 @@
       <title>权重股研判 2026-09-16 | 重点关注 | RISK_ON</title>
       <link>post.html?id=stock-insight-2026-09-16</link>
       <description>重点关注 | RISK_ON | 兆易创新、新易盛、中际旭创领涨</description>
-      <pubDate>2026-09-16</pubDate>
-    </item>
-    <item>
-      <title>量化研判 2026-09-16 | 观望 | RISK_ON</title>
-      <link>post.html?id=quant-insight-2026-09-16</link>
-      <description>观望 | RISK_ON | 通信、金融、人工智能领涨 | 模型:港股、新能源、互联网</description>
       <pubDate>2026-09-16</pubDate>
     </item>
   </channel>
