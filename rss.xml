@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>量化研判 2026-10-09 | 观望 | RISK_ON</title>
+      <link>post.html?id=quant-insight-2026-10-09</link>
+      <description>观望 | RISK_ON | 医药、消费、有色金属领涨 | 模型:港股、有色金属、金融</description>
+      <pubDate>2026-10-09</pubDate>
+    </item>
+    <item>
       <title>权重股研判 2026-10-08 | 小额建仓 | STRUCTURAL</title>
       <link>post.html?id=stock-insight-2026-10-08</link>
       <description>小额建仓 | STRUCTURAL | 宝丰能源、佰维存储、金山办公领涨 | 模型:华泰证券、东方财富、中国铝业</description>
@@ -116,12 +122,6 @@
       <title>权重股研判 2026-09-17 | 小额建仓 | RISK_ON</title>
       <link>post.html?id=stock-insight-2026-09-17</link>
       <description>小额建仓 | RISK_ON | 贵州茅台、药明康德、海康威视领涨</description>
-      <pubDate>2026-09-17</pubDate>
-    </item>
-    <item>
-      <title>量化研判 2026-09-17 | 观望 | RISK_ON</title>
-      <link>post.html?id=quant-insight-2026-09-17</link>
-      <description>观望 | RISK_ON | 通信、人工智能、医药领涨 | 模型:港股、新能源、互联网</description>
       <pubDate>2026-09-17</pubDate>
     </item>
   </channel>
