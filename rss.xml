@@ -5,6 +5,18 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>量化研判 2026-10-14 | 观望 | RISK_ON</title>
+      <link>post.html?id=quant-insight-2026-10-14</link>
+      <description>观望 | RISK_ON | 互联网、红利、消费领涨 | 模型:有色金属、港股、金融</description>
+      <pubDate>2026-10-14</pubDate>
+    </item>
+    <item>
+      <title>权重股研判 2026-10-14 | 观望 | RISK_ON</title>
+      <link>post.html?id=stock-insight-2026-10-14</link>
+      <description>观望 | RISK_ON | 云南白药、宝丰能源、伊利股份领涨 | 模型:华友钴业、中国铝业、广发证券</description>
+      <pubDate>2026-10-14</pubDate>
+    </item>
+    <item>
       <title>权重股研判 2026-10-13 | 持有 | RISK_ON</title>
       <link>post.html?id=stock-insight-2026-10-13</link>
       <description>持有 | RISK_ON | 云南白药、兆易创新、金山办公领涨 | 模型:华友钴业、中国铝业、广发证券</description>
@@ -111,18 +123,6 @@
       <link>post.html?id=quant-insight-2026-09-23</link>
       <description>持有 | RISK_ON | 医药、人工智能、金融领涨 | 模型:有色金属、化工、金融</description>
       <pubDate>2026-09-23</pubDate>
-    </item>
-    <item>
-      <title>权重股研判 2026-09-22 | 持有 | RISK_ON</title>
-      <link>post.html?id=stock-insight-2026-09-22</link>
-      <description>持有 | RISK_ON | 深信服、云铝股份、金山办公领涨</description>
-      <pubDate>2026-09-22</pubDate>
-    </item>
-    <item>
-      <title>量化研判 2026-09-22 | 小额定投 | RISK_ON</title>
-      <link>post.html?id=quant-insight-2026-09-22</link>
-      <description>小额定投 | RISK_ON | 人工智能、互联网、半导体领涨 | 模型:贵金属、新能源、港股</description>
-      <pubDate>2026-09-22</pubDate>
     </item>
   </channel>
 </rss>
