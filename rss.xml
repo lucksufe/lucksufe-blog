@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>历史类比的方法论：2022 vs 2026 是机制还是巧合？</title>
+      <link>post.html?id=历史类比的方法论2022-vs-2026-是机制还是巧合</link>
+      <description></description>
+      <pubDate>2026-10-19</pubDate>
+    </item>
+    <item>
       <title>进阶：跳板机（中继）架构，与"端口被掐"后的无感知切换</title>
       <link>post.html?id=进阶跳板机中继架构与端口被掐后的无感知切换</link>
       <description>这是科普系列的**进阶篇**，前两篇分别是《WireGuard 科普》和《代理工具科普（iOS 客户端）》。</description>
@@ -117,12 +123,6 @@
       <link>post.html?id=quant-insight-2026-09-30</link>
       <description>观望 | STRUCTURAL | 医药、互联网、有色金属领涨 | 模型:有色金属、金融、化工</description>
       <pubDate>2026-09-30</pubDate>
-    </item>
-    <item>
-      <title>量化研判 2026-09-29 | 观望 | STRUCTURAL</title>
-      <link>post.html?id=quant-insight-2026-09-29</link>
-      <description>观望 | STRUCTURAL | 有色金属、贵金属、港股领涨 | 模型:有色金属、化工、港股</description>
-      <pubDate>2026-09-29</pubDate>
     </item>
   </channel>
 </rss>
