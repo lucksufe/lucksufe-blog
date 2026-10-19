@@ -1,5 +1,17 @@
 [
   {
+    "id": "代理工具科普ios-上的-clash-mi-karing-hiddify-是怎么工作的",
+    "title": "代理工具科普：iOS 上的 Clash Mi / Karing / Hiddify 是怎么工作的？",
+    "date": "2026-10-19",
+    "tags": [
+      "iOS",
+      "网络"
+    ],
+    "summary": "接上一篇《WireGuard 科普》。上一篇我们讲了\"一台服务器如何让别人借它的网络上网\"，用的是 WireGuard 这把\"修隧道\"的工具。",
+    "draft": false,
+    "timestamp": 1792372888472
+  },
+  {
     "id": "wireguard-科普一台服务器如何变成别人的网络出口",
     "title": "WireGuard 科普：一台服务器，如何变成别人的\"网络出口\"",
     "date": "2026-10-19",
