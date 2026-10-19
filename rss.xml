@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>公开声明与免责：这是能力差异，不是信息不对称</title>
+      <link>post.html?id=公开声明与免责这是能力差异不是信息不对称</link>
+      <description>本系列文章的全部分析，基于**公开可得的数据**；作者没有内幕信息、没有未公开的订单流、没有特殊数据源。 如果有收益，主要来自**分析能力、时间投入、风险承担和运气**，不是信息特权。</description>
+      <pubDate>2026-10-19</pubDate>
+    </item>
+    <item>
       <title>成长龙头类比：2022 电池/新能源 vs 2026 半导体/通信</title>
       <link>post.html?id=成长龙头类比2022-电池新能源-vs-2026-半导体通信</link>
       <description></description>
@@ -117,12 +123,6 @@
       <link>post.html?id=quant-insight-2026-10-08</link>
       <description>观望 | STRUCTURAL | 医药、消费、有色金属领涨 | 模型:有色金属、金融、港股</description>
       <pubDate>2026-10-08</pubDate>
-    </item>
-    <item>
-      <title>权重股研判 2026-09-30 | 持有 | STRUCTURAL</title>
-      <link>post.html?id=stock-insight-2026-09-30</link>
-      <description>持有 | STRUCTURAL | 藏格矿业、药明康德、金山办公领涨 | 模型:中国铝业、华友钴业、盐湖股份</description>
-      <pubDate>2026-09-30</pubDate>
     </item>
   </channel>
 </rss>
