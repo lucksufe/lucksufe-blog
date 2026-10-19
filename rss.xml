@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>代理工具科普：iOS 上的 Clash Mi / Karing / Hiddify 是怎么工作的？</title>
+      <link>post.html?id=代理工具科普ios-上的-clash-mi-karing-hiddify-是怎么工作的</link>
+      <description>接上一篇《WireGuard 科普》。上一篇我们讲了"一台服务器如何让别人借它的网络上网"，用的是 WireGuard 这把"修隧道"的工具。</description>
+      <pubDate>2026-10-19</pubDate>
+    </item>
+    <item>
       <title>WireGuard 科普：一台服务器，如何变成别人的"网络出口"</title>
       <link>post.html?id=wireguard-科普一台服务器如何变成别人的网络出口</link>
       <description>本文面向**非网络专业的读者**。不需要你会写代码，也不需要懂协议细节。</description>
@@ -117,12 +123,6 @@
       <link>post.html?id=quant-insight-2026-09-28</link>
       <description>观望 | STRUCTURAL | 医药、港股、互联网领涨 | 模型:有色金属、化工、贵金属</description>
       <pubDate>2026-09-28</pubDate>
-    </item>
-    <item>
-      <title>权重股研判 2026-09-25 | 观望 | RISK_ON</title>
-      <link>post.html?id=stock-insight-2026-09-25</link>
-      <description>观望 | RISK_ON | 润泽科技、双环传动、药明康德领涨 | 模型:云铝股份、华友钴业、中国铝业</description>
-      <pubDate>2026-09-25</pubDate>
     </item>
   </channel>
 </rss>
