@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>进阶：跳板机（中继）架构，与"端口被掐"后的无感知切换</title>
+      <link>post.html?id=进阶跳板机中继架构与端口被掐后的无感知切换</link>
+      <description>这是科普系列的**进阶篇**，前两篇分别是《WireGuard 科普》和《代理工具科普（iOS 客户端）》。</description>
+      <pubDate>2026-10-19</pubDate>
+    </item>
+    <item>
       <title>代理工具科普：iOS 上的 Clash Mi / Karing / Hiddify 是怎么工作的？</title>
       <link>post.html?id=代理工具科普ios-上的-clash-mi-karing-hiddify-是怎么工作的</link>
       <description>接上一篇《WireGuard 科普》。上一篇我们讲了"一台服务器如何让别人借它的网络上网"，用的是 WireGuard 这把"修隧道"的工具。</description>
@@ -117,12 +123,6 @@
       <link>post.html?id=quant-insight-2026-09-29</link>
       <description>观望 | STRUCTURAL | 有色金属、贵金属、港股领涨 | 模型:有色金属、化工、港股</description>
       <pubDate>2026-09-29</pubDate>
-    </item>
-    <item>
-      <title>量化研判 2026-09-28 | 观望 | STRUCTURAL</title>
-      <link>post.html?id=quant-insight-2026-09-28</link>
-      <description>观望 | STRUCTURAL | 医药、港股、互联网领涨 | 模型:有色金属、化工、贵金属</description>
-      <pubDate>2026-09-28</pubDate>
     </item>
   </channel>
 </rss>
