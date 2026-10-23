@@ -5,6 +5,18 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>量化研判 2026-10-23 | 持有 | RISK_ON</title>
+      <link>post.html?id=quant-insight-2026-10-23</link>
+      <description>持有 | RISK_ON | 科技、医药、机器人领涨 | 模型:新能源、有色金属、港股</description>
+      <pubDate>2026-10-23</pubDate>
+    </item>
+    <item>
+      <title>权重股研判 2026-10-23 | 持有 | RISK_ON</title>
+      <link>post.html?id=stock-insight-2026-10-23</link>
+      <description>持有 | RISK_ON | 金山办公、五粮液、贵州茅台领涨 | 模型:厦门钨业、华友钴业、阳光电源</description>
+      <pubDate>2026-10-23</pubDate>
+    </item>
+    <item>
       <title>权重股研判 2026-10-22 | 小额建仓 | RISK_ON</title>
       <link>post.html?id=stock-insight-2026-10-22</link>
       <description>小额建仓 | RISK_ON | 金山办公、迈瑞医疗、云南白药领涨 | 模型:新易盛、中际旭创、宁德时代</description>
@@ -111,18 +123,6 @@
       <link>post.html?id=stock-insight-2026-10-13</link>
       <description>持有 | RISK_ON | 云南白药、兆易创新、金山办公领涨 | 模型:华友钴业、中国铝业、广发证券</description>
       <pubDate>2026-10-13</pubDate>
-    </item>
-    <item>
-      <title>量化研判 2026-10-13 | 观望 | RISK_ON</title>
-      <link>post.html?id=quant-insight-2026-10-13</link>
-      <description>观望 | RISK_ON | 医药、红利、消费领涨 | 模型:有色金属、港股、金融</description>
-      <pubDate>2026-10-13</pubDate>
-    </item>
-    <item>
-      <title>权重股研判 2026-10-12 | 持有 | RISK_ON</title>
-      <link>post.html?id=stock-insight-2026-10-12</link>
-      <description>持有 | RISK_ON | 伊利股份、迈瑞医疗、云南白药领涨 | 模型:华友钴业、中国铝业、华泰证券</description>
-      <pubDate>2026-10-12</pubDate>
     </item>
   </channel>
 </rss>
