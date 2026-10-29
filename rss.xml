@@ -5,6 +5,18 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>量化研判 2026-10-29 | 观望 | RISK_ON</title>
+      <link>post.html?id=quant-insight-2026-10-29</link>
+      <description>观望 | RISK_ON | 消费、机器人、医药领涨 | 模型:新能源、港股、有色金属</description>
+      <pubDate>2026-10-29</pubDate>
+    </item>
+    <item>
+      <title>权重股研判 2026-10-29 | 观望 | RISK_ON</title>
+      <link>post.html?id=stock-insight-2026-10-29</link>
+      <description>观望 | RISK_ON | 贵州茅台、海康威视、伊利股份领涨 | 模型:亿纬锂能、天赐材料、华泰证券</description>
+      <pubDate>2026-10-29</pubDate>
+    </item>
+    <item>
       <title>量化研判 2026-10-28 | 持有 | RISK_ON</title>
       <link>post.html?id=quant-insight-2026-10-28</link>
       <description>持有 | RISK_ON | 机器人、金融、医药领涨 | 模型:新能源、有色金属、港股</description>
@@ -111,18 +123,6 @@
       <link>post.html?id=代理工具科普ios-上的-clash-mi-karing-hiddify-是怎么工作的</link>
       <description>接上一篇《WireGuard 科普》。上一篇我们讲了"一台服务器如何让别人借它的网络上网"，用的是 WireGuard 这把"修隧道"的工具。</description>
       <pubDate>2026-10-19</pubDate>
-    </item>
-    <item>
-      <title>WireGuard 科普：一台服务器，如何变成别人的"网络出口"</title>
-      <link>post.html?id=wireguard-科普一台服务器如何变成别人的网络出口</link>
-      <description>本文面向**非网络专业的读者**。不需要你会写代码，也不需要懂协议细节。</description>
-      <pubDate>2026-10-19</pubDate>
-    </item>
-    <item>
-      <title>量化研判 2026-10-16 | 观望 | RISK_ON</title>
-      <link>post.html?id=quant-insight-2026-10-16</link>
-      <description>观望 | RISK_ON | 消费、金融、互联网领涨 | 模型:有色金属、港股、新能源</description>
-      <pubDate>2026-10-16</pubDate>
     </item>
   </channel>
 </rss>
