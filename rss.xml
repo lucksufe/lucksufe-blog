@@ -5,6 +5,18 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>量化研判 2026-11-02 | 观望 | STRUCTURAL</title>
+      <link>post.html?id=quant-insight-2026-11-02</link>
+      <description>观望 | STRUCTURAL | 消费、金融、红利领涨 | 模型:有色金属、新能源、化工</description>
+      <pubDate>2026-11-02</pubDate>
+    </item>
+    <item>
+      <title>权重股研判 2026-11-02 | 持有 | STRUCTURAL</title>
+      <link>post.html?id=stock-insight-2026-11-02</link>
+      <description>持有 | STRUCTURAL | 东方财富、同花顺、中信证券领涨 | 模型:洛阳钼业、华友钴业、厦门钨业</description>
+      <pubDate>2026-11-02</pubDate>
+    </item>
+    <item>
       <title>量化研判 2026-10-30 | 观望 | RISK_ON</title>
       <link>post.html?id=quant-insight-2026-10-30</link>
       <description>观望 | RISK_ON | 消费、金融、医药领涨 | 模型:新能源、有色金属、港股</description>
@@ -110,18 +122,6 @@
       <title>公开声明与免责：这是能力差异，不是信息不对称</title>
       <link>post.html?id=公开声明与免责这是能力差异不是信息不对称</link>
       <description>本系列文章的全部分析，基于**公开可得的数据**；作者没有内幕信息、没有未公开的订单流、没有特殊数据源。 如果有收益，主要来自**分析能力、时间投入、风险承担和运气**，不是信息特权。</description>
-      <pubDate>2026-10-19</pubDate>
-    </item>
-    <item>
-      <title>成长龙头类比：2022 电池/新能源 vs 2026 半导体/通信</title>
-      <link>post.html?id=成长龙头类比2022-电池新能源-vs-2026-半导体通信</link>
-      <description></description>
-      <pubDate>2026-10-19</pubDate>
-    </item>
-    <item>
-      <title>历史类比的方法论：2022 vs 2026 是机制还是巧合？</title>
-      <link>post.html?id=历史类比的方法论2022-vs-2026-是机制还是巧合</link>
-      <description></description>
       <pubDate>2026-10-19</pubDate>
     </item>
   </channel>
