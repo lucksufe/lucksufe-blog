@@ -5,6 +5,18 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>量化研判 2026-11-04 | 持有 | STRUCTURAL</title>
+      <link>post.html?id=quant-insight-2026-11-04</link>
+      <description>持有 | STRUCTURAL | 金融、消费、医药领涨 | 模型:有色金属、半导体、新能源</description>
+      <pubDate>2026-11-04</pubDate>
+    </item>
+    <item>
+      <title>权重股研判 2026-11-04 | 持有 | STRUCTURAL</title>
+      <link>post.html?id=stock-insight-2026-11-04</link>
+      <description>持有 | STRUCTURAL | 东方财富、同花顺、藏格矿业领涨 | 模型:厦门钨业、华友钴业、亿纬锂能</description>
+      <pubDate>2026-11-04</pubDate>
+    </item>
+    <item>
       <title>量化研判 2026-11-03 | 持有 | STRUCTURAL</title>
       <link>post.html?id=quant-insight-2026-11-03</link>
       <description>持有 | STRUCTURAL | 消费、金融、医药领涨 | 模型:有色金属、半导体、新能源</description>
@@ -111,18 +123,6 @@
       <link>post.html?id=stock-insight-2026-10-21</link>
       <description>持有 | RISK_ON | 云南白药、藏格矿业、金山办公领涨 | 模型:新易盛、中际旭创、华友钴业</description>
       <pubDate>2026-10-21</pubDate>
-    </item>
-    <item>
-      <title>2026 事件映射 60 日情景表（ETF 级）</title>
-      <link>post.html?id=2026-事件映射-60-日情景表etf-级</link>
-      <description>2026-10-21 | 研究记录，不是预测，不是投资建议。</description>
-      <pubDate>2026-10-21</pubDate>
-    </item>
-    <item>
-      <title>量化研判 2026-10-20 | 观望 | RISK_ON</title>
-      <link>post.html?id=quant-insight-2026-10-20</link>
-      <description>观望 | RISK_ON | 消费、医药、互联网领涨 | 模型:有色金属、新能源、港股</description>
-      <pubDate>2026-10-20</pubDate>
     </item>
   </channel>
 </rss>
