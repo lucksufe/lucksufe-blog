@@ -1,5 +1,31 @@
 [
   {
+    "id": "quant-insight-2026-11-12",
+    "title": "量化研判 2026-11-12 | 观望 | STRUCTURAL",
+    "date": "2026-11-12",
+    "tags": [
+      "股市",
+      "量化",
+      "研判"
+    ],
+    "summary": "观望 | STRUCTURAL | 半导体、人工智能、金融领涨 | 模型:有色金属、化工、金融",
+    "draft": false,
+    "timestamp": 1794492807269
+  },
+  {
+    "id": "stock-insight-2026-11-12",
+    "title": "权重股研判 2026-11-12 | 小额建仓 | STRUCTURAL",
+    "date": "2026-11-12",
+    "tags": [
+      "股市",
+      "量化",
+      "权重股分析"
+    ],
+    "summary": "小额建仓 | STRUCTURAL | 药明康德、佰维存储、中微公司领涨 | 模型:洛阳钼业、厦门钨业、天赐材料",
+    "draft": false,
+    "timestamp": 1794492807269
+  },
+  {
     "id": "quant-insight-2026-11-11",
     "title": "量化研判 2026-11-11 | 持有 | STRUCTURAL",
     "date": "2026-11-11",

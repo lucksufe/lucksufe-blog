@@ -5,6 +5,18 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>量化研判 2026-11-12 | 观望 | STRUCTURAL</title>
+      <link>post.html?id=quant-insight-2026-11-12</link>
+      <description>观望 | STRUCTURAL | 半导体、人工智能、金融领涨 | 模型:有色金属、化工、金融</description>
+      <pubDate>2026-11-12</pubDate>
+    </item>
+    <item>
+      <title>权重股研判 2026-11-12 | 小额建仓 | STRUCTURAL</title>
+      <link>post.html?id=stock-insight-2026-11-12</link>
+      <description>小额建仓 | STRUCTURAL | 药明康德、佰维存储、中微公司领涨 | 模型:洛阳钼业、厦门钨业、天赐材料</description>
+      <pubDate>2026-11-12</pubDate>
+    </item>
+    <item>
       <title>量化研判 2026-11-11 | 持有 | STRUCTURAL</title>
       <link>post.html?id=quant-insight-2026-11-11</link>
       <description>持有 | STRUCTURAL | 半导体、人工智能、互联网领涨 | 模型:有色金属、化工、金融</description>
@@ -111,18 +123,6 @@
       <link>post.html?id=stock-insight-2026-10-30</link>
       <description>持有 | RISK_ON | 山西汾酒、五粮液、贵州茅台领涨 | 模型:亿纬锂能、天赐材料、中国铝业</description>
       <pubDate>2026-10-30</pubDate>
-    </item>
-    <item>
-      <title>量化研判 2026-10-29 | 观望 | RISK_ON</title>
-      <link>post.html?id=quant-insight-2026-10-29</link>
-      <description>观望 | RISK_ON | 消费、机器人、医药领涨 | 模型:新能源、港股、有色金属</description>
-      <pubDate>2026-10-29</pubDate>
-    </item>
-    <item>
-      <title>权重股研判 2026-10-29 | 观望 | RISK_ON</title>
-      <link>post.html?id=stock-insight-2026-10-29</link>
-      <description>观望 | RISK_ON | 贵州茅台、海康威视、伊利股份领涨 | 模型:亿纬锂能、天赐材料、华泰证券</description>
-      <pubDate>2026-10-29</pubDate>
     </item>
   </channel>
 </rss>
