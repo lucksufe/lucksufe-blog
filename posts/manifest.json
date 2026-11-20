@@ -1,5 +1,31 @@
 [
   {
+    "id": "quant-insight-2026-11-20",
+    "title": "量化研判 2026-11-20 | 观望 | STRUCTURAL",
+    "date": "2026-11-20",
+    "tags": [
+      "股市",
+      "量化",
+      "研判"
+    ],
+    "summary": "观望 | STRUCTURAL | 金融、消费、红利领涨 | 模型:有色金属、新能源、化工",
+    "draft": false,
+    "timestamp": 1795184003009
+  },
+  {
+    "id": "stock-insight-2026-11-20",
+    "title": "权重股研判 2026-11-20 | 持有 | STRUCTURAL",
+    "date": "2026-11-20",
+    "tags": [
+      "股市",
+      "量化",
+      "权重股分析"
+    ],
+    "summary": "持有 | STRUCTURAL | 金山办公、中微公司、东方财富领涨 | 模型:中国铝业、厦门钨业、亿纬锂能",
+    "draft": false,
+    "timestamp": 1795184003009
+  },
+  {
     "id": "quant-insight-2026-11-19",
     "title": "量化研判 2026-11-19 | 观望 | STRUCTURAL",
     "date": "2026-11-19",
