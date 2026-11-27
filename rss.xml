@@ -5,6 +5,12 @@
     <link>index.html</link>
     <description>~/blog RSS Feed</description>
     <item>
+      <title>核心五池组合 · 逐年 fresh start 回测报告</title>
+      <link>post.html?id=核心五池组合-逐年-fresh-start-回测报告</link>
+      <description></description>
+      <pubDate>2026-11-27</pubDate>
+    </item>
+    <item>
       <title>量化研判 2026-11-26 | 观望 | STRUCTURAL</title>
       <link>post.html?id=quant-insight-2026-11-26</link>
       <description>观望 | STRUCTURAL | 金融、通信、红利领涨 | 模型:有色金属、化工、新能源</description>
@@ -116,12 +122,6 @@
       <title>量化研判 2026-11-12 | 观望 | STRUCTURAL</title>
       <link>post.html?id=quant-insight-2026-11-12</link>
       <description>观望 | STRUCTURAL | 半导体、人工智能、金融领涨 | 模型:有色金属、化工、金融</description>
-      <pubDate>2026-11-12</pubDate>
-    </item>
-    <item>
-      <title>权重股研判 2026-11-12 | 小额建仓 | STRUCTURAL</title>
-      <link>post.html?id=stock-insight-2026-11-12</link>
-      <description>小额建仓 | STRUCTURAL | 药明康德、佰维存储、中微公司领涨 | 模型:洛阳钼业、厦门钨业、天赐材料</description>
       <pubDate>2026-11-12</pubDate>
     </item>
   </channel>
